@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador</title>
+</head>
+<body>
+    Insira o valor médio da unidade dos vinhos: 
+    <br>
+    <input type="number" id="input_valorMedioGarrafa">
+    <br><br>
+    Insira a média de vendas do ano:
+    <br>
+    <input type="text" id="input_unidadesVendidasNoAno">
+    <br><br>
+    Insira a porcentagem da perda de qualidade:
+    <br>
+    <input type="text" id="input_porcentagemPerda">
+    <br><br>
+    <button onclick="calculo()"> Calcular </button>
+    <br><br>
+    <div id="div_mensagem"></div>
+
+
+
+</body>
+</html>
+
+<script>
+
+    
+    function calculo(){
+        var valorMedioGarrafa = Number(input_valorMedioGarrafa.value);
+        var unidadesVendidasNoAno = Number(input_unidadesVendidasNoAno.value);
+        var porcentagemPerda = Number(input_porcentagemPerda.value);
+
+        // Vendas no ano comum
+        var valorTotalAno = valorMedioGarrafa * unidadesVendidasNoAno;
+
+        //  prejuizo pela perda 
+        var valorPerdido = valorTotalAno * (porcentagemPerda / 100);
+
+        // Vendas no ano com prejuizo
+        var valorTotalAnoComPrejuizo = valorTotalAno - valorPerdido;
+
+        // Diferença entre os totais
+        var diferencaTotal = valorTotalAno - valorTotalAnoComPrejuizo
+
+        div_mensagem.innerHTML = `
+        
+            Suas vendas no ano com nosso monitoramento é de R$ ${valorTotalAno}.
+            <br><br>
+            Suas vendas no ano sem nosso monitoramento é de R$ ${valorTotalAnoComPrejuizo}
+            <br><br>
+            A perda que o seu negócio teve é de R$${diferencaTotal}.
+        `
+
+    }
+
+</script>
+

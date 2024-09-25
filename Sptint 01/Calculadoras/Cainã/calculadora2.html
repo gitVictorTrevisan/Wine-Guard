@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação</title>
+</head>
+
+<body>
+    <!-- padrão é 225 L -->
+    Insira a litragem da barrica: <input type="text" id="input_litragemBarrica">
+    <br><br>
+    <!-- padrão é 750ml -->
+    Insira o ML da garrafa: <input type="text" id="input_litragemGarrafa">
+    <br><br>
+    <!-- Quantas garrafas uma barrica de tamanho x consegue fazer -->
+
+    Insira o valor por garrafa: <input type="text" id="input_valorPorGarrafa">
+    <br><br>
+
+    Insira a temperatura (°C): <input type="text" id="input_temperatura">
+    <br><br>
+    Insira a umidade (%): <input type="text" id="input_umidade">
+    <br><br>
+    <button onclick="calculo()">Simular o financeiro</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+    function calculo() {
+        var litroDaBarrica = Number(input_litragemBarrica.value);
+        var litroDaGarrafa = Number(input_litragemGarrafa.value);
+        var valorDaGarrafa = Number(input_valorPorGarrafa.value);
+        var temperaturaInformada = Number(input_temperatura.value);
+        var umidadeInformada = Number(input_umidade.value);
+
+        var calculoQtdGarrafasNaBarrica = litroDaBarrica / litroDaGarrafa;
+        var calculoVendaTotalDeUmaBarrica = calculoQtdGarrafasNaBarrica * valorDaGarrafa
+        
+
+        var tempIdeal = 13;
+        var tempMin = 12;
+        var tempMax = 14;
+
+        var umidadeIdeal = 70;
+        var umidadeMin = 60;
+        var umidadeMax = 80;
+
+        var tempPerdaQualidade = 0;
+        var umidadePerdaQualidade = 0;
+
+        if (temperaturaInformada > tempMax) {
+            tempPerdaQualidade = (temperaturaInformada - tempMax) * 0.5;
+        } else {
+            tempPerdaQualidade = (tempMin - temperaturaInformada) * 0.5;
+        }
+
+        if (umidadeInformada > umidadeMax) {
+            umidadePerdaQualidade = (umidadeInformada - umidadeMax) * 0.2;
+        } else {
+            umidadePerdaQualidade = (umidadeMin - umidadeInformada) * 0.2;
+        }
+
+        var perdaTotal = tempPerdaQualidade + umidadePerdaQualidade;
+        var perdaTotalDaVenda = calculoVendaTotalDeUmaBarrica / perdaTotal
+
+
+        div_mensagem.innerHTML =
+            `Quantidade de garrafas dentro da barrica de ${litroDaBarrica} litros é ${calculoQtdGarrafasNaBarrica} garrafas.
+            <br><br>
+            Dinheiro feito com as vendas de uma barrica inteira: ${calculoVendaTotalDeUmaBarrica}
+            <br><br>
+            A perda de qualidade é de ${perdaTotal}% por ano
+            <br><br>
+            A perda por ano sem um monitoramento adequado é de ${perdaTotalDaVenda} <br>
+            apenas em função da temperatura e da umidade do local de armazenamento"`;
+
+    }
+
+</script>

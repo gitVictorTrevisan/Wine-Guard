@@ -1,0 +1,45 @@
+body{
+    font-family: 'Poppins', sans-serif; /* Aplicando a fonte Poppins */
+    font-size: 15px;
+    background-image: url('https://www.blsistemas.com.br/wp-content/uploads/2020/10/A-intelig%C3%AAncia-de-neg%C3%B3cios-na-ind%C3%BAstria-aumenta-a-garantia-de-qualidade-1024x576.png');
+    background-size: cover;  /* Ajusta a imagem para cobrir todo o fundo */
+    background-position: center; /* Centraliza a imagem */
+    display: flex;
+    color: white;
+    align-items: center;
+ }
+ .container{
+    background-color: #28223D;
+    opacity: 98%;
+    padding: 2vw;
+    border-radius: 5%;
+ }
+ input{
+    width: 543px;
+    height: 53px;
+    border-radius: 20px;
+    outline: none;    
+    border-color: #9589BD;  /* Cor da borda ao focar */
+    box-shadow: 0 0 5px #9589BD(0, 123, 255, 0.5); /* Efeito de sombra ao focar */
+ }
+ button{
+    background-color: #2980B9;
+    color: white;
+    font-weight: bold;
+    border-radius: 2vw;
+    width: 543px;
+    height: 83px;
+    border-color: #28223D;
+    outline: none;
+    font-size: 20px;
+ }
+ .divMensagem{
+    background-color:#221E34;
+    opacity: 95%;
+    display: flex;
+    height: 35vw;
+    align-items: center;
+    border-radius: 2vw;
+    margin-left: 3vw;
+    padding: 2vw;
+ }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simulador de Perda de Qualidade do Vinho:</h1><br>
+    Temperatura (°C): <input id="ipt_temp" type="number"><br>
+    Umidade (%): <input id="ipt_umidade" type="number"><br>
+    <button onclick="calculadora()">Calcular</button>
+    <h2 id="resultado"></h2>
+</body>
+</html>
+<script>
+    function calculadora(){
+        var temperatura = Number(ipt_temp.value)
+        var umidade = Number(ipt_umidade.value)
+
+        var tempIdeal = 13
+        var tempMin = 12
+        var tempMax = 14
+
+        var umidadeIdeal = 70
+        var umidadeMin = 60
+        var umidadeMax = 80
+
+        var tempPerdaQualidade = 0
+        var umidadePerdaQualidade = 0
+
+        if(temperatura > tempMax) {
+            tempPerdaQualidade = (temperatura - tempMax) * 0.5
+        }else if(temperatura < tempMin) {
+            tempPerdaQualidade = (tempMin - temperatura) * 0.5
+        }
+        
+        if(umidade > umidadeMax) {
+            umidadePerdaQualidade = (umidade - umidadeMax) * 0.2
+        }else if(umidade < umidadeMin) {
+            umidadePerdaQualidade = (umidadeMin - umidade) * 0.2
+        }
+
+        var perdaTotal = tempPerdaQualidade + umidadePerdaQualidade
+
+        var textoResultado =
+         perdaTotal > 0 ? `A perda de qualidade é de ${perdaTotal}% por ano.` : "As condições estão ideais e não há perda de qualidade."
+
+        resultado.innerHTML = textoResultado
+    
+
+}
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Vinícola</title>
+</head>
+<body>
+
+
+    <p>Quantidade de vinhos por ano: <input type="text" id="ipt_qtd"></p>
+    <p>Valor médio de cada vinho: <input type="text" id="ipt_valor"></p>
+    <p>Quantidade de vinhos perdidos ou desvalorizados por umidade ou temperatura: <input type="text" id="ipt_perda"></p>
+
+    <p><button onclick="calcular()">teste</button></p>
+
+    <p id="mensagem"></p>
+
+
+</body>
+</html>
+
+<script>
+    function calcular () {
+        var quantidade = Number(ipt_qtd.value)
+        var valor = Number(ipt_valor.value)
+        var lucro = quantidade * valor
+        var perda = Number(ipt_perda.value)
+        var prejuizo = valor * perda
+        var faturamento = lucro - prejuizo
+
+      mensagem.innerHTML = `O seu faturamento é de R$${faturamento}, 
+                            mas sem as perdas devido a temperatura e umidade seu lucro poderia chegar em R$${lucro}, 
+                            já que você perde em média R$${prejuizo}.`
+    }
+
+</script>

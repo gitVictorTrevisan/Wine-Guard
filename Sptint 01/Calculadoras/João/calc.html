@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMULADOR FINANCEIRO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class='container'>
+    <b>Tendo base seu último mês de faturamento:</b> <br><br>
+    <p>Quanto foi a quantidade de garrafas de vinho produzidas?</p>
+    <input type="number" id="ipt_total_produzido">
+    <p>Quantidade de garrafas perdidas ou com perda em qualidade:</p>
+    <input type="number" id="ipt_garrafas_afetadas">
+    <p>Quanto é o custo de produção de cada garrafa?</p>
+    <input type="number" id="ipt_valor_producao">
+    <p>Quanto é preço de venda de cada garrafa?</p>
+    <input type="number" id="ipt_valor_venda">
+    <br><br>
+    <button onclick="calcular()">CALCULAR IMPACTO FINANCEIRO</button>
+   
+    </div>
+        <div class='divMensagem'>
+        <p id="p_mensagem" class="pMensagem">
+            O Nosso Simulador Financeiro permite que você visualize o impacto financeiro da falta de controle adequado sobre as condições ambientais da sua vinícola. Inserindo os dados da sua produção, você pode calcular as perdas relacionadas à umidade e temperatura, além de projetar os custos associados a essas falhas. O simulador ajuda a entender o valor econômico de implementar um sistema eficiente de monitoramento, proporcionando uma análise clara do retorno sobre o investimento.
+
+        </p>
+        </div>
+
+</body>
+</html>
+
+<script>
+
+function calcular(){
+
+var total_produzido = Number(ipt_total_produzido.value)
+
+var valor_producao = Number(ipt_valor_producao.value)
+
+var valor_venda = Number(ipt_valor_venda.value)
+
+var garrafas_afetadas = Number(ipt_garrafas_afetadas.value)
+
+
+// Para saber o lucro:
+// Lucro = (Valor gasto de produção * Quantidade de garrafas produzidas) - (Valor total de venda * Quantidade de garrafas vendidas)
+
+var lucro =  (valor_venda * total_produzido) - (valor_producao * total_produzido) 
+
+// Para saber a porcentagem de perda:
+// Porcentagem de perda = (Quantidade de garrafas afetadas / Quantidade total de garrafas produzidas) * 100
+
+var porcentagem_perda = (garrafas_afetadas / total_produzido) * 100
+
+
+
+// Custo de produção perdido:
+// Perda na produção = Quantidade de garrafas afetadas * Valor de produção por garrafa
+
+var producao_perdido = garrafas_afetadas * valor_producao
+
+
+// Valor de venda perdido (caso fossem vendidas): 
+// Perda de venda = Quantidade garrafas afetadas * Valor de venda de cada garrafa 
+
+var perda_venda = garrafas_afetadas * valor_venda 
+var perda_venda_anual = perda_venda * 12
+
+
+var lucro_com_prejuizo = lucro - (garrafas_afetadas * valor_venda)
+
+var diferenca_lucro = lucro - lucro_com_prejuizo
+var diferenca_lucro_anual = diferenca_lucro * 12
+
+p_mensagem.innerHTML = `
+<h2> Sem o nosso monitoramento:</h2><br>
+Atualmente o seu lucro estima-se em até: R$${lucro_com_prejuizo} <br>
+Com um percentual de perda de: <span style='color:red'>${porcentagem_perda}% </span> <br>
+Perdendo um total de: <span style='color:red'>R$${producao_perdido}</span>, perdidos com gasto em produção, <br>
+e um total de <span style='color:red'>R$${perda_venda} </span> perdidos caso as mesmas pudessem ter sido vendidas! <br>
+ <span style='color:red'>PODENDO ACARRETAR EM UMA PERCA DE R$${perda_venda_anual} EM UM ANO!</span>
+<br><br>
+
+<h2>Com o nosso monitoramento:</h2><br>
+O seu lucro poderá chegar em até: <span style='color:green'>R$${lucro}</span>, <br>
+uma diferença de <span style='color:green'>R$${diferenca_lucro}</span> ,<br>
+ <span style='color:green'>PODENDO ASSIM, CHEGAR EM UM FATURAMENTO DE <br> 
+    EM MÉDIA ATÉ R$${diferenca_lucro_anual} EM UM ANO!</span>
+
+`
+
+}
+
+</script>

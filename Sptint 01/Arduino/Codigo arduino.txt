@@ -1,0 +1,50 @@
+// Inclui a biblioteca DHT para leitura de sensores de temperatura e umidade
+#include "DHT.h"
+
+// Define o tipo de sensor utilizado (DHT11)
+#define TIPO_SENSOR DHT11
+
+// Atribui a entrada analógica do sensor DHT11 a uma variável
+const int PINO_SENSOR_DHT11 = A0;
+
+// Atribui a entrada analógica de um sensor de temperatura a uma variável
+const int PINO_SENSOR_TEMPERATURA = A2;
+
+float temperaturaCelsius;  // Variável para armazenar a temperatura em Celsius
+
+// Cria um objeto da classe DHT, passando o pino e o tipo de sensor como parâmetros
+DHT sensorDHT(PINO_SENSOR_DHT11, TIPO_SENSOR);
+
+void setup() {
+  Serial.begin(9600);  // Inicializa a comunicação serial a 9600 bps
+  sensorDHT.begin();   // Inicializa o sensor DHT
+}
+
+void loop() {
+  // Lê a umidade do sensor DHT11
+  float umidade = sensorDHT.readHumidity();
+  
+  // Lê o valor analógico do sensor de temperatura conectado ao pino A2
+  float valorLeitura = analogRead(PINO_SENSOR_TEMPERATURA);
+  
+  // Converte o valor lido para temperatura em Celsius
+  temperaturaCelsius = (((valorLeitura * 5.0) / 1023.0) / 0.01);
+
+  // Verifica se houve erro na leitura da umidade
+  if (isnan(umidade)) {
+    Serial.println("Erro ao ler os dados do sensor");  // Imprime uma mensagem de erro
+  } else {
+    Serial.print("Umidade: ");      // Imprime o texto "Umidade: "
+    Serial.print(umidade);          // Imprime o valor da umidade
+    Serial.print(" % ");            // Imprime o símbolo de porcentagem
+  }
+
+  Serial.println("");  // Pula para a próxima linha no monitor serial
+
+  // Imprime a temperatura medida em Celsius
+  Serial.print("Temperatura: ");  // Imprime o texto "Temperatura: "
+  Serial.print(temperaturaCelsius); // Imprime o valor da temperatura em Celsius
+  Serial.println(" C");            // Imprime o símbolo de graus Celsius
+
+  delay(1000);  // Aguarda 1 segundo antes de fazer uma nova leitura
+}
