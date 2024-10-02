@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.logo {
+    margin-left: -370px;
+    margin-top: -695px;
+}
+
+header {
+    margin-left: 441px;
+}
+
+nav {
+    margin-top: -14%;
+    margin-left: 5%;
+}
+
+nav ul li {
+    margin-right: 30px;
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 18px;
+}
+
+.auth-buttons {
+    margin-top: -4%;
+    margin-left: 65%;
+    margin-right: 30px;
+}
+
+.auth-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.create-account {
+    background-color: #4a90e2;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.login {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+main {
+    text-align: center;
+    padding: 50px 20px;
+    margin-left: 37%;
+}
+
+main h1 {
+    font-size: 47px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+main p {
+    font-size: 19px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+#img-nos {
+    margin: -35%;
+    margin-left: -263%;
+    width: 120px;
+}
+
+h2 {
+    font-size: 40px;
+    color: #2980B9;
+    margin-right: 10%;
+    margin-left: -55%;
+    margin-top: 12%;
+}
+
+#tecnologia p {
+    color: #000000;
+    margin-right: 10%;
+    margin-left: -19%;
+    margin-top: -4%;
+}
+
+#img-completo {
+    margin-left: -170%;
+    margin-top: 2%;
+    width: 420px;
+}
+
+#img-diag {
+    position: absolute;
+    margin-left: -62%;
+    margin-top: -23%;
+    width: 410px;
+}
+
+#t1 {
+    font-size: 22px;
+    margin-top: -45%;
+    margin-left: -22%;
+}
+
+#tecnologia .p1 {
+    margin-left: 21%;
+    text-align: left;
+}
+
+#t2 {
+    font-size: 22px;
+    margin-top: -2%;
+    margin-left: -33%;
+}
+
+#tecnologia .p2 {
+    margin-left: 21%;
+    text-align: left;
+}
+
+#t3 {
+    font-size: 22px;
+    margin-top: 3%;
+    margin-left: -33%;
+}
+
+#tecnologia .p3 {
+    margin-left: 21%;
+    text-align: left;
+}
+
+#t4 {
+    font-size: 22px;
+    margin-top: 4%;
+    margin-left: -33%;
+}
+
+#tecnologia .p4 {
+    margin-left: 21%;
+    text-align: left;
+}
+
+#h2-t5 {
+    font-size: 40px;
+    color: #2980B9;
+    margin-right: 10%;
+    margin-left: -55%;
+    margin-top: 2%;
+}
+
+#problemas .p5 {
+    color: #000000;
+    margin-left: -17%;
+    margin-top: -3%;
+}
+
+#img-barricas {
+    margin-top: 2%;
+    margin-left: -140%;
+}
+
+.p5-t5 {
+    color: #000000;
+    margin-top: -40%;
+    margin-left: -1%;
+}
+
+.p5-t6 {
+    color: #000000;
+    margin-top: -0%;
+    margin-left: -1%;
+}
+
+.p5-t7 {
+    color: #000000;
+    margin-top: 3%;
+    margin-left: 17%;
+    text-align: left;
+}
+
+.p5-t8 {
+    color: #000000;
+    margin-top: 4%;
+    margin-left: 0%;
+}
+
+.p5-t9 {
+    color: #000000;
+    margin-top: 4%;
+    margin-left: -5%;
+}
+
+#h2-t6 {
+    font-size: 40px;
+    color: #2980B9;
+    margin-right: 10%;
+    margin-left: -55%;
+    margin-top: 14%;
+}
+
+.p6 {
+    color: #000000;
+    text-align: justify;
+    margin-left: -33%;
+    max-width: 1000px;
+    line-height: 1.8;
+    align-items: center;
+}
+
+#h2-t7 {
+    font-size: 40px;
+    color: #2980B9;
+    margin-right: 10%;
+    margin-left: -55%;
+    margin-top: 8%;
+}
+
+.p7 {
+    color: #000000;
+    text-align: justify;
+    margin-left: -33%;
+    max-width: 1000px;
+    line-height: 1.8;
+    align-items: center;
+}
+
+/*header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #490f49;
+    color: #ecf0f1;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 16px;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.create-account {
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+.login {
+    background-color: #ffffff;
+    color: #490f49;
+    border: 1px solid #490f49;
+}
+
+main {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+main h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url('path-to-your-abstract-purple-wave-image.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}

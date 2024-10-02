@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WineGuard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="header"></div>
+        <img src="img/Vector 1.png" alt="vector">
+        <div class="logo">
+            <img src="img/Logo.png" alt="logo">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#inicio">INÍCIO</a></li>
+                <li><a href="#sobre-nos">SOBRE NÓS</a></li>
+                <li><a href="#equipe">EQUIPE</a></li>
+                <li><a href="#simulador">SIMULADOR</a></li>
+                <li><a href="#contato">CONTATO</a></li>
+            </ul>
+
+            <div class="auth-buttons">
+                <button class="create-account">CRIE SUA CONTA</button>
+                <button class="login">ENTRAR</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h1>MONITORE SUA VINÍCOLA</h1>
+            <p>Com <b>tecnologia de ponta</b>, uma interface simples, <b>oferecemos</b><br>
+                <b>soluções</b> que colocam o <b>monitoramento de umidade</b><br>
+                <b>e temperatura</b> da sua vinícola em suas mãos, <br>
+                <b>garantindo a preservação da <br>
+                    qualidade</b> e valor do seu vinho.
+            </p>
+        </section>
+
+        <section id="tecnologia">
+            <h2>TECNOLOGIA PARA MONITORAMENTO</h2>
+            <p>Monitore com eficácia os níveis de temperatura e umidade <br>
+                na armazenagem de vinhos em barricas </p>
+            <img id="img-nos" src="img/lateral.png" alt="vector-lateral"><br>
+            <img id="img-completo" src="img/completo.png" alt="completo"><br>
+            <img id="img-diag" src="img/diag.png" alt="diag">
+
+            <h3 id="t1" style="color:#FF8C18;"><b>• Monitoramento Contínuo</b><br></h3>
+            <p class="p1">Acompanhe em tempo real a temperatura e a umidade da sua vinícola.</p><br><br>
+
+            <h3 id="t2" style="color:#FF8C18;"><b>• Alertas Imediatos</b><br></h3>
+            <p class="p2">Receba notificações instantâneas se as condições saírem dos parâmetros ideais.</p>
+
+            <h3 id="t3" style="color:#FF8C18;"><b>• Análise de Dados</b><br></h3>
+            <p class="p3">Acesse históricos e relatórios detalhados para otimizar o armazenamento do vinho.</p>
+
+            <h3 id="t4" style="color:#FF8C18;"><b>• Interface Intuitiva</b></br></h3>
+            <p class="p4">Controle todas as funcionalidades através de uma plataforma simples e acessível.</p>
+        </section>
+
+        <section id="problemas">
+            <h2 id="h2-t5">PROBLEMAS DE ARMAZENAMENTO</h2>
+            <p class="p5">Típicos problemas de armazenamento em vínicolas</p><br><br>
+            <img id="img-barricas" src="img/barricas.png" alt="barricas">
+
+            <p class="p5-t5">• Evaporação e redução do teor alcoólico</p><br>
+            <p class="p5-t6">• Possibilidade de seca dos barris</p>
+            <p class="p5-t7">• Custos de mão-de-obra na manutenção <br> dos barris</p>
+            <p class="p5-t8">• Perda de qualidade dos vinhos.</p>
+            <p class="p5-t9">• Dimuição da produtividade.</p>
+        </section>
+
+        <section id="sobre-nos">
+            <h2 id="h2-t6">Quem somos?</h2>
+            <p class="p6">Somos a <b>WineGuard</b>, uma empresa <b>comprometida em fornecer soluções tecnológicas
+                </b><br> avançadas para aprimorar o monitoramento e o armazenamento de vinhos em vinícolas. <br>
+                Acreditamos que, por meio de nossos sistemas, os gestores de vinícolas podem tomar decisões <br> mais
+                estratégicas, baseadas em <b> dados em tempo real</b>, otimizando processos e minimizando <br> perdas.
+                Nosso objetivo é monitorar seu negócio, visando <b> proteger seu patrimônio</b> e ajudando a <br>
+                preservar a integridade e o valor dos vinhos ao longo do tempo. Seja para pequenos produtores <br> ou
+                grandes vinícolas, <b>nossas soluções se adaptam às suas necessidades</b> , trazendo <br><b> modernidade
+                    e confiabilidade</b> para cada etapa do processo de produção e armazenamento.</p>
+        </section>
+
+        <section>
+            <h2 id="h2-t7">Missão</h2>
+            <p class="p6">Nossa <b>missão </b> é garantir a preservação da qualidade dos vinhos por meio das soluções
+                <br> ecnológicas inovadoras. Buscamos <b>proporcionar eficiência no monitoramento</b> ambiental, <br>
+                ajudando vinícolas a manter as condições ideais de armazenamento e promovendo a <br> sustentabilidade em
+                cada etapa do processo. Queremos ser <b> parceiros na proteção do seu <br> patrimônio</b>, assegurando
+                <b> longevidade e excelência para cada garrafa. </b></p>
+        </section>
+</body>
+</html>
+
+<script>
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
