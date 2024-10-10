@@ -1,0 +1,120 @@
+
+body {
+    height: 100vh;
+    background: linear-gradient(180deg , #28223D, #2c3e50)no-repeat;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-size: cover;
+
+}
+
+.container{
+    height: 100%;
+}
+
+
+.titulo {
+    margin-top: 2%;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-family: 'Poppins';
+    width: 100%;
+    height: 71px;
+    font-weight: 700;
+    font-size: 47px;
+    top: 6822px;
+    left: 513px;
+    font-weight: 700;
+}
+
+.informacoes {
+    width: 40%;
+    height: 90%;
+    display: flex;
+    margin-top: 5%;
+    justify-content: space-between;
+    text-align: left;
+    margin-left: 3%;
+    align-items: flex-start;
+    flex-direction: column;
+    color: white;
+    font-family: 'Poppins';
+    font-size: 23px;
+    font-weight: 400;
+}
+
+
+.card {
+    background: linear-gradient(180deg , #28223D, #2c3e50)no-repeat;    
+    position: absolute;
+    box-shadow: 25px 25px 20px rgba(0, 0, 0, 0.2);  
+    margin-top: -46%;
+    margin-left: 60%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 400px;
+    height: 550px;
+    border-radius: 50px;
+    overflow: hidden;
+    border: solid 1px #28223D;
+}
+
+.card .form{
+    padding:18px;
+    position: relative;
+}
+
+.form-content {
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -20px;
+    padding-bottom: -30px;
+    margin-left: 10px;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    align-items: left;
+
+}
+
+.form-content label{
+    padding: 2px;
+    display:inline-block;
+    margin-bottom: -10px;
+}
+
+.form-content input{
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    border-radius: 8px;
+    padding: 8px;
+    border: 2px solid #dfdfdf;
+}
+
+input#mensagem {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 180px;
+    border-radius: 8px;
+    padding: 2px;
+    border: 2px solid #dfdfdf;
+}
+
+.btn{
+    padding: 10px;
+    margin-top: 40px;
+    font-size: 16px;
+    width: 90%;
+    margin-left: 20px;
+    margin-right: 10px;
+    align-items: center;
+}
