@@ -1,0 +1,44 @@
+.titulo{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: rgb(27, 26, 25);
+}
+
+.containerTitulo{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column;
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 5px; 
+    margin: 5px;
+    padding: 5px;
+    width: 400px;
+    position: absolute;
+
+top: 7%;
+
+left: 50%;
+
+transform: translate(-50%, -50%);
+}
+
+.containerKpi{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 5px; 
+    margin: 5px;
+    padding: 5px;
+    position: absolute;
+    width: 1000px;
+
+top: 17%;
+
+left: 50%;
+
+transform: translate(-50%, -50%);
+}
+.containerDash{
+
+}
