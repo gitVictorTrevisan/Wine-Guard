@@ -1,60 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Wine Guard 🍷</title>
     <link rel="stylesheet" href="cssDashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body style="background-color: #8E44AD;">
-<div>
+
+<body>
+
     <div id="div_titulo" class="containerTitulo">
-    <h1 class="titulo">Dashboard Wine Guard</h1>
+        <h1>Dashboard Wine Guard 🍇</h1>
     </div>
 
-    <div id="div_select" class="select">
-    Selecione o Periodo de Tempo: <br>
-    <Select>
-        <option value="agora">Agora</option>
-        <option value="semana">Última Semana</option>
-        <option value="15dias">Últimos 15 dias</option>
-        <option value="30dias">Últimos 30 dias</option>
-        <option value="semestre">Último Semestre</option>
-        <option value="ano">Anual</option>
-    </Select>
+    <div id="div_select" class="containerSelect">
+        <b class="letras">Selecione o Período de Tempo:</b>
+        <select>
+            <option value="agora">Agora</option>
+            <option value="semana">Última Semana</option>
+            <option value="15dias">Últimos 15 dias</option>
+            <option value="30dias">Últimos 30 dias</option>
+            <option value="semestre">Último Semestre</option>
+            <option value="ano">Anual</option>
+        </select>
     </div>
-    
+
+
     <div id="div_kpi" class="containerKpi">
-        Temperatura Média: 20.1 ºC
-        Alertas Temperatura: 1 Alerta
-        Umidade Média: 65 %
-        Alertas Umidade: 0 Alertas
-        Barricas Alcançadas: 40 Barricas
+        <b>Temperatura Média: <span style="color: rgb(24, 187, 24);">20.1 ºC</span></b><br>
+        <b>Alertas de Temperatura: <span style="color: red;">1 Alerta</span></b><br>
+        <b>Umidade Média: <span style="color: rgb(24, 187, 24);">65 %</span></b><br>
+        <b>Alertas de Umidade: <span style="color: rgb(24, 187, 24);">0 Alertas</span></b><br>
+        <b>Barricas Alcançadas: <span style="color: cornflowerblue;">40 Barricas</span></b>
     </div>
 
-    <div id="div_graf1" class="graf1">
-
-
+    <div id="div_grafico1" class="containerGrafico1">
+        <div id="grafico1">
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
 
-    <div id="div_graf2" class="graf2">
-
-
+    <div id="div_grafico2" class="containerGrafico2">
+        <div id="grafico2">
+            <canvas id="myChart2"></canvas>
+        </div>
     </div>
 
-    <div id="div_graf3" class="graf3">
-
-
+    <div id="div_grafico3" class="containerGrafico3">
+        <div id="grafico3">
+            <canvas id="myChart3"></canvas>
+        </div>
     </div>
 
-    <div id="div_graf4" class="graf4">
-
-
+    <div id="div_grafico4" class="containerGrafico4">
+        <div id="grafico4">
+            <canvas id="myChart4"></canvas>
+        </div>
     </div>
 
-</div>
+    <script>
+        // Gráfico 1 ()
+
+        const labels = [
+            '12:00',
+            '13:00',
+            '14:00',
+            '15:00',
+            '16:00',
+            '17:00',
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [30, 29, 28, 25, 22, 23],
+            },
+            {
+                label: 'Umidade',
+                backgroundColor: 'rgb(30, 144, 255)',
+                borderColor: 'rgb(30, 144, 255)',
+                data: [80, 82, 80, 85, 80, 83],
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+        // Gráfico 2 ()
+
+        const labels2 = [
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+        ];
+
+
+        const data2 = {
+            labels: labels2,
+            datasets: [{
+                label: 'Temperatura Média',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [22, 24, 27, 23, 20, 18],
+            },
+            {
+                label: 'Umidade Média',
+                backgroundColor: 'rgb(30, 144, 255)',
+                borderColor: 'rgb(30, 144, 255)',
+                data: [90, 89, 93, 87, 88, 82],
+            }
+            ]
+        };
+        const config2 = {
+            type: 'bar',
+            data: data2,
+            options: {}
+        };
+
+        const myChart2 = new Chart(
+            document.getElementById('myChart2'),
+            config2
+        );
+
+        // Gráfico 3 ()
+
+        const labels3 = [
+            '12:00',
+            '13:00',
+            '14:00',
+            '15:00',
+            '16:00',
+            '17:00',
+        ];
+
+        const data3 = {
+            labels: labels3,
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [30, 29, 28, 25, 22, 23],
+            },
+            {
+                label: 'Umidade',
+                backgroundColor: 'rgb(30, 144, 255)',
+                borderColor: 'rgb(30, 144, 255)',
+                data: [80, 82, 80, 85, 80, 83],
+            }]
+        };
+
+        const config3 = {
+            type: 'line',
+            data: data3,
+            options: {}
+        };
+
+        const myChart3 = new Chart(
+            document.getElementById('myChart3'),
+            config3
+        );
+
+
+        // Gráfico 4 ()
+
+        const labels4 = [
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+        ];
+
+
+        const data4 = {
+            labels: labels4,
+            datasets: [{
+                label: 'Temperatura Média',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [22, 24, 27, 23, 20, 18],
+            },
+            {
+                label: 'Umidade Média',
+                backgroundColor: 'rgb(30, 144, 255)',
+                borderColor: 'rgb(30, 144, 255)',
+                data: [90, 89, 93, 87, 88, 82],
+            }
+            ]
+        };
+        const config4 = {
+            type: 'bar',
+            data: data4,
+            options: {}
+        };
+
+        const myChart4 = new Chart(
+            document.getElementById('myChart4'),
+            config4
+        );       
+    </script>
 </body>
 </html>
-<script>
-
-</script>
