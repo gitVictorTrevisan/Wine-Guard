@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     height: 100vh;
@@ -40,12 +45,14 @@ body {
     flex-direction: column;
     color: white;
     font-family: 'Poppins';
-    font-size: 23px;
+    font-size: 20px;
     font-weight: 400;
 }
 
 
+
 .card {
+    font-family: 'Poppins';
     background: linear-gradient(180deg , #28223D, #2c3e50)no-repeat;    
     position: absolute;
     box-shadow: 25px 25px 20px rgba(0, 0, 0, 0.2);  
@@ -54,11 +61,11 @@ body {
     float: right;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     width: 400px;
-    height: 550px;
-    border-radius: 50px;
+    height: 510px;
+    border-radius: 10px;
     overflow: hidden;
     border: solid 1px #28223D;
 }
@@ -69,6 +76,7 @@ body {
 }
 
 .form-content {
+    height: 100%;
     padding: 2px;
     display: flex;
     flex-direction: column;
@@ -82,6 +90,10 @@ body {
 
 }
 
+.form-content p{
+    font-size: 14.5px;
+}
+
 .form-content label{
     padding: 2px;
     display:inline-block;
@@ -89,32 +101,45 @@ body {
 }
 
 .form-content input{
-    margin-bottom: 0;
+    background-color: #d9d9d9;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     width: 350px;
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 8px;
     border: 2px solid #dfdfdf;
 }
 
-input#mensagem {
+.form-content textarea {
     margin-top: 5px;
     display: flex;
     flex-direction: column;
     width: 350px;
     height: 180px;
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 2px;
     border: 2px solid #dfdfdf;
+    resize: none;
+    background-color: #d9d9d9;
 }
 
 .btn{
-    padding: 10px;
-    margin-top: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: #2980B9;
+    font-family: 'Poppins';
+    color: #fff;
+    padding: 18px 0px;  
+    border-radius: 5px;
+    margin-top: 20px;
     font-size: 16px;
-    width: 90%;
-    margin-left: 20px;
-    margin-right: 10px;
+    width: 100%;
     align-items: center;
+    transition: 1s;
+}
+
+.btn:hover{
+    background-color: #0468ab;
+    transition: 1s;
 }
