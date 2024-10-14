@@ -1,9 +1,10 @@
 body {
-    background: linear-gradient(to right, #6a2588, #8d37b3 ,#ba18ff);
+    background: linear-gradient(to bottom, #6a2588, #8d37b3 ,#ba18ff) no-repeat; 
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .letras {
@@ -26,7 +27,6 @@ body {
     top: 7%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Poppings';
     text-align: center;
     color: rgb(27, 26, 25);
 
