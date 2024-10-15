@@ -31,8 +31,12 @@
             </ul>
 
             <div class="auth-buttons">
-                <button class="create-account">CRIE SUA CONTA</button>
-                <button class="login">ENTRAR</button>
+                <button class="create-account">
+                    <a href="../login/login-cadastro/cadastro.html">CRIE SUA CONTA</a>
+                </button>
+                <button class="login">
+                    <a href="../login/login-cadastro/login.html">ENTRAR</a>
+                </button>
             </div>
         </nav>
     </header>
@@ -71,14 +75,14 @@
 
         <section id="problemas">
             <h2 id="h2-t5">PROBLEMAS DE ARMAZENAMENTO</h2>
-            <p class="p5">Típicos problemas de armazenamento em vínicolas</p><br><br>
+            <p class="p5">Típicos problemas de armazenamento em vinícolas</p><br><br>
             <img id="img-barricas" src="img/barricas.png" alt="barricas">
 
             <p class="p5-t5">• Evaporação e redução do teor alcoólico</p><br>
             <p class="p5-t6">• Possibilidade de seca dos barris</p>
             <p class="p5-t7">• Custos de mão-de-obra na manutenção <br> dos barris</p>
             <p class="p5-t8">• Perda de qualidade dos vinhos.</p>
-            <p class="p5-t9">• Dimuição da produtividade.</p>
+            <p class="p5-t9">• Diminuição da produtividade.</p>
         </section>
 
         <section id="sobre-nos">
@@ -96,7 +100,7 @@
         <section>
             <h2 id="h2-t7">Missão</h2>
             <p class="p6">Nossa <b>missão </b> é garantir a preservação da qualidade dos vinhos por meio das soluções
-                <br> ecnológicas inovadoras. Buscamos <b>proporcionar eficiência no monitoramento</b> ambiental, <br>
+                <br> ecológicas inovadoras. Buscamos <b>proporcionar eficiência no monitoramento</b> ambiental, <br>
                 ajudando vinícolas a manter as condições ideais de armazenamento e promovendo a <br> sustentabilidade em
                 cada etapa do processo. Queremos ser <b> parceiros na proteção do seu <br> patrimônio</b>, assegurando
                 <b> longevidade e excelência para cada garrafa. </b>
@@ -372,47 +376,4 @@
     }
 </script>
 
-<script>
-    document.querySelectorAll('nav ul li a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-</script>
-
-<script>
-    document.querySelectorAll('nav a[href="#simulador"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-</script>
-
-<script>
-    document.querySelectorAll('nav a[href="#fale-conosco"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-</script>
-
-<script>
-    document.querySelectorAll('nav a[href="#inicio"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-</script>
 

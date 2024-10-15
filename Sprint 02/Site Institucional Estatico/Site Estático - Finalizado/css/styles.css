@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
+    /*overflow-x: hidden;*/
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -11,18 +24,13 @@ nav ul li {
     margin-right: 10px;
 }
 
+nav ul li:hover {
+    border-bottom: 2px solid #ecf0f1;
+}
+
 section {
     padding: 20px;
     margin: 20px 0;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    color: #000000;
-    /*overflow-x: hidden;*/
 }
 
 .logo {
@@ -64,10 +72,21 @@ nav ul li a {
     font-size: 18px;
 }
 
+.auth-buttons a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .create-account {
     background-color: #4a90e2;
     color: #ffffff;
     margin-right: 10px;
+    transition: .3s;
+}
+
+.create-account:hover {
+    transform: scale(1.05);
+    transition: .3s;
 }
 
 .login {
@@ -78,6 +97,12 @@ nav ul li a {
     color: inherit;
     cursor: pointer;
     color: #ffffff;
+    transition: .3s;
+}
+
+.login:hover {
+    transform: scale(1.05);
+    transition: .3s;
 }
 
 main {
