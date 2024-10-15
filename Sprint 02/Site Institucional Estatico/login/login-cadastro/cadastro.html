@@ -33,15 +33,16 @@
         <div class="form-container">
           <div class="input-container">
             <div class="input">
-              <input type="text" placeholder="Nome completo" />
+              <input type="text" id="complete_name_input" placeholder="Nome completo" />
               <i class="fa-regular fa-user"></i>
             </div>
             <div class="input">
-              <input type="text" placeholder="Email" />
+              <input type="text" oninput="getEmailValue()" placeholder="Email" id="email_input" />
               <i class="fa-regular fa-envelope"></i>
             </div>
+            <span class="advice invalid-email" id="invalid_email_message"></span>
             <div class="input">
-              <input oninput="verificar(), verificarValorPasswordInput()" type="password" id="password_input" placeholder="Senha" />
+              <input oninput="check(), checkValuePasswordInput()" type="password" id="password_input" placeholder="Senha" />
               <i class="fa-solid fa-key"></i>
               <i class="fa-solid fa-eye-slash" onclick="revealHidePasswordInput()" id="eyeButton1"></i>
             </div>
@@ -58,7 +59,7 @@
             
             <div class="input">
               <input
-                oninput="verificarValorConfirmPasswordInput()"
+                oninput="checkValueConfirmPasswordInput()"
                 type="password"
                 id="password_confirm_input"
                 placeholder="Confirmar Senha"
@@ -66,9 +67,9 @@
               <i class="fa-solid fa-key"></i>
               <i class="fa-solid fa-eye-slash" onclick="revealHidePasswordConfirmInput()" id="eyeButton2"></i>
             </div>
-            <span class="invalid-password-text" id="invalid_password_message"></span>
+            <span class="advice invalid-password" id="invalid_password_message"></span>
           </div>
-          <button onclick="verificarInput()" type="button" class="form-button">Criar conta</button>
+          <button onclick="checkInput(), checkEmail(), checkInputs()" type="button" class="form-button">Criar conta</button>
           <span class="text login"
             >Já é membro? <a href="login.html">Faça Login!</a></span
           >
@@ -77,6 +78,7 @@
     </main>
     <script src="./js/script.js"></script>
     <script src="./js/checkPasswordStrength.js"></script>
-    <script src="js/revealHidePassword.js"></script>
+    <script src="./js/revealHidePassword.js"></script>
+    <script src="./js/checkInputs.js"></script>
   </body>
 </html>

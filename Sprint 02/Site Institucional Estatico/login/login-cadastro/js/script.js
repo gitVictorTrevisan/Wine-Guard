@@ -1,27 +1,27 @@
 var passwordInput = password_input;
-var passwordConfirmInput = password_confirm_input
-var valorPasswordInput = passwordConfirmInput.value;
-var valorPasswordConfimInput = "";
+var passwordConfirmInput = password_confirm_input;
+var PasswordInputValue = passwordConfirmInput.value;
+var PasswordConfimInputValue = "";
 var invalidPasswordText = invalid_password_message;
 
-function verificarValorPasswordInput() {
-  valorPasswordInput = passwordInput.value; 
+function checkValuePasswordInput() {
+  PasswordInputValue = passwordInput.value.replaceAll(" ", "");
 }
 
-function verificarValorConfirmPasswordInput() {
-  valorPasswordConfimInput = passwordConfirmInput.value;
+function checkValueConfirmPasswordInput() {
+  PasswordConfimInputValue = passwordConfirmInput.value.replaceAll(" ", "");
 }
 
-function verificarInput() {
+function checkInput() {
   console.log("função invocada");
-  if (valorPasswordInput != valorPasswordConfimInput) {
+  if (PasswordInputValue != PasswordConfimInputValue) {
     passwordConfirmInput.style.borderColor = "#ff0000";
     invalidPasswordText.innerHTML = "As senhas devem ser iguais";
     invalidPasswordText.style.display = "block";
-    console.log("caiu no if");
+    console.log(PasswordInputValue);
   } else {
     passwordConfirmInput.style.borderColor = "#fff";
     invalidPasswordText.style.display = "none";
-    console.log("caiu no else");
+    console.log(PasswordConfimInputValue);
   }
 }

@@ -60,7 +60,7 @@ main {
   height: 35px;
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .password-strength-indicator {
@@ -78,11 +78,15 @@ main {
   font-size: 0.75rem;
 }
 
-.invalid-password-text {
-  display: none;
+.advice {
   color: #8e44ad;
   font-size: 0.75rem;
   transform: translateY(-30px);
+}
+
+.invalid-password,
+.invalid-email {
+  display: none;
 }
 
 .password-strength-indicator ul {
@@ -192,12 +196,12 @@ main {
   transition: 0.4s;
 }
 
-.form-container .text.login {
+.form-container .text {
   align-self: center;
   margin-top: 20px;
 }
 
-.form-container .text.login a {
+.form-container .text a {
   color: #9900ef;
 }
 

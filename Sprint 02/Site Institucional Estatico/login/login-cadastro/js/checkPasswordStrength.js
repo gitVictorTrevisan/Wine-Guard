@@ -6,7 +6,7 @@ var strengthStrong = strength_s;
 var strengthVeryStrong = strength_vs;
 var strengthTextIndicator = strength_text_indicator;
 
-function verificar() {
+function check() {
   var checkEightCharacters = false;
   var checkLowercase = false;
   var checkUppercase = false;
@@ -14,7 +14,7 @@ function verificar() {
   var checkSpecialCharacters = false;
   var checkNumber = false;
 
-  function possuiOitoCaracteres() {
+  function hasEightCharacters() {
     if (passwordInput.value.length >= 8) {
       checkEightCharacters = true;
     } else {
@@ -22,29 +22,29 @@ function verificar() {
     }
   }
 
-  function possuiLetraMinuscula() {
-    var texto_original = passwordInput.value;
-    var textoMaiuscula = texto_original.toUpperCase();
+  function hasLowercase() {
+    var original_text = passwordInput.value;
+    var lowercasedText = original_text.toUpperCase();
 
-    if (texto_original != textoMaiuscula) {
+    if (original_text != lowercasedText) {
       checkLowercase = true;
     } else {
       checkLowercase = false;
     }
   }
 
-  function possuiLetraMaiuscula() {
-    var texto_original = passwordInput.value;
-    var textoMaiuscula = texto_original.toLowerCase();
+  function hasUppercase() {
+    var originalText = passwordInput.value;
+    var uppercasedText = originalText.toLowerCase();
 
-    if (texto_original != textoMaiuscula) {
+    if (originalText != uppercasedText) {
       checkUppercase = true;
     } else {
       checkUppercase = false;
     }
   }
 
-  function possuiMaiusculaEMinuscula() {
+  function hasLowercaseAndUppercase() {
     if (checkLowercase && checkUppercase) {
       checkUppercaseAndLowercase = true;
     } else {
@@ -52,13 +52,13 @@ function verificar() {
     }
   }
 
-  function possuiCaracteresEspeciais() {
-    const texto_original = passwordInput.value;
+  function hasSpecialCharacter() {
+    const original_text = passwordInput.value;
     const simbolos = "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?";
     var hasAnySpecialCharacter = false;
 
-    for (var i = 0; i < texto_original.length; i++) {
-      if (simbolos.includes(texto_original[i])) {
+    for (var i = 0; i < original_text.length; i++) {
+      if (simbolos.includes(original_text[i])) {
         hasAnySpecialCharacter = true;
       }
     }
@@ -66,13 +66,13 @@ function verificar() {
     checkSpecialCharacters = hasAnySpecialCharacter;
   }
 
-  function possuiNumeros() {
-    const texto_original = passwordInput.value;
+  function hasNumber() {
+    const original_text = passwordInput.value;
 
     var hasAnyNumber = false;
 
-    for (var i = 0; i < texto_original.length; i++) {
-      if (!isNaN(texto_original[i]) && texto_original[i] !== " ") {
+    for (var i = 0; i < original_text.length; i++) {
+      if (!isNaN(original_text[i]) && original_text[i] !== " ") {
         hasAnyNumber = true;
       }
     }
@@ -80,45 +80,45 @@ function verificar() {
     checkNumber = hasAnyNumber;
   }
 
-  possuiOitoCaracteres();
-  possuiLetraMinuscula();
-  possuiLetraMaiuscula();
-  possuiMaiusculaEMinuscula();
-  possuiCaracteresEspeciais();
-  possuiNumeros();
+  hasEightCharacters();
+  hasLowercase();
+  hasUppercase();
+  hasLowercaseAndUppercase();
+  hasSpecialCharacter();
+  hasNumber();
 
   const value = passwordInput.value.length;
 
-  var condicoesSatisfeitas = 0;
-  if (checkEightCharacters) condicoesSatisfeitas++;
-  if (checkUppercaseAndLowercase) condicoesSatisfeitas++;
-  if (checkSpecialCharacters) condicoesSatisfeitas++;
-  if (checkNumber) condicoesSatisfeitas++;
+  var satisfiedConditions = 0;
+  if (checkEightCharacters) satisfiedConditions++;
+  if (checkUppercaseAndLowercase) satisfiedConditions++;
+  if (checkSpecialCharacters) satisfiedConditions++;
+  if (checkNumber) satisfiedConditions++;
 
   if (value > 0) {
     passwordIndicator.style.display = "block";
-    if (condicoesSatisfeitas === 0) {
+    if (satisfiedConditions === 0) {
       strengthTextIndicator.innerHTML = "Muito fraca";
       strengthVeryWeak.style.display = "block";
-    } else if (condicoesSatisfeitas === 1) {
+    } else if (satisfiedConditions === 1) {
       strengthTextIndicator.innerHTML = "Fraca";
       strengthVeryWeak.style.display = "block";
       strengthWeak.style.display = "block";
       console.log("weak");
-    } else if (condicoesSatisfeitas === 2) {
+    } else if (satisfiedConditions === 2) {
       strengthTextIndicator.innerHTML = "Média";
       strengthVeryWeak.style.display = "block";
       strengthWeak.style.display = "block";
       strengthMean.style.display = "block";
       console.log("medium");
-    } else if (condicoesSatisfeitas === 3) {
+    } else if (satisfiedConditions === 3) {
       strengthTextIndicator.innerHTML = "Forte";
       strengthVeryWeak.style.display = "block";
       strengthWeak.style.display = "block";
       strengthMean.style.display = "block";
       strengthStrong.style.display = "block";
       console.log("strong");
-    } else if (condicoesSatisfeitas === 4) {
+    } else if (satisfiedConditions === 4) {
       strengthTextIndicator.innerHTML = "Muito forte";
       strengthVeryWeak.style.display = "block";
       strengthWeak.style.display = "block";
