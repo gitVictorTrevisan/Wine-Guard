@@ -1,0 +1,213 @@
+body {
+  height: 100vh;
+  background-color: #1a172a;
+  background: url("../assets/blob-scene-haikei.svg") no-repeat center;
+  background-size: cover;
+  animation: fadeInTop 1s;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.register-container {
+  width: 500px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInTop 1s;
+}
+
+.register-container img {
+  width: 150px;
+  height: 150px;
+}
+
+.register-container .register-text {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  margin-bottom: 40px;
+  text-align: center;
+  gap: 5px;
+}
+
+.register-container .register-text p {
+  font-size: 1rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  position: relative;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.password-strength-indicator {
+  display: none;
+  position: relative;
+  margin-bottom: 10px;
+  transform: translateY(-10px);
+}
+
+.password-strength-indicator .text-indicator {
+  position: absolute;
+  top: -23px;
+  left: 0;
+  color: #8e44ad;
+  font-size: 0.75rem;
+}
+
+.invalid-password-text {
+  display: none;
+  color: #8e44ad;
+  font-size: 0.75rem;
+  transform: translateY(-30px);
+}
+
+.password-strength-indicator ul {
+  display: flex;
+  padding: 0;
+  gap: 20px;
+}
+
+.password-strength-indicator li {
+  list-style: none;
+  width: 50px;
+  height: 5px;
+  border-radius: 5px;
+}
+
+.password-strength-indicator li.very-weak div {
+  display: none;
+  background-color: #b59bcb;
+}
+
+.password-strength-indicator li.weak div {
+  display: none;
+  background-color: #a27bbf;
+}
+
+.password-strength-indicator li.mean div {
+  display: none;
+  background-color: #8f5bb3;
+}
+
+.password-strength-indicator li.strong div {
+  display: none;
+  background-color: #7b3a9f;
+}
+
+.password-strength-indicator li.very-strong div {
+  display: none;
+  background-color: #8e44ad;
+}
+
+.password-strength-indicator{
+  display: none;
+}
+
+.password-strength-indicator div {
+  display: none;
+  width: 100%;
+  height: 2px;
+}
+
+.form-container .input-container input {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: none;
+  outline: none;
+  border: 1px solid #fff;
+  border-radius: 7px;
+  color: #fff;
+  padding: 0 45px;
+  right: 5px;
+}
+
+.form-container .input input::placeholder {
+  color: #fff;
+}
+
+.form-container .input-container .input i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.form-container .input-container .input .fa-eye,
+.form-container .input-container .input .fa-eye-slash {
+  right: 20px;
+  left: auto;
+  font-size: 0.9rem;
+}
+
+.form-container .text {
+  color: #fff;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.form-container .form-button {
+  width: 100%;
+  height: 40px;
+  margin-top: 15px;
+  background: none;
+  color: #8e44ad;
+  font-weight: 800;
+  border: 2px solid #8e44ad;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+.form-container .form-button:hover {
+  background-color: #8e44ad;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.form-container .text.login {
+  align-self: center;
+  margin-top: 20px;
+}
+
+.form-container .text.login a {
+  color: #9900ef;
+}
+
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

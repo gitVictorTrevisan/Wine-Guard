@@ -1,0 +1,171 @@
+body{
+  background-color: #1A172A;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../assets/layered-waves-haikei.svg") no-repeat left;
+  background-size: contain;
+  animation: fadeInLeft 1s;
+  position: relative;
+}
+
+.login-container {
+  width: 500px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  margin-right: 130px;
+  animation: fadeInTop 1s;
+}
+
+.login-container img {
+  width: 150px;
+  height: 150px;
+}
+
+.login-container .login-text {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  margin-bottom: 40px;
+  text-align: center;
+  gap: 5px;
+}
+
+.login-container .login-text p {
+  font-size: 1rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+}
+
+.form-container .input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.form-container .input-container .input {
+  position: relative;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.form-container .input-container input {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: none;
+  outline: none;
+  border: 1px solid #fff;
+  border-radius: 7px;
+  color: #fff;
+  padding: 0 45px;
+  right: 5px;
+}
+
+.form-container .input input::placeholder {
+  color: #fff;
+}  
+
+.form-container .input-container .input i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.form-container .input-container .input .fa-eye,
+.form-container .input-container .input .fa-eye-slash {
+  right: 20px ; 
+  left: auto;
+  font-size: .9rem;
+}
+
+.form-container .text {
+  color: #fff;
+  font-size: .85rem;
+  font-style: italic;
+}
+
+.form-container .text.forgot-password {
+  align-self: flex-end;
+  margin-top: 15px;
+}
+
+.form-container .text.forgot-password a {
+  transition: .5s;
+}
+
+.form-container .text.forgot-password a:hover {
+  color: #9900EF;
+  transition: .5s;
+}
+
+.form-container .form-button {
+  width: 100%;
+  height: 40px;
+  margin-top: 30px;
+  background: none;
+  color: #8E44AD;
+  font-weight: 800;
+  border: 2px solid #8E44AD;
+  border-radius: 10px;
+  transition: .4s;
+}
+
+.form-container .form-button:hover {
+  background-color: #8E44AD;
+  color: #fff;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.form-container .text.register {
+  align-self: center;
+  margin-top: 20px;
+ 
+}
+
+.form-container .text.register a {
+  color: #9900EF;
+}
+
+@keyframes fadeInLeft {
+  0% {
+     opacity: 0;
+     transform: translateX(-20px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateX(0);
+  }
+} 
+
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
