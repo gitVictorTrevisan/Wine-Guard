@@ -9,9 +9,9 @@ body {
 
 .letras {
     color:rgb(27, 26, 25);
-    font-family: 'Poppins';
-    font-size: larger;
-    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    font-weight: 700;
 }
 
 .containerTitulo{
@@ -29,7 +29,6 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: rgb(27, 26, 25);
-
 }
 
 .containerSelect{
@@ -41,7 +40,7 @@ body {
     margin: 5px;
     padding: 5px;
     width: 300px;
-    height: 70px;
+    height: 90px;
     position: absolute;
     top: 21%;
     left: 13%;
@@ -50,12 +49,12 @@ body {
 
 select{
     border-radius: 5px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 140px;
-    height: 80px;
+    width: 150px;
+    height: 130px;
     align-items: center;
     text-align: center;
     margin-top: 20px;
+    font-size: medium;
 }
 
 .containerKpi{
@@ -67,10 +66,13 @@ select{
     margin: 5px;
     padding: 15px;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 13%;
     transform: translate(-50%, -50%);
     line-height: 1.6;
+    height: 280px;
+    text-align: justify;
+    justify-content: center;
 }
 
 .containerGrafico1{
@@ -89,6 +91,11 @@ select{
     height: 210px;
 }
 
+#grafico1 {
+    max-width: 420px; 
+    height: 210px;
+}
+
 .containerGrafico2{
     display: flex; 
     align-items: center; 
@@ -99,10 +106,15 @@ select{
     padding: 15px;
     position: absolute;
     top: 36%;
-    left: 78%;
+    left: 80%;
     transform: translate(-50%, -50%);
     width: 420px;
     height: 210px;
+}
+
+#grafico2 {
+    max-width: 420px; 
+    height: 210px; 
 }
 
 .containerGrafico3{
@@ -114,14 +126,41 @@ select{
     margin: 15px;
     padding: 15px;
     position: absolute;
-    top: 73%;
+    top: 75%;
     left: 45%;
     transform: translate(-50%, -50%);
     width: 420px;
     height: 210px;
 }
 
+#grafico3 {
+    max-width: 420px; 
+    height: 210px; 
+}
+
 .containerGrafico4{
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 15px;
+    padding: 15px;
+    position: absolute;
+    top: 75%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 210px;
+}
+
+#grafico4 {
+    max-width: 400px; 
+    height: 200px; 
+}
+
+.containerGrafico5{
     display: flex; 
     align-items: center; 
     flex-direction: column; 
@@ -130,33 +169,124 @@ select{
     margin: 15px;
     padding: 15px;
     position: absolute;
-    top: 73%;
-    left: 78%;
+    top: 36%;
+    left: 45%;
     transform: translate(-50%, -50%);
     width: 420px;
     height: 210px;
 }
 
-#grafico1 {
-    max-width: 420px; 
-    height: 210px;
-}
-#grafico2 {
+#grafico5 {
     max-width: 420px; 
     height: 210px; 
 }
 
-#grafico3 {
-    max-width: 420px; 
+.containerGrafico6{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 15px;
+    padding: 15px;
+    position: absolute;
+    top: 75%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 420px;
     height: 210px;
 }
 
-#grafico4 {
+#grafico6 {
+    max-width: 420px; 
+    height: 210px; 
+}
+
+.containerGrafico7{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 15px;
+    padding: 15px;
+    position: absolute;
+    top: 36%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 210px;
+}
+
+#grafico7 {
+    max-width: 420px; 
+    height: 210px; 
+}
+
+.containerGrafico8{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 15px;
+    padding: 15px;
+    position: absolute;
+    top: 75%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 210px;
+}
+
+#grafico8 {
+    max-width: 420px; 
+    height: 210px; 
+}
+
+.containerGrafico9{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 15px;
+    padding: 15px;
+    position: absolute;
+    top: 36%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 210px;
+}
+
+#grafico9 {
+    max-width: 420px; 
+    height: 210px; 
+}
+
+.containerGrafico10{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 15px;
+    padding: 15px;
+    position: absolute;
+    top: 75%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 210px;
+}
+
+#grafico10 {
     max-width: 420px; 
     height: 210px; 
 }
 
 canvas {
-    width: 100% !important; 
-    height: 100% !important; 
+    width: 100%; /* Mantém a largura em porcentagem */
+    height: auto; /* Mantém a altura em proporção */
 }
