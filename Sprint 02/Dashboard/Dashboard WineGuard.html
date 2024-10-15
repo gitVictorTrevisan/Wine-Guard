@@ -9,70 +9,170 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <div id="div_titulo" class="containerTitulo">
-        <h1>Dashboard Wine Guard 🍇</h1>
+        <h2>Dashboard Wine Guard 🍇</h2>
     </div>
 
     <div id="div_select" class="containerSelect">
         <b class="letras">Selecione o Período de Tempo:</b>
-        <select>
-            <option value="agora">Agora</option>
-            <option value="semana">Última Semana</option>
-            <option value="15dias">Últimos 15 dias</option>
-            <option value="30dias">Últimos 30 dias</option>
-            <option value="semestre">Último Semestre</option>
-            <option value="ano">Anual</option>
+
+        <select id="graficoSelect" onchange="mostrarGrafico(this)">
+            <option value="geral">Visão Geral</option>
+            <option value="adega1">Adega 1</option>
+            <option value="adega2">Adega 2</option>
+            <option value="adega3">Adega 3</option>
         </select>
     </div>
 
 
     <div id="div_kpi" class="containerKpi">
-        <b>Temperatura Média: <span style="color: rgb(24, 187, 24);">20.1 ºC</span></b><br>
-        <b>Alertas de Temperatura: <span style="color: red;">1 Alerta</span></b><br>
-        <b>Umidade Média: <span style="color: rgb(24, 187, 24);">65 %</span></b><br>
-        <b>Alertas de Umidade: <span style="color: rgb(24, 187, 24);">0 Alertas</span></b><br>
-        <b>Barricas Alcançadas: <span style="color: cornflowerblue;">40 Barricas</span></b>
+        <b>Temperatura Média: <span id="span1" style="color: rgb(24, 187, 24);"></span></b><br>
+        <b>Alertas de Temperatura: <span id="span2" style="color: red;"></span></b><br>
+        <b>Umidade Média: <span id="span3" style="color: rgb(24, 187, 24);"></span></b><br>
+        <b>Alertas de Umidade: <span id="span4" style="color: rgb(24, 187, 24);"></span></b><br>
+        <b>Barricas Alcançadas: <span id="span5" style="color: cornflowerblue;"></span></b>
     </div>
 
+    <!-- Gráficos: Visão Geral -->
     <div id="div_grafico1" class="containerGrafico1">
-        <div id="grafico1">
-            <canvas id="myChart"></canvas>
-        </div>
+        <canvas id="myChart"></canvas>
     </div>
 
     <div id="div_grafico2" class="containerGrafico2">
-        <div id="grafico2">
-            <canvas id="myChart2"></canvas>
-        </div>
+        <canvas id="myChart2"></canvas>
     </div>
 
     <div id="div_grafico3" class="containerGrafico3">
-        <div id="grafico3">
-            <canvas id="myChart3"></canvas>
-        </div>
+        <canvas id="myChart3"></canvas>
     </div>
 
     <div id="div_grafico4" class="containerGrafico4">
-        <div id="grafico4">
-            <canvas id="myChart4"></canvas>
-        </div>
+        <canvas id="myChart4"></canvas>
+    </div>
+
+
+
+    <!-- Gráficos: Adega1 -->
+    <div id="div_grafico5" class="containerGrafico5">
+        <canvas id="myChart5"></canvas>
+    </div>
+
+    <div id="div_grafico6" class="containerGrafico6">
+        <canvas id="myChart6"></canvas>
+    </div>
+
+    <!-- Gráficos: Adega2 -->
+    <div id="div_grafico7" class="containerGrafico7">
+        <canvas id="myChart7"></canvas>
+    </div>
+
+    <div id="div_grafico8" class="containerGrafico8">
+        <canvas id="myChart8"></canvas>
+    </div>
+
+    <!-- Gráficos: Adega3 -->
+    <div id="div_grafico9" class="containerGrafico9">
+        <canvas id="myChart9"></canvas>
+    </div>
+
+    <div id="div_grafico10" class="containerGrafico10">
+        <canvas id="myChart10"></canvas>
     </div>
 
     <script>
-        // Gráfico 1 ()
+        function mostrarGrafico(selectElement) {
+            document.getElementById('div_grafico1').style.display = 'none'
+            document.getElementById('div_grafico2').style.display = 'none'
+            document.getElementById('div_grafico3').style.display = 'none'
+            document.getElementById('div_grafico4').style.display = 'none'
+
+            document.getElementById('div_grafico5').style.display = 'none'
+            document.getElementById('div_grafico6').style.display = 'none'
+
+            document.getElementById('div_grafico7').style.display = 'none'
+            document.getElementById('div_grafico8').style.display = 'none'
+
+            document.getElementById('div_grafico9').style.display = 'none'
+            document.getElementById('div_grafico10').style.display = 'none'
+
+
+            var valor = selectElement.value
+
+            if (valor === 'geral') {
+                document.getElementById('div_grafico1').style.display = 'block'
+                document.getElementById('div_grafico2').style.display = 'block'
+                document.getElementById('div_grafico3').style.display = 'block'
+                document.getElementById('div_grafico4').style.display = 'block'
+
+                span1.innerHTML = '20.1 ºC'
+                span2.innerHTML = '1 Alerta'
+                span3.innerHTML = '65 %'
+                span4.innerHTML = '0 Alertas'
+                span5.innerHTML = '40 Barricas'
+
+            } else if (valor === 'adega1') {
+                document.getElementById('div_grafico5').style.display = 'block'
+                document.getElementById('div_grafico6').style.display = 'block'
+
+                span1.innerHTML = '28 ºC'
+                span2.innerHTML = '4 Alerta'
+                span3.innerHTML = '75 %'
+                span4.innerHTML = '03 Alertas'
+                span5.innerHTML = '41 Barricas'
+
+            } else if (valor === 'adega2') {
+                document.getElementById('div_grafico7').style.display = 'block'
+                document.getElementById('div_grafico8').style.display = 'block'
+
+                span1.innerHTML = '22.1 ºC'
+                span2.innerHTML = '12 Alerta'
+                span3.innerHTML = '655 %'
+                span4.innerHTML = '01 Alertas'
+                span5.innerHTML = '403 Barricas'
+
+            } else if (valor === 'adega3') {
+                document.getElementById('div_grafico9').style.display = 'block'
+                document.getElementById('div_grafico10').style.display = 'block'
+
+                span1.innerHTML = '20 ºC'
+                span2.innerHTML = '0 Alerta'
+                span3.innerHTML = '635 %'
+                span4.innerHTML = '012 Alertas'
+                span5.innerHTML = '402 Barricas'
+            }
+        }
+
+        // Chamada inicial para exibir os gráficos corretos ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+        mostrarGrafico(document.getElementById('graficoSelect'));
+         });
+    </script>
+
+    <script>
+        // Gráficos: Visão Geral
+
+        // Gráfico 1 
 
         const labels = [
-            '12:00',
-            '13:00',
-            '14:00',
-            '15:00',
-            '16:00',
-            '17:00',
+            'Novembro',
+            'Dezembro',
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro'
         ];
 
         const data = {
@@ -82,19 +182,24 @@
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [30, 29, 28, 25, 22, 23],
-            },
-            {
-                label: 'Umidade',
-                backgroundColor: 'rgb(30, 144, 255)',
-                borderColor: 'rgb(30, 144, 255)',
-                data: [80, 82, 80, 85, 80, 83],
             }]
         };
 
         const config = {
             type: 'line',
             data: data,
-            options: {}
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Média de Temperatura - Últimos 12 meses',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
         };
 
         const myChart = new Chart(
@@ -102,27 +207,27 @@
             config
         );
 
-        // Gráfico 2 ()
+        // Gráfico 2 
 
         const labels2 = [
+            'Novembro',
+            'Dezembro',
             'Janeiro',
             'Fevereiro',
             'Março',
             'Abril',
             'Maio',
             'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro'
         ];
 
 
         const data2 = {
             labels: labels2,
             datasets: [{
-                label: 'Temperatura Média',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [22, 24, 27, 23, 20, 18],
-            },
-            {
                 label: 'Umidade Média',
                 backgroundColor: 'rgb(30, 144, 255)',
                 borderColor: 'rgb(30, 144, 255)',
@@ -131,9 +236,20 @@
             ]
         };
         const config2 = {
-            type: 'bar',
+            type: 'line',
             data: data2,
-            options: {}
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Média de Umidade - Últimos 12 meses',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
         };
 
         const myChart2 = new Chart(
@@ -141,19 +257,145 @@
             config2
         );
 
-        // Gráfico 3 ()
+        // Gráfico 3 
 
         const labels3 = [
-            '12:00',
-            '13:00',
-            '14:00',
-            '15:00',
-            '16:00',
-            '17:00',
+            'Novembro',
+            'Dezembro',
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro'
         ];
 
         const data3 = {
             labels: labels3,
+            datasets: [{
+                label: 'Adega 1',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 0, 1, 0, 2, 0],
+            },
+            {
+                label: 'Adega 2',
+                backgroundColor: 'rgb(30, 144, 255)',
+                borderColor: 'rgb(30, 144, 255)',
+                data: [1, 0, 0, 0, 1, 1],
+            },
+            {
+                label: 'Adega 3',
+                backgroundColor: 'rgb(0, 99, 132)',
+                borderColor: 'rgb(0, 99, 132)',
+                data: [1, 0, 1, 0, 3, 1],
+            }]
+        };
+
+        const config3 = {
+            type: 'bar',
+            data: data3,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Alertas de Variação de Temperatura e Umidade - Últimos 12 meses',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
+        };
+
+        const myChart3 = new Chart(
+            document.getElementById('myChart3'),
+            config3
+        );
+
+
+        // Gráfico 4 
+
+        const labels4 = [
+            'Tintos',
+            'Brancos',
+            'Rosés',
+
+        ];
+
+        const data4 = {
+            labels: labels4,
+            datasets: [{
+                label: 'Tipos de Vinho',
+                data: [50, 30, 20], // Percentuais dos tipos de vinho
+                backgroundColor: [
+                    'rgb(255, 99, 132)', // Cor para vinho tinto
+                    'rgb(30, 144, 255)', // Cor para vinho branco
+                    'rgb(0, 0, 255)'     // Cor para vinho rosé
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(30, 144, 255, 1)',
+                    'rgba(0, 0, 255, 1)'
+                ],
+                // borderWidth: 1
+            }]
+        };
+
+        const config4 = {
+            type: 'pie', // Gráfico de pizza
+            data: data4,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Vinhos Produzidos - Últimos 12 Meses',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
+        };
+
+        const myChart4 = new Chart(
+            document.getElementById('myChart4'),
+            config4
+        );
+
+    </script>
+
+    <script>
+        // Gráficos: Adega 1
+
+        // Gráfico 1 (5)
+        const labels5 = [
+            'Dia 1',
+            'Dia 2',
+            'Dia 3',
+            'Dia 4',
+            'Dia 5',
+            'Dia 6',
+            'Dia 7',
+            'Dia 8',
+            'Dia 9',
+            'Dia 10',
+            'Dia 11',
+            'Dia 12',
+            'Dia 13',
+            'Dia 14',
+            'Dia 15',
+
+        ];
+
+        const data5 = {
+            labels: labels5,
             datasets: [{
                 label: 'Temperatura',
                 backgroundColor: 'rgb(255, 99, 132)',
@@ -168,56 +410,291 @@
             }]
         };
 
-        const config3 = {
+        const config5 = {
             type: 'line',
-            data: data3,
-            options: {}
+            data: data5,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Temperatura e Umidade Média - Últimos 15 dias',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
         };
 
-        const myChart3 = new Chart(
-            document.getElementById('myChart3'),
-            config3
+        const myChart5 = new Chart(
+            document.getElementById('myChart5'),
+            config5
         );
 
+        // Gráfico 2 (6)
 
-        // Gráfico 4 ()
-
-        const labels4 = [
-            'Janeiro',
-            'Fevereiro',
-            'Março',
-            'Abril',
-            'Maio',
-            'Junho',
+        const labels6 = [
+            'Quantidade de alertas',
         ];
 
 
-        const data4 = {
-            labels: labels4,
+        const data6 = {
+            labels: labels6,
             datasets: [{
-                label: 'Temperatura Média',
+                label: 'Temperatura',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: [22, 24, 27, 23, 20, 18],
+                data: [3],
             },
             {
-                label: 'Umidade Média',
+                label: 'Umidade',
                 backgroundColor: 'rgb(30, 144, 255)',
                 borderColor: 'rgb(30, 144, 255)',
-                data: [90, 89, 93, 87, 88, 82],
+                data: [2],
             }
             ]
         };
-        const config4 = {
+        const config6 = {
             type: 'bar',
-            data: data4,
-            options: {}
+            data: data6,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Alertas de Variação de Temperatura e Umidade - Último Semestre',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
         };
 
-        const myChart4 = new Chart(
-            document.getElementById('myChart4'),
-            config4
-        );       
+        const myChart6 = new Chart(
+            document.getElementById('myChart6'),
+            config6
+        );
+
+    </script>
+
+    <script>
+        // Gráficos: Adega 2
+
+        // Gráfico 1 (7)
+        const labels7 = [
+            'Dia 1',
+            'Dia 2',
+            'Dia 3',
+            'Dia 4',
+            'Dia 5',
+            'Dia 6',
+            'Dia 7',
+            'Dia 8',
+            'Dia 9',
+            'Dia 10',
+            'Dia 11',
+            'Dia 12',
+            'Dia 13',
+            'Dia 14',
+            'Dia 15',
+
+        ];
+
+        const data7 = {
+            labels: labels7,
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [30, 29, 28, 25, 22, 23],
+            },
+            {
+                label: 'Umidade',
+                backgroundColor: 'rgb(30, 144, 255)',
+                borderColor: 'rgb(30, 144, 255)',
+                data: [80, 82, 80, 85, 80, 83],
+            }]
+        };
+
+        const config7 = {
+            type: 'line',
+            data: data7,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Temperatura e Umidade Média - Últimos 15 dias',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
+        };
+
+        const myChart7 = new Chart(
+            document.getElementById('myChart7'),
+            config7
+        );
+
+        // Gráfico 2 (8)
+
+        const labels8 = [
+            'Quantidade de alertas',
+        ];
+
+
+        const data8 = {
+            labels: labels8,
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [3],
+            },
+            {
+                label: 'Umidade',
+                backgroundColor: 'rgb(30, 144, 255)',
+                borderColor: 'rgb(30, 144, 255)',
+                data: [2],
+            }
+            ]
+        };
+        const config8 = {
+            type: 'bar',
+            data: data8,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Alertas de Variação de Temperatura e Umidade - Último Semestre',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
+        };
+
+        const myChart8 = new Chart(
+            document.getElementById('myChart8'),
+            config8
+        );
+
+    </script>
+
+    <script>
+        // Gráficos: Adega 3
+
+        // Gráfico 1 (9)
+        const labels9 = [
+            'Dia 1',
+            'Dia 2',
+            'Dia 3',
+            'Dia 4',
+            'Dia 5',
+            'Dia 6',
+            'Dia 7',
+            'Dia 8',
+            'Dia 9',
+            'Dia 10',
+            'Dia 11',
+            'Dia 12',
+            'Dia 13',
+            'Dia 14',
+            'Dia 15',
+
+        ];
+
+        const data9 = {
+            labels: labels9,
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [30, 29, 28, 25, 22, 23],
+            },
+            {
+                label: 'Umidade',
+                backgroundColor: 'rgb(30, 144, 255)',
+                borderColor: 'rgb(30, 144, 255)',
+                data: [80, 82, 80, 85, 80, 83],
+            }]
+        };
+
+        const config9 = {
+            type: 'line',
+            data: data5,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Temperatura e Umidade Média - Últimos 15 dias',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
+        };
+
+        const myChart9 = new Chart(
+            document.getElementById('myChart9'),
+            config9
+        );
+
+        // Gráfico 2 (10)
+
+        const labels10 = [
+            'Quantidade de alertas',
+        ];
+
+
+        const data10 = {
+            labels: labels10,
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [3],
+            },
+            {
+                label: 'Umidade',
+                backgroundColor: 'rgb(30, 144, 255)',
+                borderColor: 'rgb(30, 144, 255)',
+                data: [2],
+            }
+            ]
+        };
+        const config10 = {
+            type: 'bar',
+            data: data10,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Alertas de Variação de Temperatura e Umidade - Último Semestre',
+                        font: {
+                            size: 18,
+                            weight: 'bold',
+                        }
+                    }
+                }
+            }
+        };
+
+        const myChart10 = new Chart(
+            document.getElementById('myChart10'),
+            config10
+        );
+
+
     </script>
 </body>
+
 </html>
