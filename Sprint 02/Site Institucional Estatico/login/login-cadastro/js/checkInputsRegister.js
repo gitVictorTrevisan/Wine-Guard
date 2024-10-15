@@ -6,6 +6,7 @@ var passwordInput = password_input;
 var passwordConfirmInput = password_confirm_input;
 var adviceEmail = invalid_email_message;
 var inputEmailValue = "";
+var adviceMandatoryInputs = mandatory_inputs_message;
 
 function getEmailValue() {
   inputEmailValue = emailInput.value;
@@ -55,23 +56,53 @@ function checkEmail() {
   }
 }
 
+var emailInputIsFilled = false;
+var passwordInputIsFilled = false;
+var passwordConfirmInputIsFilled = false;
+var completeNameInputIsFilled = false;
+
 function checkInputs() {
   if ((completeNameInput.value == "")) {
     completeNameInput.style.borderColor = "#ff0000";
+    completeNameInputIsFilled = false;
   } else {
     completeNameInput.style.borderColor = "#fff";
+    completeNameInputIsFilled = true;
   }
+
   if ((emailInput.value == "")) {
     emailInput.style.borderColor = "#ff0000";
+    emailInputIsFilled = false;
     adviceEmail.style.display = "none";
+  } else {
+    emailInputIsFilled = true;
   }
+
   if ((passwordInput.value == "")) {
     passwordInput.style.borderColor = "#ff0000";
+    passwordInputIsFilled = false;
   } else {
     passwordInput.style.borderColor = "#fff";
+    passwordInputIsFilled = true;
   }
-  if ((passwordConfirmInput.value =="")) {
+
+  if ((passwordConfirmInput.value == "")) {
     passwordConfirmInput.style.borderColor = "#ff0000";
+    passwordConfirmInputIsFilled = false;
+  } else {
+    passwordConfirmInputIsFilled = true;
+  }
+
+  if (
+    completeNameInputIsFilled &&
+    emailInputIsFilled && 
+    passwordInputIsFilled && 
+    passwordConfirmInputIsFilled
+  ) {
+    adviceMandatoryInputs.style.display = "none";
+  } else {
+    adviceMandatoryInputs.innerHTML = "*Preencha os campos";
+    adviceMandatoryInputs.style.display = "block";
   }
 }
 

@@ -84,6 +84,11 @@ main {
   transform: translateY(-30px);
 }
 
+.mandatory-inputs {
+  align-self: flex-start;
+  transform: translateY(5px);
+}
+
 .invalid-password,
 .invalid-email {
   display: none;

@@ -33,7 +33,7 @@
         <div class="form-container">
           <div class="input-container">
             <div class="input">
-              <input type="text" placeholder="Email ou nome de Usuário" />
+              <input type="text" placeholder="Email ou nome de Usuário" id="username_email"/>
               <i class="fa-regular fa-user"></i>
             </div>
             <div class="input">
@@ -45,7 +45,8 @@
           <div class="text forgot-password">
             <a href="#">Esqueceu a senha?</a>
           </div>
-          <button type="button" class="form-button">Entrar</button>
+          <span class="advice mandatory-inputs" id="mandatory_inputs_message"></span>
+          <button onclick="checkInputs()" type="button" class="form-button">Entrar</button>
           <span class="text register"
             >Não é membro ainda? <a href="cadastro.html">Cadastre-se!</a></span
           >
@@ -54,5 +55,6 @@
     </main>
     <script src="./js/script.js"></script>
     <script src="./js/revealHidePassword.js"></script>
+    <script src="./js/checkInputsLogin.js"></script>
   </body>
 </html>

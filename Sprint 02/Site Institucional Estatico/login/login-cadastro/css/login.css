@@ -108,6 +108,7 @@ main {
 .form-container .text.forgot-password {
   align-self: flex-end;
   margin-top: 8px;
+  margin-bottom: 30px;
 }
 
 .form-container .text.forgot-password a {
@@ -119,10 +120,16 @@ main {
   transition: .5s;
 }
 
+.advice {
+  color: #8e44ad;
+  font-size: 0.75rem;
+  align-self: flex-start;
+}
+
 .form-container .form-button {
   width: 100%;
   height: 40px;
-  margin-top: 30px;
+  margin-top: 10px;
   background: none;
   color: #8E44AD;
   font-weight: 800;
