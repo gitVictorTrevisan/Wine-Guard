@@ -18,8 +18,10 @@ function checkInputs() {
     usernameOrEmail.style.borderColor = "#ff0000";
     advice.innerHTML = "*Preencha os campos";
     advice.style.display = "block";
-  } else {
+  } else if (usernameOrEmail.value == "" && passwordInput.value == "") {
     usernameOrEmail.style.borderColor = "#fff";
     advice.style.display = "none";
+  } else {
+    usernameOrEmail.style.borderColor = "#fff";
   }
 }
