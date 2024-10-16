@@ -100,25 +100,35 @@ function check() {
     if (satisfiedConditions === 0) {
       strengthTextIndicator.innerHTML = "Muito fraca";
       strengthVeryWeak.style.display = "block";
-    } else if (satisfiedConditions === 1) {
+    }
+    if (satisfiedConditions === 1) {
       strengthTextIndicator.innerHTML = "Fraca";
       strengthVeryWeak.style.display = "block";
       strengthWeak.style.display = "block";
       console.log("weak");
-    } else if (satisfiedConditions === 2) {
+    } else {
+      strengthWeak.style.display = "none";
+    }
+    if (satisfiedConditions === 2) {
       strengthTextIndicator.innerHTML = "Média";
       strengthVeryWeak.style.display = "block";
       strengthWeak.style.display = "block";
       strengthMean.style.display = "block";
       console.log("medium");
-    } else if (satisfiedConditions === 3) {
+    } else {
+      strengthMean.style.display = "none";
+    }
+    if (satisfiedConditions === 3) {
       strengthTextIndicator.innerHTML = "Forte";
       strengthVeryWeak.style.display = "block";
       strengthWeak.style.display = "block";
       strengthMean.style.display = "block";
       strengthStrong.style.display = "block";
       console.log("strong");
-    } else if (satisfiedConditions === 4) {
+    } else {
+      strengthStrong.style.display = "none";
+    }
+    if (satisfiedConditions === 4) {
       strengthTextIndicator.innerHTML = "Muito forte";
       strengthVeryWeak.style.display = "block";
       strengthWeak.style.display = "block";
@@ -126,6 +136,8 @@ function check() {
       strengthStrong.style.display = "block";
       strengthVeryStrong.style.display = "block";
       console.log("very strong");
+    } else {
+      strengthVeryStrong.style.display = "none";
     }
   } else {
     passwordIndicator.style.display = "none";
