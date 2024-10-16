@@ -129,6 +129,12 @@ function check() {
     }
   } else {
     passwordIndicator.style.display = "none";
+    strengthVeryWeak.style.display = "none";
+    strengthWeak.style.display = "none";
+    strengthMean.style.display = "none";
+    strengthStrong.style.display = "none";
+    strengthVeryStrong.style.display = "none";
+    strengthTextIndicator.innerHTML = "";
   }
   console.log(
     checkEightCharacters,
