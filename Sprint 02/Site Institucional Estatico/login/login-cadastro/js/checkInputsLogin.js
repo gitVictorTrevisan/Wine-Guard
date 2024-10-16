@@ -11,6 +11,7 @@ function checkInputs() {
     advice.style.display = "block";
   } else {
     passwordInput.style.borderColor = "#fff";
+    advice.style.display = "none";
   }
 
   if (usernameOrEmail.value == "") {
@@ -19,5 +20,6 @@ function checkInputs() {
     advice.style.display = "block";
   } else {
     usernameOrEmail.style.borderColor = "#fff";
+    advice.style.display = "none";
   }
 }
