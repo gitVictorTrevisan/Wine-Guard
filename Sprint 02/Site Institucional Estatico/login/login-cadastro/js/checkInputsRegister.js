@@ -15,14 +15,17 @@ function getEmailValue() {
 function checkEmail() {
   var original_text = inputEmailValue;
   var textWithAt = original_text.indexOf("@");
+  var indexOfCom = original_text.indexOf(".com", textWithAt);
+  var domainName = original_text.substring(textWithAt + 1, indexOfCom);
   var textWithUppercase = original_text.toUpperCase();
   var textWithLowercase = original_text.toLowerCase();
-  var simbols = "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?";
+  var symbols = "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?";
   var numbers = "1234567890";
   var endsWithBrOrCom = false;
   var includesAt = false;
-  var startsWithCaracter = false;
+  var startsWithCharacter = false;
   var hasAnyUppercase = false;
+  var hasAProvider = false;
 
   if (original_text.includes("@")) {
     includesAt = true;
@@ -33,13 +36,23 @@ function checkEmail() {
   }
 
   if (textWithAt == 0) {
-    startsWithCaracter = false;
+    startsWithCharacter = false;
     console.log("O email deve comecar com um caracter");
   }
-  if (simbols.includes(original_text[0]) || numbers.includes(original_text[0])) {
-    startsWithCaracter = false;
+
+  if (domainName == "") {
+    hasAProvider = false;
   } else {
-    startsWithCaracter = true;
+    hasAProvider = true;
+  }
+
+  if (
+    symbols.includes(original_text[0]) ||
+    numbers.includes(original_text[0])
+  ) {
+    startsWithCharacter = false;
+  } else {
+    startsWithCharacter = true;
   }
 
   if (original_text.endsWith(".com") || original_text.endsWith(".br")) {
@@ -61,7 +74,13 @@ function checkEmail() {
     console.log("o email não tem letras minúsculas");
   }
 
-  if (includesAt && endsWithBrOrCom && startsWithCaracter && !hasAnyUppercase) {
+  if (
+    includesAt &&
+    endsWithBrOrCom &&
+    startsWithCharacter &&
+    !hasAnyUppercase &&
+    hasAProvider
+  ) {
     emailInput.style.borderColor = "#fff";
     adviceEmail.style.display = "none";
   } else {
