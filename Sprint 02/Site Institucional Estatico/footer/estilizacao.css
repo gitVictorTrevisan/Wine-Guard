@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.footer {
+    background-color: #ECF0F1;
+    width: 100%;
+}
+
+footer .container {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+footer .container ul {
+    width: 25%;
+}
+
+footer .container h4 {
+    width: 269px;
+    height: 45px;
+    top: 7845px;
+    left: 177px;
+    font-family: 'Poppins';
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 40px;
+    display: flex;
+    color: #000000;
+}
+
+footer .container ul {
+    margin-bottom: 40px;
+    width: 230px;
+    height: 189px;
+    top: 7934px;
+    left: 80px;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000000;
+}
+
+footer .container li {
+    list-style-type: none;
+    margin: 30px 0;
+    color: #000000;
+}
+
+.logo {
+    display: inline-table;
+    margin: 20px 10;
+}
+
+footer .container .Social {
+    text-align: center;
+
+}
+
+footer .container img {
+    display: inline;
+    content: '|';
+    margin: 10px;
+}
+
+footer .container .Endereco {
+    width: 244px;
+    height: 42px;
+    top: 7999px;
+    left: 1116px;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+}
