@@ -15,10 +15,13 @@ function getEmailValue() {
 function checkEmail() {
   var original_text = inputEmailValue;
   var textWithAt = original_text.indexOf("@");
+  var textWithUppercase = original_text.toUpperCase();
+  var textWithLowercase = original_text.toLowerCase();
   var simbols = "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?";
   var endsWithBrOrCom = false;
   var includesAt = false;
   var startsWithCaracter = false;
+  var hasAnyUppercase = false;
 
   if (original_text.includes("@")) {
     includesAt = true;
@@ -31,7 +34,7 @@ function checkEmail() {
   if (textWithAt == 0) {
     startsWithCaracter = false;
     console.log("O email deve comecar com um caracter");
-  } 
+  }
   if (simbols.includes(original_text[0])) {
     startsWithCaracter = false;
   } else {
@@ -46,7 +49,18 @@ function checkEmail() {
     console.log("o email não termina com .br ou .com");
   }
 
-  if (includesAt && endsWithBrOrCom && startsWithCaracter) {
+  if (original_text == textWithLowercase) {
+    hasAnyUppercase = false;
+    console.log("o email tem letras minúsculas");
+  } else if (original_text != textWithUppercase) {
+    hasAnyUppercase = true;
+    console.log("o email tem letras maiúsculas");
+  } else {
+    hasAnyUppercase = false;
+    console.log("o email não tem letras minúsculas");
+  }
+
+  if (includesAt && endsWithBrOrCom && startsWithCaracter && !hasAnyUppercase) {
     emailInput.style.borderColor = "#fff";
     adviceEmail.style.display = "none";
   } else {
@@ -62,7 +76,7 @@ var passwordConfirmInputIsFilled = false;
 var completeNameInputIsFilled = false;
 
 function checkInputs() {
-  if ((completeNameInput.value == "")) {
+  if (completeNameInput.value == "") {
     completeNameInput.style.borderColor = "#ff0000";
     completeNameInputIsFilled = false;
   } else {
@@ -70,7 +84,7 @@ function checkInputs() {
     completeNameInputIsFilled = true;
   }
 
-  if ((emailInput.value == "")) {
+  if (emailInput.value == "") {
     emailInput.style.borderColor = "#ff0000";
     emailInputIsFilled = false;
     adviceEmail.style.display = "none";
@@ -78,7 +92,7 @@ function checkInputs() {
     emailInputIsFilled = true;
   }
 
-  if ((passwordInput.value == "")) {
+  if (passwordInput.value == "") {
     passwordInput.style.borderColor = "#ff0000";
     passwordInputIsFilled = false;
   } else {
@@ -86,7 +100,7 @@ function checkInputs() {
     passwordInputIsFilled = true;
   }
 
-  if ((passwordConfirmInput.value == "")) {
+  if (passwordConfirmInput.value == "") {
     passwordConfirmInput.style.borderColor = "#ff0000";
     passwordConfirmInputIsFilled = false;
   } else {
@@ -95,8 +109,8 @@ function checkInputs() {
 
   if (
     completeNameInputIsFilled &&
-    emailInputIsFilled && 
-    passwordInputIsFilled && 
+    emailInputIsFilled &&
+    passwordInputIsFilled &&
     passwordConfirmInputIsFilled
   ) {
     adviceMandatoryInputs.style.display = "none";
