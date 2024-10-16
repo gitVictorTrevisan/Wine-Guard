@@ -53,8 +53,8 @@ function check() {
   }
 
   function hasSpecialCharacter() {
-    const original_text = passwordInput.value;
-    const simbolos = "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?";
+    var original_text = passwordInput.value;
+    var simbolos = "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?";
     var hasAnySpecialCharacter = false;
 
     for (var i = 0; i < original_text.length; i++) {
@@ -67,7 +67,7 @@ function check() {
   }
 
   function hasNumber() {
-    const original_text = passwordInput.value;
+    var original_text = passwordInput.value;
 
     var hasAnyNumber = false;
 
@@ -87,7 +87,7 @@ function check() {
   hasSpecialCharacter();
   hasNumber();
 
-  const value = passwordInput.value.length;
+  var value = passwordInput.value.length;
 
   var satisfiedConditions = 0;
   if (checkEightCharacters) satisfiedConditions++;
