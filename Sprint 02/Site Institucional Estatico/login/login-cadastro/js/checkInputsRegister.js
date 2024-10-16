@@ -18,6 +18,7 @@ function checkEmail() {
   var textWithUppercase = original_text.toUpperCase();
   var textWithLowercase = original_text.toLowerCase();
   var simbols = "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?";
+  var numbers = "1234567890";
   var endsWithBrOrCom = false;
   var includesAt = false;
   var startsWithCaracter = false;
@@ -35,7 +36,7 @@ function checkEmail() {
     startsWithCaracter = false;
     console.log("O email deve comecar com um caracter");
   }
-  if (simbols.includes(original_text[0])) {
+  if (simbols.includes(original_text[0]) || numbers.includes(original_text[0])) {
     startsWithCaracter = false;
   } else {
     startsWithCaracter = true;
