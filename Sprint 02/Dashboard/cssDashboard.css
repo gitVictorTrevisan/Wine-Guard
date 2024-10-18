@@ -16,22 +16,29 @@ body {
 
 .containerTitulo{
     display: flex; 
-    align-items: center; 
-    flex-direction: column;
     background-color: rgba(250, 238, 253, 0.92);
-    border-radius: 15px; 
+    border-radius: 20px; 
     margin: 5px;
     padding: 5px;
-    width: 400px;
+    width: 200px;
+    height: 25px;
     position: absolute;
-    top: 7%;
-    left: 50%;
+    top: 4%;
+    left: 55%;
     transform: translate(-50%, -50%);
-    text-align: center;
     color: rgb(27, 26, 25);
 }
 
-.containerSelect{
+.titulo{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: -55%;
+    left: 27%;
+}
+
+.containerCliente{
     display: flex; 
     align-items: center; 
     flex-direction: column;
@@ -39,104 +46,73 @@ body {
     border-radius: 10px; 
     margin: 5px;
     padding: 5px;
-    width: 300px;
-    height: 90px;
+    width: 250px;
+    height: 700px;
     position: absolute;
-    top: 21%;
-    left: 13%;
+    top: 53%;
+    left: 8%;
     transform: translate(-50%, -50%);
 }
 
-select{
+.botaoVoltar{
     border-radius: 5px;
-    width: 150px;
-    height: 130px;
+    width: 246px;
+    height: 60px;
     align-items: center;
     text-align: center;
     margin-top: 20px;
     font-size: medium;
+    position: absolute;
+    left: 6%;
+    top: -1.5%;
 }
 
-.containerKpi{
-    display: flex; 
-    align-items: flex-start; 
-    flex-direction: column; 
-    background-color: rgba(250, 238, 253, 0.92);
-    border-radius: 10px; 
-    margin: 5px;
-    padding: 15px;
+.imagemUsuario{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    margin-left: 17px;
     position: absolute;
-    top: 60%;
-    left: 13%;
-    transform: translate(-50%, -50%);
-    line-height: 1.6;
-    height: 280px;
+    top: 15%;
+    border-radius: 100px;
+}
+
+.usuario{
+    display: flex;
     text-align: justify;
-    justify-content: center;
-}
-
-.containerGrafico1{
-    display: flex; 
-    align-items: center; 
-    flex-direction: column; 
-    background-color: rgba(250, 238, 253, 0.92);
-    border-radius: 10px; 
-    margin: 15px;
-    padding: 15px;
+    align-self: start;
     position: absolute;
-    top: 36%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    width: 420px;
-    height: 210px;
+    left: 15%;
+    top: 50%;
 }
 
-#grafico1 {
-    max-width: 420px; 
-    height: 210px;
-}
 
-.containerGrafico2{
-    display: flex; 
-    align-items: center; 
-    flex-direction: column; 
+.containerKpi {
+    display: flex;
+    justify-content: center; /* Centraliza os blocos horizontalmente */
+    align-items: flex-start; /* Alinha os blocos no topo */
+    gap: 40px; /* Espaçamento entre os blocos */
     background-color: rgba(250, 238, 253, 0.92);
-    border-radius: 10px; 
-    margin: 15px;
+    border-radius: 12px;
+    margin: 5px auto;
     padding: 15px;
-    position: absolute;
-    top: 36%;
-    left: 80%;
+    width: 77%; /* Define uma largura maior para caber os blocos */
+    max-width: 1200px;
+    height: auto;
+    position: relative;
+    top: 14%;
+    left: 48%;
     transform: translate(-50%, -50%);
-    width: 420px;
-    height: 210px;
 }
 
-#grafico2 {
-    max-width: 420px; 
-    height: 210px; 
+.containerKpi b {
+    display: flex;
+    flex-direction: column; /* Faz a frase e o span ficarem em cima/embaixo */
+    align-items: center; /* Centraliza cada par frase/span */
+    font-size: 15px; /* Tamanho ajustado para leitura */
+    text-align: center; /* Centraliza o texto */
 }
 
-.containerGrafico3{
-    display: flex; 
-    align-items: center; 
-    flex-direction: column; 
-    background-color: rgba(250, 238, 253, 0.92);
-    border-radius: 10px; 
-    margin: 15px;
-    padding: 15px;
-    position: absolute;
-    top: 75%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    width: 420px;
-    height: 210px;
-}
-
-#grafico3 {
-    max-width: 420px; 
-    height: 210px; 
-}
 
 .containerGrafico4{
     display: flex; 
@@ -148,11 +124,11 @@ select{
     margin: 15px;
     padding: 15px;
     position: absolute;
-    top: 75%;
-    left: 80%;
+    top: 78%;
+    left: 57%;
     transform: translate(-50%, -50%);
-    width: 420px;
-    height: 210px;
+    width: 400px;
+    height: 200px;
 }
 
 #grafico4 {
@@ -169,15 +145,15 @@ select{
     margin: 15px;
     padding: 15px;
     position: absolute;
-    top: 36%;
-    left: 45%;
+    top: 40%;
+    left: 38%;
     transform: translate(-50%, -50%);
-    width: 420px;
+    width: 410px;
     height: 210px;
 }
 
 #grafico5 {
-    max-width: 420px; 
+    max-width: 410px; 
     height: 210px; 
 }
 
@@ -190,99 +166,15 @@ select{
     margin: 15px;
     padding: 15px;
     position: absolute;
-    top: 75%;
-    left: 45%;
+    top: 40%;
+    left: 77%;
     transform: translate(-50%, -50%);
-    width: 420px;
+    width: 410px;
     height: 210px;
 }
 
 #grafico6 {
-    max-width: 420px; 
-    height: 210px; 
-}
-
-.containerGrafico7{
-    display: flex; 
-    align-items: center; 
-    flex-direction: column; 
-    background-color: rgba(250, 238, 253, 0.92);
-    border-radius: 10px; 
-    margin: 15px;
-    padding: 15px;
-    position: absolute;
-    top: 36%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    width: 420px;
-    height: 210px;
-}
-
-#grafico7 {
-    max-width: 420px; 
-    height: 210px; 
-}
-
-.containerGrafico8{
-    display: flex; 
-    align-items: center; 
-    flex-direction: column; 
-    background-color: rgba(250, 238, 253, 0.92);
-    border-radius: 10px; 
-    margin: 15px;
-    padding: 15px;
-    position: absolute;
-    top: 75%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    width: 420px;
-    height: 210px;
-}
-
-#grafico8 {
-    max-width: 420px; 
-    height: 210px; 
-}
-
-.containerGrafico9{
-    display: flex; 
-    align-items: center; 
-    flex-direction: column; 
-    background-color: rgba(250, 238, 253, 0.92);
-    border-radius: 10px; 
-    margin: 15px;
-    padding: 15px;
-    position: absolute;
-    top: 36%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    width: 420px;
-    height: 210px;
-}
-
-#grafico9 {
-    max-width: 420px; 
-    height: 210px; 
-}
-
-.containerGrafico10{
-    display: flex; 
-    align-items: center; 
-    flex-direction: column; 
-    background-color: rgba(250, 238, 253, 0.92);
-    border-radius: 10px; 
-    margin: 15px;
-    padding: 15px;
-    position: absolute;
-    top: 75%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    width: 420px;
-    height: 210px;
-}
-
-#grafico10 {
-    max-width: 420px; 
+    max-width: 410px; 
     height: 210px; 
 }
 
