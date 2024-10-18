@@ -5,43 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Wine Guard </title>
-    <link rel="stylesheet" href="cssDashboard.css">
+    <link rel="stylesheet" href="css_Dashboard_WG.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
 
-    <div id="div_titulo" class="containerTitulo">
-        <h2 class="titulo">Adega 1</h2>
-    </div>
-
     <div id="div_select" class="containerCliente">
-       <br> <br>
-       <button class="botaoVoltar"> Voltar</button> <br>
+        <br> <br>
+        <button class="botaoVoltar"> Voltar</button> <br>
 
-        <img class="imagemUsuario" src="https://www.rbsdirect.com.br/imagesrc/26037520.jpg?w=700" alt="">
+        <img class="imagemUsuario"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJl1M60AFI2gEgYm8_1pWdnHpzGZY5qXA4Q&s">
+
         <div class="usuario">
-        Nome: Empresa x <br> <br>
-        email@empresa.com <br> <br>
-        Adega Selecionada : 1<br> <br>
-
+            Nome: Vinícola Bertoletti <br> <br>
+            bertoletti@vinicola.com <br> <br>
+            Adega Selecionada : 1 <br> <br>
         </div>
+
+        <div class="containerNotificacoes">
+            <b>Notificações</b> <br>
+            <div>- Alerta <span class="alerta">Temperatura (33ºC)</span>: 05/10/2024 12:16:01</div> <br>
+            <div>- Alerta <span class="alerta">Umidade (55%)</span>: 03/09/2024 18:33:45</div> <br>
+            <div>- Alerta <span class="alerta">Umidade (81%)</span>: 17/08/2024 13:50:49</div>
+        </div>
+
     </div>
 
 
     <div id="div_kpi" class="containerKpi">
-        <b>Temperatura Atual: <span id="span1" style="color: rgb(24, 187, 24);"></span></b>
-        <b>Umidade Atual: <span id="span3" style="color: rgb(24, 187, 24);"></span></b>
-        <b>Alertas de Temperatura: <span id="span2" style="color: red;"></span></b>
-        <b>Alertas de Umidade: <span id="span4" style="color: rgb(24, 187, 24);"></span></b>
-        <b>Barricas Alcançadas: <span id="span5" style="color: cornflowerblue;"></span></b>
+        <div class="kpiBox">
+            <i class="fas fa-thermometer-half kpiIcon"></i> <!-- Ícone de temperatura -->
+            <b>Temperatura Atual <span id="span1" style="color: rgb(24, 187, 24);"></span></b>
+        </div>
+        <div class="kpiBox">
+            <i class="fas fa-tint kpiIcon"></i> <!-- Ícone de umidade -->
+            <b>Umidade Atual <span id="span3" style="color: rgb(24, 187, 24);"></span></b>
+        </div>
+        <div class="kpiBox">
+            <i class="fas fa-exclamation-triangle kpiIcon"></i> <!-- Ícone de alerta -->
+            <b>Alertas de Temperatura (mês atual) <span id="span2" style="color: red;"></span></b>
+        </div>
+        <div class="kpiBox">
+            <i class="fas fa-exclamation-circle kpiIcon"></i> <!-- Ícone de alerta -->
+            <b>Alertas de Umidade <br>(mês atual) <span id="span4" style="color: rgb(24, 187, 24);"></span></b>
+        </div>
+        <div class="kpiBox">
+            <i class="fas fa-wine-glass-alt kpiIcon"></i> <!-- Ícone de taça de vinho -->
+            <b>Barricas Alcançadas <span id="span5" style="color: cornflowerblue;"></span></b>
+        </div>
     </div>
-    
+
+
     <!-- Gráficos: Adega1 -->
     <div id="div_grafico4" class="containerGrafico4">
         <canvas id="myChart4"></canvas>
@@ -57,48 +81,49 @@
 
     <script>
         // Gráficos: Adega 1
-                span1.innerHTML = '20.1 ºC'
-                span2.innerHTML = '1 Alerta'
-                span3.innerHTML = '65 %'
-                span4.innerHTML = '0 Alertas'
-                span5.innerHTML = '40 Barricas'
-        
-        // Gráfico 4 
+        span1.innerHTML = '20.1 ºC'
+        span2.innerHTML = '1 Alerta'
+        span3.innerHTML = '65 %'
+        span4.innerHTML = '0 Alertas'
+        span5.innerHTML = '40 Barricas'
+
+        // Gráfico 4 (2)
 
         const labels4 = [
-            'Tintos',
-            'Brancos',
-            'Rosés',
+            'Maio',
+            'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro',
 
         ];
 
         const data4 = {
             labels: labels4,
             datasets: [{
-                label: 'Tipos de Vinho',
-                data: [50, 30, 20], // Percentuais dos tipos de vinho
-                backgroundColor: [
-                    'rgb(255, 99, 132)', // Cor para vinho tinto
-                    'rgb(30, 144, 255)', // Cor para vinho branco
-                    'rgb(0, 0, 255)'     // Cor para vinho rosé
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(30, 144, 255, 1)',
-                    'rgba(0, 0, 255, 1)'
-                ],
-                // borderWidth: 1
+                label: 'Temperatura',
+                backgroundColor: 'rgb(252, 146, 59, 0.8)',
+                borderColor: 'rgb(252, 146, 59, 0.8)',
+                data: [30, 29, 28, 25, 22, 23],
+            },
+            {
+                label: 'Umidade',
+                backgroundColor: 'rgb(20, 77, 134, 0.8)',
+                borderColor: 'rgb(20, 77, 134, 0.8)',
+                data: [80, 82, 80, 85, 80, 83],
             }]
         };
 
+
         const config4 = {
-            type: 'pie', // Gráfico de pizza
+            type: 'line',
             data: data4,
             options: {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Vinhos Produzidos - Últimos 12 Meses',
+                        text: 'Temperatura e Umidade Média - Últimos 6 meses',
                         font: {
                             size: 18,
                             weight: 'bold',
@@ -113,7 +138,7 @@
             config4
         );
 
-        // Gráfico 1 (5)
+        // Gráfico 5 (1)
         const labels5 = [
             'Dia 1',
             'Dia 2',
@@ -130,22 +155,21 @@
             'Dia 13',
             'Dia 14',
             'Dia 15',
-
         ];
 
         const data5 = {
             labels: labels5,
             datasets: [{
                 label: 'Temperatura',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [30, 29, 28, 25, 22, 23],
+                backgroundColor: 'rgba(252, 146, 59, 0.8)',
+                borderColor: 'rgba(252, 146, 59, 0.8)',
+                data: [26, 31, 21, 25, 22, 23, 21, 18, 22, 21, 23, 20, 24, 25, 22],
             },
             {
                 label: 'Umidade',
-                backgroundColor: 'rgb(30, 144, 255)',
-                borderColor: 'rgb(30, 144, 255)',
-                data: [80, 82, 80, 85, 80, 83],
+                backgroundColor: 'rgb(20, 77, 134, 0.8)',
+                borderColor: 'rgb(20, 77, 134, 0.8)',
+                data: [80, 78, 77, 67, 71, 72, 76, 72, 68, 65, 66, 72, 72, 74, 71],
             }]
         };
 
@@ -171,7 +195,7 @@
             config5
         );
 
-        // Gráfico 2 (6)
+        // Gráfico 6 (3)
 
         const labels6 = [
             'Quantidade de alertas',
@@ -182,14 +206,14 @@
             labels: labels6,
             datasets: [{
                 label: 'Temperatura',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgb(252, 146, 59, 0.8)',
+                borderColor: 'rgb(252, 146, 59, 0.8)',
                 data: [3],
             },
             {
                 label: 'Umidade',
-                backgroundColor: 'rgb(30, 144, 255)',
-                borderColor: 'rgb(30, 144, 255)',
+                backgroundColor: 'rgb(20, 77, 134, 0.8)',
+                borderColor: 'rgb(20, 77, 134, 0.8)',
                 data: [2],
             }
             ]
@@ -201,7 +225,7 @@
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Alertas de Variação de Temperatura e Umidade - Último Semestre',
+                        text: 'Alertas de Variação de Temperatura e Umidade - Últimos 6 meses',
                         font: {
                             size: 18,
                             weight: 'bold',

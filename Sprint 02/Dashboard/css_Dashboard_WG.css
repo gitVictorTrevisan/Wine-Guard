@@ -1,0 +1,259 @@
+body {
+    background: linear-gradient(to bottom, #6a2588, #8a47a8) no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.letras {
+    color:rgb(27, 26, 25);
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    font-weight: 600;
+}
+
+.containerTitulo{
+    display: flex; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 20px; 
+    margin: 5px;
+    padding: 5px;
+    width: 200px;
+    height: 25px;
+    position: absolute;
+    top: 4%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    color: rgb(27, 26, 25);
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: -55%;
+    left: 27%;
+    font-weight: 600;
+}
+
+.containerCliente{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column;
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 5px;
+    padding: 5px;
+    width: 250px;
+    height: 830px;
+    position: absolute;
+    top: 53%;
+    left: 8%;
+    transform: translate(-50%, -50%);
+}
+
+.botaoVoltar{
+    border-radius: 6px;
+    width: 246px;
+    height: 60px;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    font-size: medium;
+    position: absolute;
+    left: 6%;
+    top: -1.5%;
+
+    background-color: #9c12d9;
+    color: white;
+    border: none;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoVoltar:hover {
+    background-color: #6b0099;
+}
+
+.imagemUsuario{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    object-fit: cover;
+    margin-left: 17px;
+    position: absolute;
+    top: 15%;
+    border-radius: 100px;
+}
+
+.usuario{
+    display: flex;
+    text-align: justify;
+    align-self: start;
+    position: absolute;
+    left: 15%;
+    top: 42%;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.containerNotificacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    position: absolute;
+    left: 7.5%;
+    top: 60%;
+    background-color: aliceblue;
+    border-radius: 7px;
+    height: 220px;
+    width: 218px;
+    margin: 10px;
+    font-weight: 500; 
+    font-size: 13px;
+    padding: 10px; /* Adiciona espaçamento interno */
+    box-sizing: border-box; /* Faz com que o padding seja incluído na largura total */
+    line-height: 1.5; /* Para melhor espaçamento entre as linhas */
+}
+
+.alerta {
+    font-weight: 700;
+    color: rgb(177, 26, 26);
+    display: inline; /* Garante que a span não quebre a linha */
+}
+
+.containerKpi b {
+    display: flex;
+    flex-direction: column; /* Faz a frase e o span ficarem em cima/embaixo */
+    align-items: center; /* Centraliza cada par frase/span */
+    font-size: 16px; /* Tamanho ajustado para leitura */
+    text-align: center; /* Centraliza o texto */
+    font-weight: 650;
+}
+
+.containerKpi {
+    display: flex;
+    justify-content: space-around; /* Espaçamento entre os KPIs */
+    align-items: center;
+    gap: 50px; /* Espaço entre as caixas */
+    background-color: rgba(253, 244, 255, 0.89);
+    border-radius: 12px;
+    margin: 5px auto;
+    padding: 20px;
+    width: 77%;
+    max-width: 1200px;
+    height: 14.5%;
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.kpiBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white; /* Cor de fundo da caixa */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    padding: 20px;
+    width: 155px; /* Largura de cada caixa */
+    height: 79px; /* Altura de cada caixa */
+    text-align: center;
+    gap: 10px; /* Espaço entre ícone e texto */
+}
+
+.kpiIcon {
+    font-size: 25px; /* Tamanho do ícone */
+    color: #6a2588; /* Cor do ícone (pode ser ajustada) */
+}
+
+.kpiBox b {
+    font-weight: 500;
+    font-size: 13.5px;
+}
+
+.containerGrafico4{
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 20px;
+    padding: 15px;
+    position: absolute;
+    top: 40%;
+    left: 77%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+}
+
+#grafico4 {
+    max-width: 400px; 
+    height: 200px; 
+}
+
+.containerGrafico5{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 20px;
+    padding: 15px;
+    position: absolute;
+    top: 40%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+}
+
+#grafico5 {
+    max-width: 400px; 
+    height: 200px; 
+}
+
+.containerGrafico6{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    background-color: rgba(250, 238, 253, 0.92);
+    border-radius: 10px; 
+    margin: 20px;
+    padding: 15px;
+    position: absolute;
+    top: 78%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+}
+
+#grafico6 {
+    max-width: 410px; 
+    height: 210px; 
+}
+
+canvas {
+    width: 100%; /* Mantém a largura em porcentagem */
+    height: auto; /* Mantém a altura em proporção */
+}
+
+
+/* Melhorar responsividade */
+
+@media (max-width: 768px) {
+    .containerGrafico4, .containerGrafico5, .containerGrafico6 {
+        width: 90%;
+        height: auto;
+    }
+}
