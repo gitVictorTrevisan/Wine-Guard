@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Wine Guard </title>
+    <title>Dashboard - Adega 3</title>
     <link rel="stylesheet" href="css_Dashboard_WG.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 
 <body>
@@ -29,14 +28,14 @@
         <div class="usuario">
             Nome: Vinícola Bertoletti <br> <br>
             bertoletti@vinicola.com <br> <br>
-            Adega Selecionada : 1 <br> <br>
+            Adega Selecionada : 3 <br> <br>
         </div>
 
         <div class="containerNotificacoes">
             <b>Notificações</b> <br>
-            <div>- Alerta <span class="alerta">Temperatura (33ºC)</span>: 05/10/2024 12:16:01</div> <br>
-            <div>- Alerta <span class="alerta">Umidade (55%)</span>: 03/09/2024 18:33:45</div> <br>
-            <div>- Alerta <span class="alerta">Umidade (81%)</span>: 17/08/2024 13:50:49</div>
+            <div>- Alerta <span class="alerta">Temperatura (30ºC)</span>: 15/10/2024 14:50:01</div> <br>
+            <div>- Alerta <span class="alerta">Umidade (66%)</span>: 12/10/2024 17:22:45</div> <br>
+            <div>- Alerta <span class="alerta">Temperatura (29ºC)</span>: 09/10/2024 09:30:49</div>
         </div>
 
     </div>
@@ -66,7 +65,7 @@
     </div>
 
 
-    <!-- Gráficos: Adega1 -->
+    <!-- Gráficos: Adega 3 -->
     <div id="div_grafico4" class="containerGrafico4">
         <canvas id="myChart4"></canvas>
     </div>
@@ -80,14 +79,14 @@
     </div>
 
     <script>
-        // Gráficos: Adega 1
-        span1.innerHTML = '20.1 ºC'
-        span2.innerHTML = '1 Alerta'
-        span3.innerHTML = '65 %'
-        span4.innerHTML = '0 Alertas'
-        span5.innerHTML = '40 Barricas'
+        // Gráficos: Adega 3
+        span1.innerHTML = '19.5 ºC'
+        span2.innerHTML = '3 Alertas'
+        span3.innerHTML = '70 %'
+        span4.innerHTML = '2 Alertas'
+        span5.innerHTML = '30 Barricas'
 
-        // Gráfico 4 (2)
+        // Gráfico 4 (Adega 3 - Últimos 6 meses)
 
         const labels4 = [
             'Maio',
@@ -96,7 +95,6 @@
             'Agosto',
             'Setembro',
             'Outubro',
-
         ];
 
         const data4 = {
@@ -105,16 +103,15 @@
                 label: 'Temperatura',
                 backgroundColor: 'rgb(252, 146, 59, 0.8)',
                 borderColor: 'rgb(252, 146, 59, 0.8)',
-                data: [30, 29, 28, 25, 22, 23],
+                data: [29, 28, 26, 24, 23, 22],
             },
             {
                 label: 'Umidade',
                 backgroundColor: 'rgb(20, 77, 134, 0.8)',
                 borderColor: 'rgb(20, 77, 134, 0.8)',
-                data: [80, 82, 80, 85, 80, 83],
+                data: [78, 76, 75, 77, 72, 70],
             }]
         };
-
 
         const config4 = {
             type: 'line',
@@ -138,7 +135,7 @@
             config4
         );
 
-        // Gráfico 5 (1)
+        // Gráfico 5 (Adega 3 - Últimos 15 dias)
         const labels5 = [
             'Dia 1',
             'Dia 2',
@@ -163,13 +160,13 @@
                 label: 'Temperatura',
                 backgroundColor: 'rgba(252, 146, 59, 0.8)',
                 borderColor: 'rgba(252, 146, 59, 0.8)',
-                data: [26, 31, 21, 25, 22, 23, 21, 18, 22, 21, 23, 20, 24, 25, 22],
+                data: [24, 25, 23, 22, 21, 22, 23, 21, 29, 25, 23, 21, 22, 24, 30],
             },
             {
                 label: 'Umidade',
                 backgroundColor: 'rgb(20, 77, 134, 0.8)',
                 borderColor: 'rgb(20, 77, 134, 0.8)',
-                data: [80, 78, 77, 67, 71, 72, 76, 72, 68, 65, 66, 72, 72, 74, 71],
+                data: [72, 71, 70, 73, 75, 74, 73, 72, 74, 73, 71, 66, 72, 71, 73],
             }]
         };
 
@@ -195,12 +192,10 @@
             config5
         );
 
-        // Gráfico 6 (3)
-
+        // Gráfico 6 (Adega 3 - Alertas)
         const labels6 = [
             'Quantidade de alertas',
         ];
-
 
         const data6 = {
             labels: labels6,
@@ -208,16 +203,16 @@
                 label: 'Temperatura',
                 backgroundColor: 'rgb(252, 146, 59, 0.8)',
                 borderColor: 'rgb(252, 146, 59, 0.8)',
-                data: [3],
+                data: [5],
             },
             {
                 label: 'Umidade',
                 backgroundColor: 'rgb(20, 77, 134, 0.8)',
                 borderColor: 'rgb(20, 77, 134, 0.8)',
-                data: [2],
-            }
-            ]
+                data: [3],
+            }]
         };
+
         const config6 = {
             type: 'bar',
             data: data6,
@@ -231,7 +226,7 @@
                             weight: 'bold',
                         }
                     }
-                }
+                },
             }
         };
 
@@ -239,7 +234,6 @@
             document.getElementById('myChart6'),
             config6
         );
-
     </script>
 </body>
 
