@@ -1,240 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Adega 3</title>
-    <link rel="stylesheet" href="css_Dashboard_WG.css">
+    <link rel="stylesheet" href="css_Dashboard_WG.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
 
-<body>
-
+  <body>
     <div id="div_select" class="containerCliente">
-        <br> <br>
-        <button class="botaoVoltar"> Voltar</button> <br>
+      <br />
+      <br />
+      <a href="../../../../home-dashes/index.html">
+        <button class="botaoVoltar">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+      </a>
+      <br />
 
-        <img class="imagemUsuario"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJl1M60AFI2gEgYm8_1pWdnHpzGZY5qXA4Q&s">
+      <img
+        class="imagemUsuario"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJl1M60AFI2gEgYm8_1pWdnHpzGZY5qXA4Q&s"
+      />
 
-        <div class="usuario">
-            Nome: Vinícola Bertoletti <br> <br>
-            bertoletti@vinicola.com <br> <br>
-            Adega Selecionada : 3 <br> <br>
+      <div class="usuario">
+        Nome: Vinícola Bertoletti <br />
+        <br />
+        bertoletti@vinicola.com <br />
+        <br />
+        Adega Selecionada : 3 <br />
+        <br />
+      </div>
+
+      <div class="containerNotificacoes">
+        <b>Notificações</b> <br />
+        <div>
+          - Alerta <span class="alerta">Temperatura (30ºC)</span>: 15/10/2024
+          14:50:01
         </div>
-
-        <div class="containerNotificacoes">
-            <b>Notificações</b> <br>
-            <div>- Alerta <span class="alerta">Temperatura (30ºC)</span>: 15/10/2024 14:50:01</div> <br>
-            <div>- Alerta <span class="alerta">Umidade (66%)</span>: 12/10/2024 17:22:45</div> <br>
-            <div>- Alerta <span class="alerta">Temperatura (29ºC)</span>: 09/10/2024 09:30:49</div>
+        <br />
+        <div>
+          - Alerta <span class="alerta">Umidade (66%)</span>: 12/10/2024
+          17:22:45
         </div>
-
+        <br />
+        <div>
+          - Alerta <span class="alerta">Temperatura (29ºC)</span>: 09/10/2024
+          09:30:49
+        </div>
+      </div>
     </div>
-
 
     <div id="div_kpi" class="containerKpi">
-        <div class="kpiBox">
-            <i class="fas fa-thermometer-half kpiIcon"></i> <!-- Ícone de temperatura -->
-            <b>Temperatura Atual <span id="span1" style="color: rgb(24, 187, 24);"></span></b>
-        </div>
-        <div class="kpiBox">
-            <i class="fas fa-tint kpiIcon"></i> <!-- Ícone de umidade -->
-            <b>Umidade Atual <span id="span3" style="color: rgb(24, 187, 24);"></span></b>
-        </div>
-        <div class="kpiBox">
-            <i class="fas fa-exclamation-triangle kpiIcon"></i> <!-- Ícone de alerta -->
-            <b>Alertas de Temperatura (mês atual) <span id="span2" style="color: red;"></span></b>
-        </div>
-        <div class="kpiBox">
-            <i class="fas fa-exclamation-circle kpiIcon"></i> <!-- Ícone de alerta -->
-            <b>Alertas de Umidade <br>(mês atual) <span id="span4" style="color: rgb(24, 187, 24);"></span></b>
-        </div>
-        <div class="kpiBox">
-            <i class="fas fa-wine-glass-alt kpiIcon"></i> <!-- Ícone de taça de vinho -->
-            <b>Barricas Alcançadas <span id="span5" style="color: cornflowerblue;"></span></b>
-        </div>
+      <div class="kpiBox">
+        <i class="fas fa-thermometer-half kpiIcon"></i>
+        <!-- Ícone de temperatura -->
+        <b
+          >Temperatura Atual
+          <span id="span1" style="color: rgb(24, 187, 24)"></span
+        ></b>
+      </div>
+      <div class="kpiBox">
+        <i class="fas fa-tint kpiIcon"></i>
+        <!-- Ícone de umidade -->
+        <b
+          >Umidade Atual <span id="span3" style="color: rgb(24, 187, 24)"></span
+        ></b>
+      </div>
+      <div class="kpiBox">
+        <i class="fas fa-exclamation-triangle kpiIcon"></i>
+        <!-- Ícone de alerta -->
+        <b
+          >Alertas de Temperatura no mês
+          <span id="span2" style="color: red"></span
+        ></b>
+      </div>
+      <div class="kpiBox">
+        <i class="fas fa-exclamation-circle kpiIcon"></i>
+        <!-- Ícone de alerta -->
+        <b
+          >Alertas de Umidade no mês
+          <span id="span4" style="color: rgb(24, 187, 24)"></span
+        ></b>
+      </div>
+      <div class="kpiBox">
+        <i class="fas fa-wine-glass-alt kpiIcon"></i>
+        <!-- Ícone de taça de vinho -->
+        <b
+          >Barricas Alcançadas
+          <span id="span5" style="color: cornflowerblue"></span
+        ></b>
+      </div>
     </div>
-
 
     <!-- Gráficos: Adega 3 -->
     <div id="div_grafico4" class="containerGrafico4">
-        <canvas id="myChart4"></canvas>
+      <canvas id="myChart4"></canvas>
     </div>
 
     <div id="div_grafico5" class="containerGrafico5">
-        <canvas id="myChart5"></canvas>
+      <canvas id="myChart5"></canvas>
     </div>
 
     <div id="div_grafico6" class="containerGrafico6">
-        <canvas id="myChart6"></canvas>
+      <canvas id="myChart6"></canvas>
     </div>
 
     <script>
-        // Gráficos: Adega 3
-        span1.innerHTML = '19.5 ºC'
-        span2.innerHTML = '3 Alertas'
-        span3.innerHTML = '70 %'
-        span4.innerHTML = '2 Alertas'
-        span5.innerHTML = '30 Barricas'
+      // Gráficos: Adega 3
+      span1.innerHTML = "19.5 ºC";
+      span2.innerHTML = "3 Alertas";
+      span3.innerHTML = "70 %";
+      span4.innerHTML = "2 Alertas";
+      span5.innerHTML = "30 Barricas";
 
-        // Gráfico 4 (Adega 3 - Últimos 6 meses)
+      // Gráfico 4 (Adega 3 - Últimos 6 meses)
 
-        const labels4 = [
-            'Maio',
-            'Junho',
-            'Julho',
-            'Agosto',
-            'Setembro',
-            'Outubro',
-        ];
+      const labels4 = [
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+      ];
 
-        const data4 = {
-            labels: labels4,
-            datasets: [{
-                label: 'Temperatura',
-                backgroundColor: 'rgb(252, 146, 59, 0.8)',
-                borderColor: 'rgb(252, 146, 59, 0.8)',
-                data: [29, 28, 26, 24, 23, 22],
+      const data4 = {
+        labels: labels4,
+        datasets: [
+          {
+            label: "Temperatura",
+            backgroundColor: "#8E44AD",
+            borderColor: "#8E44AD",
+            data: [29, 28, 26, 24, 23, 22],
+          },
+          {
+            label: "Umidade",
+            backgroundColor: "#ffb6c1",
+            borderColor: "#ffb6c1",
+            data: [78, 76, 75, 77, 72, 70],
+          },
+        ],
+      };
+
+      const config4 = {
+        type: "line",
+        data: data4,
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: "Temperatura e Umidade Média - Últimos 6 meses",
+              font: {
+                size: 18,
+                weight: "bold",
+              },
+              color: "#fff",
             },
-            {
-                label: 'Umidade',
-                backgroundColor: 'rgb(20, 77, 134, 0.8)',
-                borderColor: 'rgb(20, 77, 134, 0.8)',
-                data: [78, 76, 75, 77, 72, 70],
-            }]
-        };
-
-        const config4 = {
-            type: 'line',
-            data: data4,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Temperatura e Umidade Média - Últimos 6 meses',
-                        font: {
-                            size: 18,
-                            weight: 'bold',
-                        }
-                    }
-                }
-            }
-        };
-
-        const myChart4 = new Chart(
-            document.getElementById('myChart4'),
-            config4
-        );
-
-        // Gráfico 5 (Adega 3 - Últimos 15 dias)
-        const labels5 = [
-            'Dia 1',
-            'Dia 2',
-            'Dia 3',
-            'Dia 4',
-            'Dia 5',
-            'Dia 6',
-            'Dia 7',
-            'Dia 8',
-            'Dia 9',
-            'Dia 10',
-            'Dia 11',
-            'Dia 12',
-            'Dia 13',
-            'Dia 14',
-            'Dia 15',
-        ];
-
-        const data5 = {
-            labels: labels5,
-            datasets: [{
-                label: 'Temperatura',
-                backgroundColor: 'rgba(252, 146, 59, 0.8)',
-                borderColor: 'rgba(252, 146, 59, 0.8)',
-                data: [24, 25, 23, 22, 21, 22, 23, 21, 29, 25, 23, 21, 22, 24, 30],
+            legend: {
+              labels: {
+                color: "#fff",
+              },
             },
-            {
-                label: 'Umidade',
-                backgroundColor: 'rgb(20, 77, 134, 0.8)',
-                borderColor: 'rgb(20, 77, 134, 0.8)',
-                data: [72, 71, 70, 73, 75, 74, 73, 72, 74, 73, 71, 66, 72, 71, 73],
-            }]
-        };
-
-        const config5 = {
-            type: 'line',
-            data: data5,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Temperatura e Umidade Média - Últimos 15 dias',
-                        font: {
-                            size: 18,
-                            weight: 'bold',
-                        }
-                    }
-                }
-            }
-        };
-
-        const myChart5 = new Chart(
-            document.getElementById('myChart5'),
-            config5
-        );
-
-        // Gráfico 6 (Adega 3 - Alertas)
-        const labels6 = [
-            'Quantidade de alertas',
-        ];
-
-        const data6 = {
-            labels: labels6,
-            datasets: [{
-                label: 'Temperatura',
-                backgroundColor: 'rgb(252, 146, 59, 0.8)',
-                borderColor: 'rgb(252, 146, 59, 0.8)',
-                data: [5],
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#fff",
+              },
             },
-            {
-                label: 'Umidade',
-                backgroundColor: 'rgb(20, 77, 134, 0.8)',
-                borderColor: 'rgb(20, 77, 134, 0.8)',
-                data: [3],
-            }]
-        };
+            y: {
+              ticks: {
+                color: "#fff",
+              },
+            },
+          },
+        },
+      };
 
-        const config6 = {
-            type: 'bar',
-            data: data6,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Alertas de Variação de Temperatura e Umidade - Últimos 6 meses',
-                        font: {
-                            size: 18,
-                            weight: 'bold',
-                        }
-                    }
-                },
-            }
-        };
+      const myChart4 = new Chart(document.getElementById("myChart4"), config4);
 
-        const myChart6 = new Chart(
-            document.getElementById('myChart6'),
-            config6
-        );
+      // Gráfico 5 (Adega 3 - Últimos 15 dias)
+      const labels5 = [
+        "Dia 1",
+        "Dia 2",
+        "Dia 3",
+        "Dia 4",
+        "Dia 5",
+        "Dia 6",
+        "Dia 7",
+        "Dia 8",
+        "Dia 9",
+        "Dia 10",
+        "Dia 11",
+        "Dia 12",
+        "Dia 13",
+        "Dia 14",
+        "Dia 15",
+      ];
+
+      const data5 = {
+        labels: labels5,
+        datasets: [
+          {
+            label: "Temperatura",
+            backgroundColor: "#8E44AD",
+            borderColor: "#8E44AD",
+            data: [24, 25, 23, 22, 21, 22, 23, 21, 29, 25, 23, 21, 22, 24, 30],
+          },
+          {
+            label: "Umidade",
+            backgroundColor: "#ffb6c1",
+            borderColor: "#ffb6c1",
+            data: [72, 71, 70, 73, 75, 74, 73, 72, 74, 73, 71, 66, 72, 71, 73],
+          },
+        ],
+      };
+
+      const config5 = {
+        type: "line",
+        data: data5,
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: "Temperatura e Umidade Média - Últimos 15 dias",
+              font: {
+                size: 18,
+                weight: "bold",
+              },
+              color: "#fff",
+            },
+            legend: {
+              labels: {
+                color: "#fff",
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#fff",
+              },
+            },
+            y: {
+              ticks: {
+                color: "#fff",
+              },
+            },
+          },
+        },
+      };
+
+      const myChart5 = new Chart(document.getElementById("myChart5"), config5);
+
+      // Gráfico 6 (Adega 3 - Alertas)
+      const labels6 = ["Quantidade de alertas"];
+
+      const data6 = {
+        labels: labels6,
+        datasets: [
+          {
+            label: "Temperatura",
+            backgroundColor: "#8E44AD",
+            borderColor: "#8E44AD",
+            data: [5],
+          },
+          {
+            label: "Umidade",
+            backgroundColor: "#ffb6c1",
+            borderColor: "#ffb6c1",
+            data: [3],
+          },
+        ],
+      };
+
+      const config6 = {
+        type: "bar",
+        data: data6,
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: "Alertas de Variação de Temperatura e Umidade - Últimos 6 meses",
+              font: {
+                size: 18,
+                weight: "bold",
+              },
+              color: "#fff",
+            },
+            legend: {
+              labels: {
+                color: "#fff",
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#fff",
+              },
+            },
+            y: {
+              ticks: {
+                color: "#fff",
+              },
+            },
+          },
+        },
+      };
+
+      const myChart6 = new Chart(document.getElementById("myChart6"), config6);
     </script>
-</body>
-
+  </body>
 </html>
