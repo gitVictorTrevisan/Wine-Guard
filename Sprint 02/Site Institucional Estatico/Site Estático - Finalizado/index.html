@@ -328,11 +328,20 @@
 </body>
 
 </html>
-
+    
 <script>
+    input_qtdBarricas.value = "";
+    input_litragemBarrica.value = "";
+    input_capacidadeGarrafa.value = "";
+    input_precoDeVendaGarrafa.value = "";
+    input_porcentagemPerda.value = "";
+    input_periodoDeProducao.value = "";
+
     function calcular() {
         var qtdBarricas = Number(input_qtdBarricas.value);
+        
         var litragemBarrica = Number(input_litragemBarrica.value);
+        
         var litragemGarrafa = Number(input_capacidadeGarrafa.value);
         var precoDeVendaGarrafa = Number(input_precoDeVendaGarrafa.value);
         var porcentagemPerda = Number(input_porcentagemPerda.value);
