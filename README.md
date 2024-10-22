@@ -9,11 +9,11 @@
 
 # ✒️ Autores
 
-  • [Danilo Silva](https://github.com/DaniloOliveir) <br>
+  • [Danilo Oliveira](https://github.com/DaniloOliveir) <br>
   • [Gabriel Silva](https://github.com/bielbsilva) <br>
   • [Julia Kim](https://github.com/juliakim05) <br>
   • [Nicolas Coelho](https://github.com/NiCoelho-tech) <br>
-  • [Rayra Galvao](https://github.com/rayragalvao) <br>
+  • [Rayra Galvão](https://github.com/rayragalvao) <br>
   • [Victor Trevisan](https://github.com/gitVictorTrevisan) <br>
 
   
