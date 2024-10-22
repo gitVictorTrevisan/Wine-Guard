@@ -403,8 +403,7 @@ content:''}
 
 .box_diagrama {
     background: linear-gradient(145deg, #e0e0e0, #eeecec);
-    box-shadow: 20px 20px 60px #858ac4,
-        -20px -20px 60px #7377a0;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
         border-radius: 25px;
     display: flex;
     flex-direction: column-reverse;
