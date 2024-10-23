@@ -47,17 +47,17 @@
       <div class="containerNotificacoes">
         <b>Notificações</b> <br />
         <div>
-          - Alerta <span class="alerta">Temperatura (30ºC)</span>: 15/10/2024
+          - Alerta <span class="alerta">Temperatura (21ºC)</span>: 15/10/2024
           14:50:01
         </div>
         <br />
         <div>
-          - Alerta <span class="alerta">Umidade (66%)</span>: 12/10/2024
+          - Alerta <span class="alerta">Umidade (64%)</span>: 12/10/2024
           17:22:45
         </div>
         <br />
         <div>
-          - Alerta <span class="alerta">Temperatura (29ºC)</span>: 09/10/2024
+          - Alerta <span class="alerta">Temperatura (21.5ºC)</span>: 09/10/2024
           09:30:49
         </div>
       </div>
@@ -96,12 +96,11 @@
         ></b>
       </div>
       <div class="kpiBox">
-        <i class="fas fa-wine-glass-alt kpiIcon"></i>
-        <!-- Ícone de taça de vinho -->
         <b
-          >Barricas Alcançadas
-          <span id="span5" style="color: cornflowerblue"></span
-        ></b>
+          >Temperatura Ideal: <span style="color: green">18ºC - 20°C </span
+          ><br />
+          Umidade Ideal: <span style="color: green">65% - 80%</span>
+        </b>
       </div>
     </div>
 
@@ -124,7 +123,6 @@
       span2.innerHTML = "3 Alertas";
       span3.innerHTML = "70 %";
       span4.innerHTML = "2 Alertas";
-      span5.innerHTML = "30 Barricas";
 
       // Gráfico 4 (Adega 3 - Últimos 6 meses)
 
@@ -229,13 +227,13 @@
             label: "Temperatura",
             backgroundColor: "#8E44AD",
             borderColor: "#8E44AD",
-            data: [24, 25, 23, 22, 21, 22, 23, 21, 29, 25, 23, 21, 22, 24, 30],
+            data: [18, 19, 20, 18, 19, 20, 18, 19, 21.5, 18, 19, 20, 18, 19, 21],
           },
           {
             label: "Umidade",
             backgroundColor: "#ffb6c1",
             borderColor: "#ffb6c1",
-            data: [72, 71, 70, 73, 75, 74, 73, 72, 74, 73, 71, 66, 72, 71, 73],
+            data: [72, 71, 70, 73, 75, 74, 73, 72, 74, 73, 71, 64, 72, 71, 73],
           },
         ],
       };
