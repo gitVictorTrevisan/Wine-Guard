@@ -38,12 +38,12 @@ body {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 250px;
-    min-height: 100%;
+    min-height: 155%;
     position: absolute;
     top: 0;
     left: 0;
     color: #000;
-    gap: 32px;
+    gap: 78px;
   }
 
 .botaoVoltar{
@@ -171,17 +171,16 @@ body {
     margin: 20px;
     padding: 15px;
     position: absolute;
-    top: 40%;
-    left: 77%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 200px;
+    top: 90%;
+    left: 20%;
+    width: 500px;
+    height: 400px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #grafico4 {
-    max-width: 400px; 
-    height: 300px; 
+    max-width: 500px; 
+    height: 400px; 
 }
 
 .containerGrafico5{
@@ -193,17 +192,17 @@ body {
     margin: 20px;
     padding: 15px;
     position: absolute;
-    top: 40%;
-    left: 38%;
+    top: 55%;
+    left: 39%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 200px;
+    width: 500px;
+    height: 400px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #grafico5 {
-    max-width: 400px; 
-    height: 200px; 
+    max-width: 500px; 
+    height: 400px; 
 }
 
 .containerGrafico6{
@@ -215,11 +214,10 @@ body {
     margin: 20px;
     padding: 15px;
     position: absolute;
-    top: 78%;
-    left: 57%;
-    transform: translate(-50%, -50%);
+    top: 46%;
+    left: 63%;
     width: 420px;
-    height: 230px;
+    height: 530px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 

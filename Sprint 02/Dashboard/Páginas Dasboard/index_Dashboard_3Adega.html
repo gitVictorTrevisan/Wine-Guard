@@ -25,8 +25,8 @@
       <br />
       <a href="../../Site Institucional Estatico/home-dashes/index.html">
         <button class="botaoVoltar">
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
       </a>
       <br />
 
@@ -159,12 +159,14 @@
         type: "line",
         data: data4,
         options: {
+          responsive: true,
+          maintainAspectRatio: false, // Permite que o gráfico se ajuste ao container
           plugins: {
             title: {
               display: true,
               text: "Temperatura e Umidade Média - Últimos 6 meses",
               font: {
-                size: 18,
+                size: 20, // Tamanho do texto proporcional ao aumento do gráfico
                 weight: "bold",
               },
               color: "#fff",
@@ -172,6 +174,9 @@
             legend: {
               labels: {
                 color: "#fff",
+                font: {
+                  size: 16, // Ajuste do tamanho da legenda
+                },
               },
             },
           },
@@ -179,11 +184,17 @@
             x: {
               ticks: {
                 color: "#fff",
+                font: {
+                  size: 14, // Ajuste do tamanho dos labels do eixo X
+                },
               },
             },
             y: {
               ticks: {
                 color: "#fff",
+                font: {
+                  size: 14, // Ajuste do tamanho dos labels do eixo Y
+                },
               },
             },
           },
@@ -233,6 +244,8 @@
         type: "line",
         data: data5,
         options: {
+          responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             title: {
               display: true,
@@ -246,6 +259,9 @@
             legend: {
               labels: {
                 color: "#fff",
+                font: {
+                  size: 16,
+                },
               },
             },
           },
@@ -253,6 +269,9 @@
             x: {
               ticks: {
                 color: "#fff",
+                font: {
+                  size: 14,
+                },
               },
             },
             y: {
@@ -291,6 +310,8 @@
         type: "bar",
         data: data6,
         options: {
+          responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             title: {
               display: true,
@@ -300,10 +321,16 @@
                 weight: "bold",
               },
               color: "#fff",
+              font: {
+                size: 20,
+              },
             },
             legend: {
               labels: {
                 color: "#fff",
+                font: {
+                  size: 16,
+                },
               },
             },
           },
@@ -311,11 +338,17 @@
             x: {
               ticks: {
                 color: "#fff",
+                font: {
+                  size: 14,
+                },
               },
             },
             y: {
               ticks: {
                 color: "#fff",
+                font: {
+                  size: 14,
+                },
               },
             },
           },
