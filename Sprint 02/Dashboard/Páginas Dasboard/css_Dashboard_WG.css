@@ -38,12 +38,12 @@ body {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 250px;
-    min-height: 155%;
+    min-height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     color: #000;
-    gap: 78px;
+    gap: 58px;
   }
 
 .botaoVoltar{
@@ -84,27 +84,6 @@ body {
     font-size: 17px;
     font-weight: 300;
     color: #fff;
-}
-
-.containerNotificacoes {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinha o conteúdo à esquerda */
-    background-color: aliceblue;
-    border-radius: 7px;
-    height: 220px;
-    width: 218px;
-    margin: 10px;
-    font-weight: 500; 
-    font-size: 13px;
-    padding: 10px; 
-    box-sizing: border-box; 
-}
-
-.alerta {
-    font-weight: 700;
-    color: rgb(177, 26, 26);
-    display: inline; 
 }
 
 .containerKpi b {
@@ -171,8 +150,9 @@ body {
     margin: 20px;
     padding: 15px;
     position: absolute;
-    top: 90%;
-    left: 20%;
+    top: 55%;
+    right: -18%;
+    transform: translate(-50%, -50%);
     width: 500px;
     height: 400px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -203,27 +183,6 @@ body {
 #grafico5 {
     max-width: 500px; 
     height: 400px; 
-}
-
-.containerGrafico6{
-    display: flex; 
-    align-items: center; 
-    flex-direction: column; 
-    background-color: #1a172a;
-    border-radius: 10px; 
-    margin: 20px;
-    padding: 15px;
-    position: absolute;
-    top: 46%;
-    left: 63%;
-    width: 420px;
-    height: 530px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-#grafico6 {
-    max-width: 410px; 
-    height: 210px; 
 }
 
 canvas {

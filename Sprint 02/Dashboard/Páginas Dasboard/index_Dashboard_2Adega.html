@@ -43,24 +43,6 @@
         Adega Selecionada : 2 <br />
         <br />
       </div>
-
-      <div class="containerNotificacoes">
-        <b>Notificações</b> <br />
-        <div>
-          - Alerta <span class="alerta">Temperatura (27ºC)</span>: 10/10/2024
-          14:20:01
-        </div>
-        <br />
-        <div>
-          - Alerta <span class="alerta">Umidade (78%)</span>: 08/10/2024
-          16:12:45
-        </div>
-        <br />
-        <div>
-          - Alerta <span class="alerta">Temperatura (27ºC)</span>: 20/09/2024
-          10:22:49
-        </div>
-      </div>
     </div>
 
     <div id="div_kpi" class="containerKpi">
@@ -81,9 +63,10 @@
       </div>
       <div class="kpiBox">
         <b
-          >Temperatura Ideal: <span style="color: green;">18ºC - 20°C  </span><br>
-           Umidade Ideal: <span style="color: green;">65% - 80%</span>
-          </b>  
+          >Temperatura Ideal: <span style="color: green">18ºC - 20°C </span
+          ><br />
+          Umidade Ideal: <span style="color: green">65% - 80%</span>
+        </b>
       </div>
       <div class="kpiBox">
         <i class="fas fa-exclamation-triangle kpiIcon"></i>
@@ -112,10 +95,6 @@
 
     <div id="div_grafico5" class="containerGrafico5">
       <canvas id="myChart5"></canvas>
-    </div>
-
-    <div id="div_grafico6" class="containerGrafico6">
-      <canvas id="myChart6"></canvas>
     </div>
 
     <script>
@@ -283,78 +262,6 @@
       };
 
       const myChart5 = new Chart(document.getElementById("myChart5"), config5);
-
-      // Gráfico 6 (Adega 2 - Alertas)
-      const labels6 = ["Quantidade de alertas"];
-
-      const data6 = {
-        labels: labels6,
-        datasets: [
-          {
-            label: "Temperatura",
-            backgroundColor: "#8E44AD",
-            borderColor: "#8E44AD",
-            data: [4],
-          },
-          {
-            label: "Umidade",
-            backgroundColor: "#ffb6c1",
-            borderColor: "#ffb6c1",
-            data: [3],
-          },
-        ],
-      };
-
-      const config6 = {
-        type: "bar",
-        data: data6,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            title: {
-              display: true,
-              text: "Alertas de Variação de Temperatura e Umidade - Últimos 6 meses",
-              font: {
-                size: 18,
-                weight: "bold",
-              },
-              color: "#fff",
-              font: {
-                size: 20,
-              }
-            },
-            legend: {
-              labels: {
-                color: "#fff",
-                font: {
-                  size: 16,
-                }
-              },
-            },
-          },
-          scales: {
-            x: {
-              ticks: {
-                color: "#fff",
-                font: {
-                  size: 14,
-                }
-              },
-            },
-            y: {
-              ticks: {
-                color: "#fff",
-                font: {
-                  size: 14,
-                }
-              },
-            },
-          },
-        },
-      };
-
-      const myChart6 = new Chart(document.getElementById("myChart6"), config6);
     </script>
   </body>
 </html>

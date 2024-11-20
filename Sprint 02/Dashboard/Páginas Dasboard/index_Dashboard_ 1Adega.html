@@ -44,23 +44,7 @@
         <br />
       </div>
 
-      <div class="containerNotificacoes">
-        <b>Notificações</b> <br />
-        <div>
-          - Alerta <span class="alerta">Temperatura (31ºC)</span>: 05/10/2024
-          12:16:01
-        </div>
-        <br />
-        <div>
-          - Alerta <span class="alerta">Umidade (63%)</span>: 03/09/2024
-          18:33:45
-        </div>
-        <br />
-        <div>
-          - Alerta <span class="alerta">Umidade (81%)</span>: 17/08/2024
-          13:50:49
-        </div>
-      </div>
+      
     </div>
 
     <div id="div_kpi" class="containerKpi">
@@ -111,10 +95,6 @@
 
       <div id="div_grafico5" class="containerGrafico5">
         <canvas id="myChart5"></canvas>
-      </div>
-
-      <div id="div_grafico6" class="containerGrafico6">
-        <canvas id="myChart6"></canvas>
       </div>
     </div>
 
@@ -283,78 +263,6 @@
       };
 
       const myChart5 = new Chart(document.getElementById("myChart5"), config5);
-
-      // Gráfico 6 (3)
-
-      const labels6 = ["Quantidade de alertas"];
-
-      const data6 = {
-        labels: labels6,
-        datasets: [
-          {
-            label: "Temperatura",
-            backgroundColor: "#8E44AD",
-            borderColor: "#8E44AD",
-            data: [3],
-          },
-          {
-            label: "Umidade",
-            backgroundColor: "#ffb6c1",
-            borderColor: "#ffb6c1",
-            data: [2],
-          },
-        ],
-      };
-      const config6 = {
-        type: "bar",
-        data: data6,
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            title: {
-              display: true,
-              text: "Alertas de Variação de Temperatura e Umidade - Últimos 6 meses",
-              font: {
-                size: 18,
-                weight: "bold",
-              },
-              color: "#fff",
-              font: {
-                size: 20,
-              }
-            },
-            legend: {
-              labels: {
-                color: "#fff",
-                font: {
-                  size: 16,
-                }
-              },
-            },
-          },
-          scales: {
-            x: {
-              ticks: {
-                color: "#fff",
-                font: {
-                  size: 14,
-                }
-              },
-            },
-            y: {
-              ticks: {
-                color: "#fff",
-                font: {
-                  size: 14,
-                }
-              },
-            },
-          },
-        },
-      };
-
-      const myChart6 = new Chart(document.getElementById("myChart6"), config6);
     </script>
   </body>
 </html>
