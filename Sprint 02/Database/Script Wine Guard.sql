@@ -1,5 +1,4 @@
-USE wineguard;
-
+USE WineGuard;
 
 CREATE TABLE Cliente(
 idCliente INT PRIMARY KEY AUTO_INCREMENT,
@@ -50,13 +49,16 @@ fkSensor INT
 );
 
 CREATE TABLE Parametros(
-idParametros INT PRIMARY KEY AUTO_INCREMENT,
+idParametros INT AUTO_INCREMENT,
+fkSensor INT,
+fkLeitura INT,
 tempMin FLOAT(7,2),
 tempMAX FLOAT(7,2),
 umidadeMin CHAR(4),
 umidadeMax CHAR(4),
-fkSensor INT
+PRIMARY KEY (idparametros, fkSensor, fkLeitura)
 );
+
 
 CREATE TABLE Alerta(
 idAlerta INT PRIMARY KEY AUTO_INCREMENT,
@@ -85,6 +87,9 @@ FOREIGN KEY (fkSensor) REFERENCES Sensores(idSensores);
 
 ALTER TABLE Parametros ADD CONSTRAINT fkSensoresParametros
 FOREIGN KEY (fkSensor) REFERENCES Sensores(idSensores);
+
+ALTER TABLE Parametros ADD CONSTRAINT fkLeituraParametros
+FOREIGN KEY (fkLeitura) REFERENCES Leitura(idLeitura);
 
 ALTER TABLE Alerta ADD CONSTRAINT fkParametrosAlerta
 FOREIGN KEY (fkParametro) REFERENCES Parametros(idParametros);
@@ -217,5 +222,12 @@ ON idSensores = fkSensor
 JOIN Adega AS a
 ON fkAdega = idAdega;
 
+SELECT l.temperatura, l.umidade, l.dataHora, a.fkCliente
+FROM Sensores
+JOIN Leitura AS l
+ON idSensores = fkSensor
+JOIN Adega AS a
+ON fkAdega = idAdega
+WHERE dataHora = '2024-11-20' AND fkCliente = 1;
 
-
+SHOW TABLES;
