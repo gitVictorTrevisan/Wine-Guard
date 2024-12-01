@@ -1,60 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/login.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/login.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>WineGuard</title>
+</head>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>WineGuard</title>
-  </head>
-  <body>
-    <main>
-      <div class="login-container">
-        <img src="./assets/LogoWG.png" alt="Logo do Site">
-        <div class="login-text">
-          <h1>Login</h1>
-          <p>Bem-vindo de volta! Acesse sua conta.</p>
-        </div>
-        <div class="form-container">
-          <div class="input-container">
-            <div class="input">
-              <input type="text" placeholder="Email ou nome de Usuário" id="username_email"/>
-              <i class="fa-regular fa-user"></i>
-            </div>
-            <div class="input">
-              <input type="password" id="password_input" placeholder="Senha" />
-              <i class="fa-solid fa-key"></i>
-              <i onclick="revealHidePasswordInput()" class="fa-solid fa-eye-slash" id="eyeButton1"></i>
-            </div>
-          </div>
-          <div class="text forgot-password">
-            <a href="#">Esqueceu a senha?</a>
-          </div>
-          <span class="advice mandatory-inputs" id="mandatory_inputs_message"></span>
-          <button onclick="checkInputs()" type="button" class="form-button">Entrar</button>
-          <span class="text register"
-            >Não é membro ainda? <a href="cadastro.html">Cadastre-se!</a></span
-          >
-        </div>
+<body>
+  <main>
+    <div class="login-container">
+      <img src="./assets/LogoWG.png" alt="Logo do Site">
+      <div class="login-text">
+        <h1>Login</h1>
+        <p>Bem-vindo de volta! Acesse sua conta.</p>
       </div>
-    </main>
-    <script src="./js/script.js"></script>
-    <script src="./js/revealHidePassword.js"></script>
-    <script src="./js/checkInputsLogin.js"></script>
-  </body>
+      <div class="form-container">
+        <div class="input-container">
+          <div class="input">
+            <input type="text" placeholder="Email ou nome de Usuário" id="username_email" />
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div class="input">
+            <input type="password" id="password_input" placeholder="Senha" />
+            <i class="fa-solid fa-key"></i>
+            <i onclick="revealHidePasswordInput()" class="fa-solid fa-eye-slash" id="eyeButton1"></i>
+          </div>
+        </div>
+        <div class="text forgot-password">
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+        <span class="advice mandatory-inputs" id="mandatory_inputs_message"></span>
+        <button onclick="checkInputs()" type="button" class="form-button">Entrar</button>
+        <span class="text register">Não é membro ainda? <a href="cadastro.html">Cadastre-se!</a></span>
+      </div>
+    </div>
+  </main>
+  <script src="./js/script.js"></script>
+  <script src="./js/revealHidePassword.js"></script>
+  <script src="./js/checkInputsLogin.js"></script>
+</body>
+
 </html>
