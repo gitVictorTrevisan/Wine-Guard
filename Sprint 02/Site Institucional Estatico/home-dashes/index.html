@@ -1,63 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WineGuard</title>
-    <link rel="stylesheet" href="style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WineGuard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,800&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <main>
-      <div id="div_select" class="containerCliente">
-        <br />
-        <br />
-        <div
-          class="notificacoes"
-          style="
+<body>
+  <main>
+    <div id="div_select" class="containerCliente">
+      <br />
+      <br />
+      <div class="notificacoes" style="
             width: 100%;
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             justify-content: center;
-          "
-        >
-          <i
-            class="fa-solid fa-bell"
-            style="
+          ">
+        <i class="fa-solid fa-bell" style="
               color: #8e44ad;
               align-self: self-end;
               margin-right: 30px;
               font-size: 27px;
               cursor: pointer;
-            "
-            onclick="mostrarModal()"
-          ></i>
-          <div
-            class="circulo"
-            style="
+            " onclick="mostrarModal()"></i>
+        <div class="circulo" style="
               background-color: #7a0baa;
               width: 20px;
               height: 20px;
@@ -69,25 +50,22 @@
               position: absolute;
               top: -30%;
               right: 9%;
-            "
-          >
-            <span style="color: #fff; font-size: 13px">11</span>
-          </div>
+            ">
+          <span style="color: #fff; font-size: 13px">11</span>
         </div>
+      </div>
 
-        <img
-          class="imagemUsuario"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJl1M60AFI2gEgYm8_1pWdnHpzGZY5qXA4Q&s"
-        />
+      <img class="imagemUsuario"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJl1M60AFI2gEgYm8_1pWdnHpzGZY5qXA4Q&s" />
 
-        <div class="usuario">
-          Nome: Vinícola Bertoletti <br />
-          <br />
-          bertoletti@vinicola.com <br />
-          <br />
-        </div>
+      <div class="usuario">
+        Nome: Vinícola Bertoletti <br />
+        <br />
+        bertoletti@vinicola.com <br />
+        <br />
+      </div>
 
-        <!-- <div class="containerNotificacoes">
+      <!-- <div class="containerNotificacoes">
           <b>Notificações</b> <br />
           <div>
             - Alerta <span class="alerta">Temperatura (31ºC)</span>: 05/10/2024
@@ -104,156 +82,118 @@
             13:50:49
           </div>
         </div> -->
-      </div>
-      <div
-        id="modal_notificacoes"
-        style="width: 100%; height: 100%; position: absolute; display: none"
-      >
-        <div
-          class="card-container"
-          id="notificacoes"
-          style="
+    </div>
+    <div id="modal_notificacoes" style="width: 100%; height: 100%; position: absolute; display: none">
+      <div class="card-container" id="notificacoes" style="
             width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-          "
-        >
-          <div
-            class="card-notificacoes"
-            style="
+          ">
+        <div class="card-notificacoes" style="
               width: 500px;
               height: 500px;
               background-color: #f0f0f0;
               border-radius: 5px;
               position: relative;
-            "
-          >
-            <i
-              class="fa-solid fa-circle-xmark"
-              style="
+            ">
+          <i class="fa-solid fa-circle-xmark" style="
                 color: #7a0baa;
                 position: absolute;
                 top: 10px;
                 right: 10px;
                 font-size: 25px;
                 cursor: pointer;
-              "
-              onclick="esconderModal()"
-            ></i>
-            <ul
-              class="notificacoes"
-              style="margin: 20px 0 0 20px; font-size: 18px"
-            >
-              <li>
-                <p style="color: #000">
-                  - Alerta de <span style="color: crimson">Umidade (10%)</span>
-                  <br />
-                  <span>05/10/2024 12:16:01</span>
-                </p>
-              </li>
-              <li>
-                <p style="color: #000">
-                  - Alerta de <span style="color: crimson">Umidade (10%)</span>
-                  <br />
-                  <span>05/10/2024 12:16:01</span>
-                </p>
-              </li>
-              <li>
-                <p style="color: #000">
-                  - Alerta de <span style="color: crimson">Umidade (10%)</span>
-                  <br />
-                  <span>05/10/2024 12:16:01</span>
-                </p>
-              </li>
-            </ul>
-          </div>
+              " onclick="esconderModal()"></i>
+          <ul class="notificacoes" style="margin: 20px 0 0 20px; font-size: 18px">
+            <li>
+              <p style="color: #000">
+                - Alerta de <span style="color: crimson">Umidade (10%)</span>
+                <br />
+                <span>05/10/2024 12:16:01</span>
+              </p>
+            </li>
+            <li>
+              <p style="color: #000">
+                - Alerta de <span style="color: crimson">Umidade (10%)</span>
+                <br />
+                <span>05/10/2024 12:16:01</span>
+              </p>
+            </li>
+            <li>
+              <p style="color: #000">
+                - Alerta de <span style="color: crimson">Umidade (10%)</span>
+                <br />
+                <span>05/10/2024 12:16:01</span>
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
 
-      <div class="text">
-        <h1>Selecione a adega</h1>
-        <p>
-          Escolha uma das adegas abaixo para visualizar informações detalhadas e
-          monitorar suas condições.
-        </p>
-      </div>
-      <div class="wines">
-        <ul>
-          <li>
-            <span class="titulo-adega">Adega 1</span>
-            <a
-              href="../../Dashboard/Páginas Dasboard/index_Dashboard_ 1Adega.html"
-            >
-              15°C / 60%
-            </a>
-          </li>
+    <div class="text">
+      <h1>Selecione a adega</h1>
+      <p>
+        Escolha uma das adegas abaixo para visualizar informações detalhadas e
+        monitorar suas condições.
+      </p>
+    </div>
+    <div class="wines">
+      <ul>
+        <li>
+          <span class="titulo-adega">Adega 1</span>
+          <a href="../../Dashboard/Páginas Dasboard/index_Dashboard_ 1Adega.html">
+            15°C / 60%
+          </a>
+        </li>
 
-          <li>
-            <span class="titulo-adega">Adega 2</span>
-            <a
-              href="../../Dashboard/Páginas Dasboard/index_Dashboard_2Adega.html"
-              style="border-color: rgb(192, 29, 29)"
-            >
-              <i
-                class="fa-solid fa-circle-exclamation"
-                style="margin-right: 20px"
-              ></i>
-              20°C / 70%
-            </a>
-          </li>
+        <li>
+          <span class="titulo-adega">Adega 2</span>
+          <a href="../../Dashboard/Páginas Dasboard/index_Dashboard_2Adega.html" style="border-color: rgb(192, 29, 29)">
+            <i class="fa-solid fa-circle-exclamation" style="margin-right: 20px"></i>
+            20°C / 70%
+          </a>
+        </li>
 
-          <li>
-            <span class="titulo-adega">Adega 3</span>
-            <a
-              href="../../Dashboard/Páginas Dasboard/index_Dashboard_3Adega.html"
-              style="border-color: rgb(192, 29, 29)"
-            >
-              <i
-                class="fa-solid fa-circle-exclamation"
-                style="margin-right: 20px"
-              ></i
-              >25°C / 80%
-            </a>
-          </li>
+        <li>
+          <span class="titulo-adega">Adega 3</span>
+          <a href="../../Dashboard/Páginas Dasboard/index_Dashboard_3Adega.html" style="border-color: rgb(192, 29, 29)">
+            <i class="fa-solid fa-circle-exclamation" style="margin-right: 20px"></i>25°C / 80%
+          </a>
+        </li>
 
-          <li>
-            <span class="titulo-adega">Adega 4</span>
-            <a href="#" style="border-color: rgb(192, 29, 29)">
-              <i
-                class="fa-solid fa-circle-exclamation"
-                style="margin-right: 20px"
-              ></i
-              >10°C / 50%
-            </a>
-          </li>
-          <li>
-            <span class="titulo-adega">Adega 5</span>
-            <a href="#"> 15°C / 60% </a>
-          </li>
-          <li>
-            <span class="titulo-adega">Adega 6</span>
-            <a href="#" style="border-color: rgb(255, 255, 28)">
-              <i
-                class="fa-solid fa-circle-exclamation"
-                style="margin-right: 20px"
-              ></i
-              ><span><b>20°C </b>/ <b>70%</b></span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </main>
-    <script>
-      function esconderModal() {
-        const modal = (modal_notificacoes.style.display = "none");
-      }
+        <li>
+          <span class="titulo-adega">Adega 4</span>
+          <a href="#" style="border-color: rgb(192, 29, 29)">
+            <i class="fa-solid fa-circle-exclamation" style="margin-right: 20px"></i>10°C / 50%
+          </a>
+        </li>
+        <li>
+          <span class="titulo-adega">Adega 5</span>
+          <a href="#"> 15°C / 60% </a>
+        </li>
+        <li>
+          <span class="titulo-adega">Adega 6</span>
+          <a href="#" style="border-color: rgb(255, 255, 28)">
+            <i class="fa-solid fa-circle-exclamation" style="margin-right: 20px"></i><span><b>20°C </b>/
+              <b>70%</b></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </main>
+  <script>
+    function esconderModal() {
+      const modal = (modal_notificacoes.style.display = "none");
+    }
 
-      function mostrarModal() {
-        const modal = (modal_notificacoes.style.display = "flex");
-      }
-    </script>
-  </body>
+    function mostrarModal() {
+      const modal = (modal_notificacoes.style.display = "flex");
+    }
+  </script>
+</body>
+
 </html>

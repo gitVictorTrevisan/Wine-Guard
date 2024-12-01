@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +7,26 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 <style>
-    
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-    body{
+    body {
         background-image: url('../imagem/backgorundC.png');
         background-size: cover;
         font-family: "Poppins";
     }
 
-    .titulo{
+    .titulo {
         font-weight: 600;
         font-size: 40px;
         text-align: center;
     }
 
-    .container{
+    .container {
         color: #f8f8f9;
         display: flex;
         align-items: start;
@@ -41,18 +40,19 @@
         margin-left: 5%;
     }
 
-    .letras{
+    .letras {
         color: #000000;
         font-size: medium;
     }
 
-    .input{
+    .input {
         width: 434px;
         height: 45px;
         border-radius: 6px;
 
     }
-    .botao{
+
+    .botao {
         background-color: #2980B9;
         color: #FFFFFF;
         padding: 5px 10px;
@@ -64,8 +64,8 @@
         width: 434px;
         font-weight: 800;
     }
-    
-    .texto{
+
+    .texto {
         display: flex;
         flex-direction: column;
         margin-right: 20px;
@@ -74,66 +74,65 @@
         margin-top: 8%;
         position: absolute;
         font-size: 22px;
-    
+
     }
-    
 </style>
-
 <body>
-              
 
+    <div id="div_titulo">
+        <h2 class="titulo">Simulador</h2> <br> <br>
+    </div>
 
+    <div id="div_texto">
 
-<div id="div_titulo">
-    <h2 class="titulo">Simulador</h2> <br> <br>
-</div>
+        <p id="p_resultado" class="texto">
+            O nosso <b>“Simulador Financeiro”</b> permite que <br>você visualize o <b>impacto financeiro</b> da falta
+            <br>de controle adequado sobre as condições <br>ambientais da sua vinícola. Inserindo os <br>dados da sua
+            produção, você pode calcular <br>as <b>perdas relacionadas à umidade e <br>temperatura</b>, além de projetar
+            os custos <br>associados a essas falhas. O simulador <br>ajuda a <b>entender o valor econômico</b> de
+            <br>implementar o nosso sistema de <br>monitoramento, proporcionando uma <br>análise clara</b> do retorno
+            sobre o <br>investimento. <br>
+        </p>
+    </div>
 
-<div id="div_texto">
+    <div id="div_container" class="container">
 
-    <p id="p_resultado" class="texto">
-        O nosso <b>“Simulador Financeiro”</b> permite que <br>você visualize o <b>impacto financeiro</b> da falta <br>de controle adequado sobre as condições <br>ambientais da sua vinícola. Inserindo os <br>dados da sua produção, você pode calcular <br>as <b>perdas relacionadas à umidade e <br>temperatura</b>, além de projetar os custos <br>associados a essas falhas. O simulador <br>ajuda a <b>entender o valor econômico</b> de <br>implementar o nosso sistema de <br>monitoramento, proporcionando uma <br>análise clara</b> do retorno sobre o <br>investimento. <br>
-    </p>
-</div>
+        <div id="div_letras">
 
-<div id="div_container" class="container">
-    
-    <div id="div_letras">
+            <b>Quantidade total de barricas na adega:</b><br> <br>
+            <input type="number" id="input_qtdBarricas" class="input">
+            <br><br>
 
-    <b>Quantidade total de barricas na adega:</b><br> <br>
-    <input type="number" id="input_qtdBarricas" class="input">
-    <br><br>
+            <b>Capacidade média de cada barrica (em litros):</b><br> <br>
+            <input type="number" id="input_litragemBarrica" class="input">
+            <br><br>
 
-    <b>Capacidade média de cada barrica (em litros):</b><br> <br> 
-    <input type="number" id="input_litragemBarrica" class="input">
-    <br><br>
+            <b>Capacidade de cada garrafa (em mL):</b><br> <br>
+            <input type="number" id="input_capacidadeGarrafa" class="input">
+            <br><br>
 
-    <b>Capacidade de cada garrafa (em mL):</b><br> <br>
-    <input type="number" id="input_capacidadeGarrafa" class="input">
-    <br><br>
+            <b>Preço de venda por garrafa (R$):</b><br> <br>
+            <input type="text" id="input_precoDeVendaGarrafa" class="input">
+            <br><br>
 
-    <b>Preço de venda por garrafa (R$):</b><br> <br>
-    <input type="text" id="input_precoDeVendaGarrafa" class="input">
-    <br><br>
+            <b>Porcentagem estimada de perda (%):</b><br> <br>
+            <input type="text" id="input_porcentagemPerda" class="input">
+            <br><br>
 
-    <b>Porcentagem estimada de perda (%):</b><br> <br>
-    <input type="text" id="input_porcentagemPerda" class="input">
-    <br><br>
+            <b>Período de produção (em meses):</b><br> <br>
+            <input type="number" id="input_periodoDeProducao" class="input">
+            <br><br>
 
-    <b>Período de produção (em meses):</b><br> <br>
-    <input type="number" id="input_periodoDeProducao" class="input">
-    <br><br>
+        </div>
+
+        <button onclick="calcular()" class="botao">Calcular Impacto Financeiro</button>
+        <br><br>
+
+        <div id="div_mensagem"></div>
 
     </div>
-    
-    <button onclick="calcular()" class="botao">Calcular Impacto Financeiro</button>
-    <br><br>
-
-    <div id="div_mensagem"></div>
-
-</div>
 
 </body>
-
 </html>
 
 <script>
@@ -147,7 +146,7 @@
 
         var litrosTotal = qtdBarricas * litragemBarrica;
         var qtdGarrafasProduzidas = litrosTotal / (litragemGarrafa / 1000);
-        var qtdGarrafasPerdidas = qtdGarrafasProduzidas * (porcentagemPerda/100);
+        var qtdGarrafasPerdidas = qtdGarrafasProduzidas * (porcentagemPerda / 100);
         var perdaPotencialProducao = qtdGarrafasPerdidas * precoDeVendaGarrafa;
 
         var lucroSemPrejuizo = (qtdGarrafasProduzidas * precoDeVendaGarrafa);
@@ -157,7 +156,6 @@
         var prejuizoNoPeriodo = lucroComPrejuizo / periodo;
 
 
-        
         var mensagem = p_resultado;
 
         var calculo = lucroNoPeriodo - prejuizoNoPeriodo;
