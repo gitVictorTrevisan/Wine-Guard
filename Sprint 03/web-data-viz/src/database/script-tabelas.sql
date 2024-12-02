@@ -10,18 +10,10 @@ CREATE DATABASE wineguard;
 
 USE wineguard;
 
-
-CREATE TABLE Cliente(
-idCliente INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(45),
-cnpj CHAR(18) UNIQUE,
-email VARCHAR(45),
-telefone CHAR(14)
-);
-
 CREATE TABLE Cadastro(
 idCadastro INT PRIMARY KEY AUTO_INCREMENT,
-login VARCHAR(45) UNIQUE,
+nome VARCHAR(45),
+email VARCHAR(45) UNIQUE,
 senha VARCHAR(45),
 fkCliente INT
 );
