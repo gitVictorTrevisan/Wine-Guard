@@ -1,104 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/cadastro.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <title>AquaTech | Cadastro</title>
-
-  <script src="./js/sessao.js"></script>
-
-  <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-</head>
-
-<body onload="listar()">
-  <!--header inicio-->
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!--header fim-->
-
-  <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-          <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>WineGuard</title>
+  </head>
+  <body>
+    <main>
+      <div class="register-container">
+        <img src="./assets/img/LogoWG.png" alt="Logo do Site" />
+        <div class="register-text">
+          <h1>Cadastre-se</h1>
+          <p>Crie sua conta e comece a explorar!</p>
         </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+        <div class="form-container">
+          <div class="input-container">
+            <div class="input">
+              <input
+                type="text"
+                id="complete_name_input"
+                placeholder="Nome completo"
+              />
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="input">
+              <input
+                type="text"
+                oninput="getEmailValue()"
+                placeholder="Email"
+                id="email_input"
+              />
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+            <span
+              class="advice invalid-email"
+              id="invalid_email_message"
+            ></span>
+            <div class="input">
+              <input
+                oninput="check(), checkValuePasswordInput()"
+                type="password"
+                id="password_input"
+                placeholder="Senha"
+              />
+              <i class="fa-solid fa-key"></i>
+              <i
+                class="fa-solid fa-eye-slash"
+                onclick="revealHidePasswordInput()"
+                id="eyeButton1"
+              ></i>
+            </div>
+            <div
+              class="password-strength-indicator"
+              id="password_strength_indicator"
+            >
+              <span class="text-indicator" id="strength_text_indicator"></span>
+              <ul>
+                <li class="very-weak"><div id="strength_vw"></div></li>
+                <li class="weak"><div id="strength_w"></div></li>
+                <li class="mean"><div id="strength_m"></div></li>
+                <li class="strong"><div id="strength_s"></div></li>
+                <li class="very-strong"><div id="strength_vs"></div></li>
+              </ul>
+            </div>
+
+            <div class="input">
+              <input
+                oninput="checkValueConfirmPasswordInput()"
+                type="password"
+                id="password_confirm_input"
+                placeholder="Confirmar Senha"
+              />
+              <i class="fa-solid fa-key"></i>
+              <i
+                class="fa-solid fa-eye-slash"
+                onclick="revealHidePasswordConfirmInput()"
+                id="eyeButton2"
+              ></i>
+            </div>
+            <span
+              class="advice invalid-password"
+              id="invalid_password_message"
+            ></span>
+          </div>
+          <span
+            class="advice mandatory-inputs"
+            id="mandatory_inputs_message"
+          ></span>
+          <button
+            onclick="checkInput(), checkEmail(), checkInputs(), cadastrar()"
+            type="button"
+            class="form-button"
+          >
+            Criar conta
+          </button>
+          <span class="text login"
+            >Já é membro? <a href="login.html">Faça Login!</a></span
+          >
         </div>
-
-        <div id="div_erros_login"></div>
       </div>
-    </div>
-  </div>
-
-  <!--footer inicio-->
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
-    </div>
-  </div>
-  <!--footer fim-->
-</body>
-
+    </main>
+    <script src="./js/script.js"></script>
+    <script src="./js/checkPasswordStrength.js"></script>
+    <script src="./js/revealHidePassword.js"></script>
+    <script src="./js/checkInputsRegister.js"></script>
+  </body>
 </html>
 
 <script>
-
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  // Array para armazenar empresas cadastradas para validação de código de ativação
   let listaEmpresasCadastradas = [];
 
   function cadastrar() {
@@ -106,42 +133,19 @@
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
+    var nomeVar = complete_name_input.value;
     var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var senhaVar = password_input.value;
+    var confirmacaoSenhaVar = password_confirm_input.value;
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      confirmacaoSenhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
     }
 
     // Enviando o valor da nova input
@@ -156,57 +160,23 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
           setTimeout(() => {
             window.location = "login.html";
           }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
 
     return false;
-  }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
   }
 </script>
