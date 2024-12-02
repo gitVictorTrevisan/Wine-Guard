@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Adega 1</title>
+    <link rel="stylesheet" href="css_Dashboard_WG.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="div_select" class="containerCliente">
+      <br />
+      <br />
+      <a href="../../Site Institucional Estatico/home-dashes/index.html">
+        <button class="botaoVoltar">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+      </a>
+      <br />
+
+      <img
+        class="imagemUsuario"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJl1M60AFI2gEgYm8_1pWdnHpzGZY5qXA4Q&s"
+      />
+
+      <div class="usuario">
+        Nome: Vinícola Bertoletti <br />
+        <br />
+        bertoletti@vinicola.com <br />
+        <br />
+        Adega Selecionada : 1 <br />
+        <br />
+      </div>
+    </div>
+
+    <div id="div_kpi" class="containerKpi">
+      <div class="kpiBox">
+        <i class="fas fa-thermometer-half kpiIcon"></i>
+        <!-- Ícone de temperatura -->
+        <b
+          >Temperatura Atual
+          <span id="span1" style="color: rgb(24, 187, 24)"></span
+        ></b>
+      </div>
+      <div class="kpiBox">
+        <i class="fas fa-tint kpiIcon"></i>
+        <!-- Ícone de umidade -->
+        <b
+          >Umidade Atual <span id="span3" style="color: rgb(24, 187, 24)"></span
+        ></b>
+      </div>
+      <div class="kpiBox">
+        <b
+          >Temperatura Ideal: <span style="color: green">18ºC - 20°C </span
+          ><br />
+          Umidade Ideal: <span style="color: green">65% - 80%</span>
+        </b>
+      </div>
+      <div class="kpiBox">
+        <i class="fas fa-exclamation-triangle kpiIcon"></i>
+        <!-- Ícone de alerta -->
+        <b
+          >Alertas de Temperatura no mês
+          <span id="span2" style="color: red"></span
+        ></b>
+      </div>
+      <div class="kpiBox">
+        <i class="fas fa-exclamation-circle kpiIcon"></i>
+        <!-- Ícone de alerta -->
+        <b
+          >Alertas de Umidade no mês
+          <span id="span4" style="color: rgb(24, 187, 24)"></span
+        ></b>
+      </div>
+    </div>
+
+    <!-- Gráficos: Adega1 -->
+    <div class="container-graficos">
+      <div id="div_grafico4" class="containerGrafico4">
+        <canvas id="myChart4"></canvas>
+      </div>
+
+      <div id="div_grafico5" class="containerGrafico5">
+        <canvas id="myChart5"></canvas>
+      </div>
+    </div>
+    <script>
+      // Gráficos: Adega 1
+      span1.innerHTML = "20.1 ºC";
+      span2.innerHTML = "1 Alerta";
+      span3.innerHTML = "69 %";
+      span4.innerHTML = "0 Alertas";
+
+      // Gráfico 4 (2)
+
+      const labels4 = [
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+      ];
+
+      const data4 = {
+        labels: labels4,
+        datasets: [
+          {
+            label: "Temperatura",
+            backgroundColor: "#8E44AD",
+            borderColor: "#8E44AD",
+            data: [30, 29, 28, 25, 22, 23],
+          },
+          {
+            label: "Umidade",
+            backgroundColor: "#ffb6c1",
+            borderColor: "#ffb6c1",
+            data: [80, 82, 80, 85, 80, 83],
+          },
+        ],
+      };
+
+      const config4 = {
+        type: "line",
+        data: data4,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false, // Permite que o gráfico se ajuste ao container
+          plugins: {
+            title: {
+              display: true,
+              text: "Temperatura e Umidade Média - Últimos 6 meses",
+              font: {
+                size: 20, // Tamanho do texto proporcional ao aumento do gráfico
+                weight: "bold",
+              },
+              color: "#fff",
+            },
+            legend: {
+              labels: {
+                color: "#fff",
+                font: {
+                  size: 16, // Ajuste do tamanho da legenda
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#fff",
+                font: {
+                  size: 14, // Ajuste do tamanho dos labels do eixo X
+                },
+              },
+            },
+            y: {
+              ticks: {
+                color: "#fff",
+                font: {
+                  size: 14, // Ajuste do tamanho dos labels do eixo Y
+                },
+              },
+            },
+          },
+        },
+      };
+
+      const myChart4 = new Chart(document.getElementById("myChart4"), config4);
+
+      // Gráfico 5 (1)
+      const labels5 = [
+        "Dia 1",
+        "Dia 2",
+        "Dia 3",
+        "Dia 4",
+        "Dia 5",
+        "Dia 6",
+        "Dia 7",
+        "Dia 8",
+        "Dia 9",
+        "Dia 10",
+        "Dia 11",
+        "Dia 12",
+        "Dia 13",
+        "Dia 14",
+        "Dia 15",
+      ];
+
+      const data5 = {
+        labels: labels5,
+        datasets: [
+          {
+            label: "Temperatura",
+            backgroundColor: "#8E44AD",
+            borderColor: "#8E44AD",
+            data: [26, 31, 21, 25, 22, 23, 21, 18, 22, 21, 23, 20, 24, 25, 22],
+          },
+          {
+            label: "Umidade",
+            backgroundColor: "#ffb6c1",
+            borderColor: "#ffb6c1",
+            data: [80, 78, 77, 67, 71, 72, 76, 72, 68, 65, 66, 72, 72, 74, 71],
+          },
+        ],
+      };
+
+      const config5 = {
+        type: "line",
+        data: data5,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: "Temperatura e Umidade Média - Últimos 15 dias",
+              font: {
+                size: 18,
+                weight: "bold",
+              },
+              color: "#fff",
+            },
+            legend: {
+              labels: {
+                color: "#fff",
+                font: {
+                  size: 16,
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#fff",
+                font: {
+                  size: 14,
+                },
+              },
+            },
+            y: {
+              ticks: {
+                color: "#fff",
+              },
+            },
+          },
+        },
+      };
+
+      const myChart5 = new Chart(document.getElementById("myChart5"), config5);
+    </script>
+    <script
+      data-jsd-embedded
+      data-key="cbf4fe7a-d424-4f97-a225-d9297d8b001b"
+      data-base-url="https://jsd-widget.atlassian.com"
+      src="https://jsd-widget.atlassian.com/assets/embed.js"
+    ></script>
+  </body>
+</html>

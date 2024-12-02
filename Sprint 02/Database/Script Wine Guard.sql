@@ -230,4 +230,5 @@ JOIN Adega AS a
 ON fkAdega = idAdega
 WHERE dataHora = '2024-11-20' AND fkCliente = 1;
 
+USE WineGuard;
 SHOW TABLES;

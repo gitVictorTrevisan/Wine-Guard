@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: linear-gradient(
+        to top,
+       #28223D,
+       #8E44AD 
+      ) no-repeat;
+    background-color: #28223D;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+.letras {
+    color:rgb(27, 26, 25);
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    font-weight: 600;
+}
+
+.containerCliente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(34, 19, 43, 0.95);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 250px;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000;
+    gap: 58px;
+  }
+
+.botaoVoltar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    margin-left: 10px;
+    text-align: center;
+    font-size: medium;
+    background: none;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoVoltar:hover {
+    background-color: #8E44AD;
+}
+
+.imagemUsuario {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    object-fit: cover;
+    border: 5px solid #8E44AD;
+    border-radius: 100px;
+  }
+
+.usuario{
+    display: flex;
+    text-align: left;
+    align-self: center;
+    font-size: 17px;
+    font-weight: 300;
+    color: #fff;
+}
+
+.containerKpi b {
+    display: flex;
+    flex-direction: column; /* Faz a frase e o span ficarem em cima/embaixo */
+    align-items: center; /* Centraliza cada par frase/span */
+    font-size: 16px; /* Tamanho ajustado para leitura */
+    text-align: center; /* Centraliza o texto */
+    font-weight: 650;
+}
+
+.containerKpi {
+    display: flex;
+    justify-content: space-around; /* Espaçamento entre os KPIs */
+    align-items: center;
+    gap: 30px; /* Espaço entre as caixas */
+    background-color: #1a172a;
+    border-radius: 12px;
+    margin: 25px 25px 5px 0;
+    padding: 20px;
+    width: 78%;
+    max-width: 1300px;
+    height: 19.5%;
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.kpiBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white; /* Cor de fundo da caixa */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; /* Sombra para destacar */
+    padding: 20px;
+    width: 250px; /* Largura de cada caixa */
+    height: 110px; /* Altura de cada caixa */
+    text-align: center;
+    gap: 10px; /* Espaço entre ícone e texto */
+}
+
+.kpiIcon {
+    font-size: 25px; /* Tamanho do ícone */
+    color: #6a2588; /* Cor do ícone (pode ser ajustada) */
+}
+
+.kpiBox b {
+    font-weight: 500;
+    font-size: 12.5px;
+    width: 134px;
+}
+
+.containerGrafico4{
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column; 
+    background-color: #1a172a;
+    border-radius: 10px; 
+    margin: 20px;
+    padding: 15px;
+    position: absolute;
+    top: 55%;
+    right: -18%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#grafico4 {
+    max-width: 500px; 
+    height: 400px; 
+}
+
+.containerGrafico5{
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    background-color: #1a172a;
+    border-radius: 10px; 
+    margin: 20px;
+    padding: 15px;
+    position: absolute;
+    top: 55%;
+    left: 39%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#grafico5 {
+    max-width: 500px; 
+    height: 400px; 
+}
+
+canvas {
+    width: 100%; /* Mantém a largura em porcentagem */
+    height: auto; /* Mantém a altura em proporção */
+}
+
+
+/* Melhorar responsividade */
+
+@media (max-width: 768px) {
+    .containerGrafico4, .containerGrafico5, .containerGrafico6 {
+        width: 90%;
+        height: auto;
+    }
+}
