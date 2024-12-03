@@ -1,9 +1,9 @@
-var aquarioModel = require("../models/aquarioModel");
+var aquarioModel = require("../models/adegaModel");
 
-function buscarAquariosPorEmpresa(req, res) {
-  var idUsuario = req.params.idUsuario;
+function buscarAdegasPorEmpresa(req, res) {
+  var idUsuario = sessionStorage.ID_USUARIO;
 
-  aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
+  aquarioModel.buscarAdegasPorEmpresa(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -44,6 +44,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarAquariosPorEmpresa,
+  buscarAdegasPorEmpresa,
   cadastrar
 }

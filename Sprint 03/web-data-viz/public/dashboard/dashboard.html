@@ -19,7 +19,7 @@
     />
   </head>
 
-  <body onload="obterDadosGrafico(1)">
+  <body onload="obterDadosGrafico(idAdega)">
     <div id="div_select" class="containerCliente">
       <br />
       <br />
@@ -113,6 +113,9 @@
 </html>
 
 <script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const idAdega = urlParams.get("idAdega");
+
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
   function obterDadosGrafico(idAdega) {

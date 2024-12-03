@@ -1,4 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
+var adegaModel = require("../models/adegaModel"); 
 
 function autenticar(req, res) {
   var email = req.body.emailServer;
@@ -17,11 +18,21 @@ function autenticar(req, res) {
 
         if (resultadoAutenticar.length == 1) {
           console.log(resultadoAutenticar);
-          res.json({
-            email: resultadoAutenticar[0].email,
-            senha: resultadoAutenticar[0].senha,
-            nome: resultadoAutenticar[0].nome,
-          });
+
+          adegaModel.buscarAdegasPorEmpresa(resultadoAutenticar[0].idCadastro)
+            .then((resultadoAdega) => {
+              if (resultadoAdega.length > 0) {
+                res.json({
+                  email: resultadoAutenticar[0].email,
+                  senha: resultadoAutenticar[0].senha,
+                  nome: resultadoAutenticar[0].nome,
+                  id: resultadoAutenticar[0].idCadastro,
+                  adegas: resultadoAdega
+                });
+              } else {
+                res.status(204).json({ adegas: [] });
+              }
+            })
         } else if (resultadoAutenticar.length == 0) {
           res.status(403).send("Email e/ou senha inválido(s)");
         } else {
