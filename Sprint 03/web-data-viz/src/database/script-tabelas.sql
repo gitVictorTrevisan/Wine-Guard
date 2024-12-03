@@ -6,7 +6,7 @@
 comandos para mysql server
 */
 
-CREATE DATABASE wineguard;
+CREATE DATABASE WineGuard;
 
 USE wineguard;
 
