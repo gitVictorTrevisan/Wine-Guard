@@ -19,7 +19,7 @@
     />
   </head>
 
-  <body onload="obterDadosGrafico(1)">
+  <body onload="obterDadosGrafico(1), exibirTempAtual()">
     <div id="div_select" class="containerCliente">
       <br />
       <br />
@@ -98,9 +98,7 @@
     </div>
     <script>
       // Gráficos: Adega 1
-      span1.innerHTML = "20.1 ºC";
       span2.innerHTML = "1 Alerta";
-      span3.innerHTML = "69 %";
       span4.innerHTML = "0 Alertas";
     </script>
     <script
@@ -468,4 +466,40 @@
         );
       });
   }
+
+  function exibirTempAtual() {
+        var tempAtual = document.getElementById('span1')
+        var umiAtual = document.getElementById('span3')
+        fetch("/kpi/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    tempAtual.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(tempAtual);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    resposta.forEach(element=> {
+                        tempAtual.innerHTML = `
+                       
+                        ${element.temperatura} °C
+
+                        `
+                        umiAtual.innerHTML = `
+                       
+                        ${element.umidade} %
+
+                        `
+                    });
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
 </script>
