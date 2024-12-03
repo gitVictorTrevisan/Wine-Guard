@@ -13,13 +13,13 @@ function buscarUltimasMedidas(idAdega, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function buscarMedidasEmTempoReal(idAdega) {
 
     var instrucaoSql = `SELECT 
         temperatura, umidade,
-                DATE_FORMAT(dataHora,'%H:%i:%s') as 'Hora', 
+                DATE_FORMAT(dataHora,'%H:%i:%s') as 'Hora' 
                 FROM Leitura
-                WHERE fkSensor = ${idAquario} 
+                WHERE fkSensor = ${idAdega} 
                 ORDER BY idLeitura DESC LIMIT 1`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
