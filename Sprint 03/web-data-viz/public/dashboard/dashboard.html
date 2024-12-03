@@ -19,7 +19,7 @@
     />
   </head>
 
-  <body onload="obterDadosGrafico(idAdega), exibirParametros(), exibirTempAtual()">
+  <body onload="obterDadosGrafico(idAdega), exibirParametros(), exibirTempAtual(), exibirQtdAlertas()">
     <div id="div_select" class="containerCliente">
       <br />
       <br />
@@ -98,8 +98,6 @@
     </div>
     <script>
       // Gráficos: Adega 1
-      span2.innerHTML = "1 Alerta";
-      span4.innerHTML = "0 Alertas";
     </script>
     <script
       data-jsd-embedded
@@ -523,6 +521,34 @@
                     resposta.forEach(element=> {
                         paramTemp.innerHTML = `Min: ${element.tempMin} Max: ${element.tempMAX}`
                         paramUmidade.innerHTML = `Min: ${element.umidadeMin} Max: ${element.umidadeMax}`
+                    
+                    });
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
+
+    function exibirQtdAlertas() {
+        var qtdAlertas = document.getElementById('span2')
+        
+        fetch("/kpi/qtd_alertas").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    qtdAlertas.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(qtdAlertas);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    resposta.forEach(element=> {
+                        qtdAlertas.innerHTML = `${element.qtdAlertas} Alertas`
                     
                     });
                     // finalizarAguardar();

@@ -11,4 +11,8 @@ router.get("/exibir", function (req, res) {
     kpiController.exibirParametros(req, res);
 })
 
+router.get("/qtd_alertas", function (req, res) {
+    kpiController.exibirQtdAlertas(req, res);
+})
+
 module.exports = router;
