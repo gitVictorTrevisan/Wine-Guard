@@ -183,3 +183,17 @@ main {
   cursor: pointer;
   transition: .3s;
 }
+
+.perigo-quente,
+.perigo-frio {
+  border-color: rgb(177, 26, 26) !important;
+}
+
+.alerta-quente,
+.alerta-frio {
+  border-color: #ffee58 !important;
+}
+
+.ideal {
+  border-color: #8E44AD !important;
+}

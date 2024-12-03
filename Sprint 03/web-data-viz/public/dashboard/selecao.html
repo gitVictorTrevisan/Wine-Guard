@@ -24,9 +24,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <script src="../js/alerta.js"></script>
   </head>
 
-  <body onload="exibirAdegas()">
+  <body onload="exibirAdegas(); atualizacaoPeriodica()">
     <main>
       <div id="div_select" class="containerCliente">
         <br />
@@ -199,7 +201,7 @@
           document.getElementById("wines-lista").innerHTML += `
                     <li>
                       <span class="titulo-adega">${item.nome}</span>
-                      <a href="./dashboard.html?idAdega=${item.idAdega}">
+                      <a class="adega" id="adega_${item.idAdega}" href="./dashboard.html?idAdega=${item.idAdega}">
                         ${item.temperatura} / ${item.umidade}%
                       </a>
                     </li>
