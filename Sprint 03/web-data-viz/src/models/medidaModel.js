@@ -26,7 +26,18 @@ function buscarMedidasEmTempoReal(idAdega) {
     return database.executar(instrucaoSql);
 }
 
+function buscarParametros(idAdega) {
+    var instrucaoSql = `SELECT
+        tempMin, tempMax, umidadeMin, umidadeMax
+        FROM Parametros
+        WHERE fkSensor = ${idAdega}`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarParametros
 }

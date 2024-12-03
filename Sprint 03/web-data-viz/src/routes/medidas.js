@@ -11,4 +11,8 @@ router.get("/tempo-real/:idAdega", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.get("/parametros/:idAdega", function(req, res) {
+    medidaController.buscarParametros(req, res);
+})
+
 module.exports = router;
