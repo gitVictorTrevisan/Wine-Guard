@@ -19,7 +19,7 @@
     />
   </head>
 
-  <body onload="obterDadosGrafico(idAdega)">
+  <body onload="obterDadosGrafico(idAdega), exibirParametros(), exibirTempAtual()">
     <div id="div_select" class="containerCliente">
       <br />
       <br />
@@ -63,9 +63,9 @@
       </div>
       <div class="kpiBox">
         <b
-          >Temperatura Ideal: <span style="color: green">18ºC - 20°C </span
+          >Temperatura Ideal: <span id="parametro_temperatura" style="color: green"></span
           ><br />
-          Umidade Ideal: <span style="color: green">65% - 80%</span>
+          Umidade Ideal: <span id="parametro_umidade" style="color: green"></span>
         </b>
       </div>
       <div class="kpiBox">
@@ -494,6 +494,36 @@
                         ${element.umidade} %
 
                         `
+                    });
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
+
+    function exibirParametros() {
+        var paramTemp = document.getElementById('parametro_temperatura')
+        var paramUmidade = document.getElementById('parametro_umidade')
+        
+        fetch("/kpi/exibir").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    paramTemp.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(paramTemp);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    resposta.forEach(element=> {
+                        paramTemp.innerHTML = `Min: ${element.tempMin} Max: ${element.tempMAX}`
+                        paramUmidade.innerHTML = `Min: ${element.umidadeMin} Max: ${element.umidadeMax}`
+                    
                     });
                     // finalizarAguardar();
                 });
