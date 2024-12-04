@@ -1,12 +1,22 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAdega, limite_linhas) {
+function buscarUltimasMedidas(idAdega, periodo, limite_linhas) {
+
+    var filtroTempo = "";
+
+    if (periodo == 1) {
+        filtroTempo = `DATE(dataHora) = CURDATE()`;
+    } else if (periodo == 2) {
+        filtroTempo = `YEARWEEK(dataHora, 1) = YEARWEEK(CURDATE(), 1)`;
+    } else if (periodo == 3) {
+        filtroTempo = `MONTH(dataHora) = MONTH(CURDATE()) AND YEAR(dataHora) = YEAR(CURDATE())`;
+    }
 
     var instrucaoSql = `SELECT 
         temperatura, umidade,
             DATE_FORMAT(dataHora,'%H:%i') as 'Hora'
             FROM Leitura
-            WHERE fkSensor = ${idAdega}
+            WHERE fkSensor = ${idAdega} AND ${filtroTempo}
             ORDER BY idLeitura DESC LIMIT ${limite_linhas}`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

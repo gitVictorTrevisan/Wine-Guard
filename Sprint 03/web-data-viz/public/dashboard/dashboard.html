@@ -19,7 +19,8 @@
     />
   </head>
 
-  <body onload="obterDadosGrafico(idAdega), exibirParametros(), exibirTempAtual(), exibirQtdAlertas()">
+  <body onload="obterDadosGrafico(idAdega), exibirParametros(), exibirTempAtual(), exibirQtdAlertas();
+  obterParametros(idAdega); obterMedidas(idAdega)">
     <div id="div_select" class="containerCliente">
       <br />
       <br />
@@ -30,19 +31,31 @@
       </a>
       <br />
 
-      <img
-        class="imagemUsuario"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJl1M60AFI2gEgYm8_1pWdnHpzGZY5qXA4Q&s"
-      />
+      <div>
+        <select id="select_periodo" onchange="obterDadosGrafico(idAdega)">
+          <option value="1">Hoje</option>
+          <option value="2" selected>Essa Semana</option>
+          <option value="3">Esse Mês</option>
+        </select>
+      </div>
 
       <div class="usuario">
-        Nome: Vinícola Bertoletti <br />
-        <br />
-        bertoletti@vinicola.com <br />
-        <br />
-        Adega Selecionada : 1 <br />
-        <br />
+        <p id="nome_user"></p> <br />
       </div>
+
+      <div class="parametros">
+        <b>Parâmetros:</b>
+        <div class="alerta">
+            <b>Alerta Atenção <span style="color: rgb(221, 221, 17);">(Amarelo)</span>:</b>
+            <p>Desvio de até 4ºC para baixo ou para cima de temperatura</p>
+            <p>Desvio de até 5% para baixo ou para cima de umidade</p>
+        </div>
+        <div class="alerta">
+            <b>Alerta Crítico <span style="color: red;">(Vermelho)</span>:</b>
+            <p>Desvio de 5ºC ou mais para baixo ou para cima de temperatura</p>
+            <p>Desvio de 6% ou mais para baixo ou para cima de umidade</p>
+        </div>
+    </div>
     </div>
 
     <div id="div_kpi" class="containerKpi">
@@ -51,14 +64,14 @@
         <!-- Ícone de temperatura -->
         <b
           >Temperatura Atual
-          <span id="span1" style="color: rgb(24, 187, 24)"></span
+          <span id="temperatura_atual" style="color: rgb(24, 187, 24)"></span
         ></b>
       </div>
       <div class="kpiBox">
         <i class="fas fa-tint kpiIcon"></i>
         <!-- Ícone de umidade -->
         <b
-          >Umidade Atual <span id="span3" style="color: rgb(24, 187, 24)"></span
+          >Umidade Atual <span id="umidade_atual" style="color: rgb(24, 187, 24)"></span
         ></b>
       </div>
       <div class="kpiBox">
@@ -105,6 +118,8 @@
       data-base-url="https://jsd-widget.atlassian.com"
       src="https://jsd-widget.atlassian.com/assets/embed.js"
     ></script>
+    <script src="../js/alerta.js"></script>
+    <script src="../js/mostrarMedidas.js"></script>
   </body>
 </html>
 
@@ -112,10 +127,26 @@
   const urlParams = new URLSearchParams(window.location.search);
   const idAdega = urlParams.get("idAdega");
 
-  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  nome_user.innerHTML = "Proprietário: " + sessionStorage.NOME_USUARIO;
+  email_user.innerHTML = "Email: " + sessionStorage.EMAIL_USUARIO;
+
+  parametro_temperatura
+
+  var texto = "";
 
   function obterDadosGrafico(idAdega) {
-    fetch(`/medidas/ultimas/${idAdega}`, { cache: "no-store" })
+    var periodo = select_periodo.value;
+    console.log(periodo)
+
+    if (periodo == 1) {
+      texto = "Hoje";
+    } else if (periodo == 2) {
+      texto = "Essa Semana";
+    } else if (periodo == 3) {
+      texto = "Esse Mês";
+    }
+
+    fetch(`/medidas/ultimas/${idAdega}?periodo=${periodo}`, { cache: "no-store" })
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
@@ -135,6 +166,8 @@
         );
       });
   }
+
+  var myChart1;
 
   function plotarGraficoTemperatura(resposta, idAdega) {
     console.log("iniciando plotagem do gráfico...");
@@ -188,7 +221,7 @@
         plugins: {
           title: {
             display: true,
-            text: "Temperatura - Diária",
+            text: `Temperatura - ${texto}`,
             font: {
               size: 20, // Tamanho do texto proporcional ao aumento do gráfico
               weight: "bold",
@@ -225,10 +258,14 @@
       },
     };
 
-    let myChart = new Chart(document.getElementById(`myChartCanvas1`), config);
+    if (myChart1) {
+      myChart1.destroy();
+    }
+
+    myChart1 = new Chart(document.getElementById(`myChartCanvas1`), config);
 
     setTimeout(
-      () => atualizarGraficoTemperatura(idAdega, dados, myChart),
+      () => atualizarGraficoTemperatura(idAdega, dados, myChart1),
       2000
     );
   }
@@ -238,21 +275,15 @@
 
   //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
   //     Para ajustar o "select", ajuste o comando sql em src/models
-  function atualizarGraficoTemperatura(idAdega, dados, myChart) {
+  function atualizarGraficoTemperatura(idAdega, dados, myChart1) {
     fetch(`/medidas/tempo-real/${idAdega}`, { cache: "no-store" })
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (novoRegistro) {
-            obterdados(idAdega);
             // alertar(novoRegistro, idAdega);
             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
             console.log(`Dados atuais do gráfico:`);
             console.log(dados);
-
-            let avisoCaptura = document.getElementById(
-              `avisoCaptura${idAdega}`
-            );
-            avisoCaptura.innerHTML = "";
 
             if (
               novoRegistro[0]["Hora"] == dados.labels[dados.labels.length - 1]
@@ -263,8 +294,6 @@
               console.log(
                 "Como não há dados novos para captura, o gráfico não atualizará."
               );
-              avisoCaptura.innerHTML =
-                "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará.";
               console.log("Horário do novo dado capturado:");
               console.log(novoRegistro[0]["Hora"]);
               console.log("Horário do último dado capturado:");
@@ -280,12 +309,12 @@
               dados.datasets[0].data.shift(); // apagar o primeiro de umidade
               dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de umidade
 
-              myChart.update();
+              myChart1.update();
             }
 
             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
             proximaAtualizacao = setTimeout(
-              () => atualizarGraficoTemperatura(idAdega, dados, myChart),
+              () => atualizarGraficoTemperatura(idAdega, dados, myChart1),
               2000
             );
           });
@@ -293,7 +322,7 @@
           console.error("Nenhum dado encontrado ou erro na API");
           // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
           proximaAtualizacao = setTimeout(
-            () => atualizarGraficoTemperatura(idAdega, dados, myChart),
+            () => atualizarGraficoTemperatura(idAdega, dados, myChart1),
             2000
           );
         }
@@ -304,6 +333,8 @@
         );
       });
   }
+
+  var myChart2;
 
   function plotarGraficoUmidade(resposta, idAdega) {
     console.log("iniciando plotagem do gráfico...");
@@ -356,7 +387,7 @@
         plugins: {
           title: {
             display: true,
-            text: "Umidade - Diária",
+            text: `Umidade - ${texto}`,
             font: {
               size: 20, // Tamanho do texto proporcional ao aumento do gráfico
               weight: "bold",
@@ -393,29 +424,27 @@
       },
     };
 
-    let myChart = new Chart(document.getElementById(`myChartCanvas2`), config);
+    if (myChart2) {
+      myChart2.destroy();
+    }
+
+    myChart2 = new Chart(document.getElementById(`myChartCanvas2`), config);
 
     setTimeout(
-      () => atualizarGraficoUmidade(idAdega, dados, myChart),
+      () => atualizarGraficoUmidade(idAdega, dados, myChart2),
       2000
     );
   }
 
-  function atualizarGraficoUmidade(idAdega, dados, myChart) {
+  function atualizarGraficoUmidade(idAdega, dados, myChart2) {
     fetch(`/medidas/tempo-real/${idAdega}`, { cache: "no-store" })
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (novoRegistro) {
-            obterdados(idAdega);
             // alertar(novoRegistro, idAdega);
             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
             console.log(`Dados atuais do gráfico:`);
             console.log(dados);
-
-            let avisoCaptura = document.getElementById(
-              `avisoCaptura${idAdega}`
-            );
-            avisoCaptura.innerHTML = "";
 
             if (
               novoRegistro[0]["Hora"] == dados.labels[dados.labels.length - 1]
@@ -426,8 +455,6 @@
               console.log(
                 "Como não há dados novos para captura, o gráfico não atualizará."
               );
-              avisoCaptura.innerHTML =
-                "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará.";
               console.log("Horário do novo dado capturado:");
               console.log(novoRegistro[0]["Hora"]);
               console.log("Horário do último dado capturado:");
@@ -443,12 +470,12 @@
               dados.datasets[0].data.shift(); // apagar o primeiro de umidade
               dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
 
-              myChart.update();
+              myChart2.update();
             }
 
             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
             proximaAtualizacao = setTimeout(
-              () => atualizarGraficoUmidade(idAdega, dados, myChart),
+              () => atualizarGraficoUmidade(idAdega, dados, myChart2),
               2000
             );
           });
@@ -456,7 +483,7 @@
           console.error("Nenhum dado encontrado ou erro na API");
           // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
           proximaAtualizacao = setTimeout(
-            () => atualizarGraficoUmidade(idAdega, dados, myChart),
+            () => atualizarGraficoUmidade(idAdega, dados, myChart2),
             2000
           );
         }

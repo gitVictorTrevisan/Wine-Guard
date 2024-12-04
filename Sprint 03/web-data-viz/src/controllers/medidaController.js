@@ -5,10 +5,11 @@ function buscarUltimasMedidas(req, res) {
     const limite_linhas = 7;
 
     var idAdega = req.params.idAdega;
+    var periodo = req.query.periodo;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idAdega, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas(idAdega, periodo, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

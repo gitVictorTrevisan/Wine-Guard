@@ -24,8 +24,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <script src="../js/alerta.js"></script>
   </head>
 
   <body onload="exibirAdegas(); atualizacaoPeriodica();">
@@ -71,19 +69,22 @@
               right: 9%;
             "
           >
-            <span style="color: #fff; font-size: 13px">11</span>
+            <span id="qtd_notificacoes" style="color: #fff; font-size: 13px">11</span>
           </div>
         </div>
 
-        <img
-          class="imagemUsuario"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJl1M60AFI2gEgYm8_1pWdnHpzGZY5qXA4Q&s"
-        />
+        <div class="imagem" style="border: #7a0baa 5px solid; border-radius: 50%;">
+          <img
+            class="imagemUsuario"
+            src="../assets/img/user-icon.png"
+            style="border: none; filter: invert(1);"
+          />
+        </div>
 
-        <div class="usuario">
-          Nome: Vinícola Bertoletti <br />
+        <div class="usuario" style="display: flex; flex-direction: column; gap: 15px;">
+          <p class="nome" id="nome_user"></p><br />
           <br />
-          bertoletti@vinicola.com <br />
+          <p class="email" id="email_user"></p><br />
           <br />
         </div>
 
@@ -129,6 +130,7 @@
               background-color: #f0f0f0;
               border-radius: 5px;
               position: relative;
+              overflow-y: scroll;
             "
           >
             <i
@@ -143,31 +145,10 @@
               "
               onclick="esconderModal()"
             ></i>
-            <ul
+            <ul id="notificacoes_lista"
               class="notificacoes"
               style="margin: 20px 0 0 20px; font-size: 18px"
             >
-              <li>
-                <p style="color: #000">
-                  - Alerta de <span style="color: crimson">Umidade (10%)</span>
-                  <br />
-                  <span>05/10/2024 12:16:01</span>
-                </p>
-              </li>
-              <li>
-                <p style="color: #000">
-                  - Alerta de <span style="color: crimson">Umidade (10%)</span>
-                  <br />
-                  <span>05/10/2024 12:16:01</span>
-                </p>
-              </li>
-              <li>
-                <p style="color: #000">
-                  - Alerta de <span style="color: crimson">Umidade (10%)</span>
-                  <br />
-                  <span>05/10/2024 12:16:01</span>
-                </p>
-              </li>
             </ul>
           </div>
         </div>
@@ -186,7 +167,11 @@
         </ul>
       </div>
     </main>
+    <script src="../js/alerta.js"></script>
     <script>
+      nome_user.innerHTML = "Nome: " + sessionStorage.NOME_USUARIO;
+      email_user.innerHTML = "Email: " + sessionStorage.EMAIL_USUARIO;
+
       function esconderModal() {
         const modal = (modal_notificacoes.style.display = "none");
       }

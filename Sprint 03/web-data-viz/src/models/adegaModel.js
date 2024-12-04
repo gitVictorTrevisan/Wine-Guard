@@ -5,7 +5,7 @@ function buscarAdegasPorEmpresa(empresaId) {
   var instrucaoSql = `
     SELECT 
     a.idAdega,
-    a.nome,  -- Ou outras colunas desejadas da tabela Adega
+    a.nome,  
     l.temperatura,
     l.umidade
     FROM Adega AS a
@@ -13,12 +13,12 @@ function buscarAdegasPorEmpresa(empresaId) {
     JOIN (
       SELECT 
         fkSensor,
-        MAX(idLeitura) AS ultimaLeitura  -- Identifica a última leitura por sensor
+        MAX(idLeitura) AS ultimaLeitura  
       FROM Leitura
       GROUP BY fkSensor
       ) AS ultimas ON s.idSensores = ultimas.fkSensor
     JOIN Leitura AS l ON ultimas.ultimaLeitura = l.idLeitura
-    WHERE a.fkCliente = ${empresaId};`;
+    WHERE a.fkCadastro = ${empresaId};`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
