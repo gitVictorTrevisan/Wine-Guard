@@ -30,19 +30,32 @@
       </a>
       <br />
 
-      <img
-        class="imagemUsuario"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJl1M60AFI2gEgYm8_1pWdnHpzGZY5qXA4Q&s"
-      />
 
       <div class="usuario">
         Nome: Vinícola Bertoletti <br />
-        <br />
-        bertoletti@vinicola.com <br />
-        <br />
+        
         Adega Selecionada : 1 <br />
-        <br />
       </div>
+
+      <div class="ideal">
+          <p>Temperatura Ideal: <span style="color: green">12ºC - 14°C </span></p>
+          <p>Umidade Ideal: <span style="color: green">60% - 80%</span></p>
+      </div>
+
+      <div class="parametros">
+        <b>Parâmetros:</b>
+        <div class="alerta">
+            <b>Alerta Atenção <span style="color: rgb(221, 221, 17);">(Amarelo)</span>:</b>
+            <p>Desvio de até 4ºC para baixo ou para cima de temperatura</p>
+            <p>Desvio de até 5% para baixo ou para cima de umidade</p>
+        </div>
+        <div class="alerta">
+            <b>Alerta Crítico <span style="color: red;">(Vermelho)</span>:</b>
+            <p>Desvio de 5ºC ou mais para baixo ou para cima de temperatura</p>
+            <p>Desvio de 6% ou mais para baixo ou para cima de umidade</p>
+        </div>
+    </div>
+    
     </div>
 
     <div id="div_kpi" class="containerKpi">
@@ -60,13 +73,6 @@
         <b
           >Umidade Atual <span id="span3" style="color: rgb(24, 187, 24)"></span
         ></b>
-      </div>
-      <div class="kpiBox">
-        <b
-          >Temperatura Ideal: <span style="color: green">18ºC - 20°C </span
-          ><br />
-          Umidade Ideal: <span style="color: green">65% - 80%</span>
-        </b>
       </div>
       <div class="kpiBox">
         <i class="fas fa-exclamation-triangle kpiIcon"></i>
